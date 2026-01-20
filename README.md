@@ -107,7 +107,63 @@ python run.py dashboard # Legacy Streamlit dashboard (port 8501)
 - **Frontend**: http://localhost:5173
 - **API Gateway**: http://localhost:3001
 - **ML Service**: http://localhost:8000/docs
-- **Legacy Dashboard**: http://localhost:8501 (if running)
+
+---
+
+## 🐳 Docker Deployment
+
+### Quick Start with Docker
+
+```bash
+# Build and run all services
+docker-compose up --build
+
+# Run in background
+docker-compose up -d --build
+
+# View logs
+docker-compose logs -f
+
+# Stop all services
+docker-compose down
+```
+
+### Access Points (Docker)
+
+| Service | URL |
+|---------|-----|
+| Frontend | http://localhost:5173 |
+| API Gateway | http://localhost:3001 |
+| ML Service | http://localhost:8000 |
+
+### Individual Service Build
+
+```bash
+# Build ML Service
+docker build -f Dockerfile.ml -t medpredict-ml .
+
+# Build Gateway
+docker build -t medpredict-gateway ./gateway
+
+# Build Frontend
+docker build -t medpredict-frontend ./frontend
+```
+
+### Docker Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Docker Network                            │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
+│  │   Frontend   │  │   Gateway    │  │  ML Service  │      │
+│  │   (Nginx)    │──│   (Node)     │──│   (Python)   │      │
+│  │   :80→5173   │  │   :3001      │  │   :8000      │      │
+│  └──────────────┘  └──────────────┘  └──────────────┘      │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
