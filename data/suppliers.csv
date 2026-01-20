@@ -1,0 +1,6 @@
+supplier_id,supplier_name,lead_time_days,reliability_score,contact_phone,email,address
+1,MedPlus Wholesale,3,0.95,+91 9826632919,medpluswholesale@email.com,"Hyderabad, Telangana"
+2,Apollo Pharmacy Dist.,2,0.98,+91 9830785579,apollopharmacydist@email.com,"Hyderabad, Telangana"
+3,Generic Pharma India,5,0.9,+91 9830541150,genericpharmaindia@email.com,"Hyderabad, Telangana"
+4,State Medical Store,7,0.85,+91 9875876620,statemedicalstore@email.com,"Hyderabad, Telangana"
+5,Zydus Healthcare,4,0.92,+91 9829800510,zydushealthcare@email.com,"Hyderabad, Telangana"
