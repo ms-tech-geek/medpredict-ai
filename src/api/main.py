@@ -289,8 +289,21 @@ async def get_alerts():
 
 
 @app.get("/api/medicines")
-async def get_medicines():
-    """Get list of all medicines with current stock levels"""
+async def get_medicines(
+    search: Optional[str] = None,
+    category: Optional[str] = None,
+    sort_by: Optional[str] = "name",
+    limit: int = 100
+):
+    """
+    Get list of all medicines with current stock levels
+    
+    Args:
+        search: Search term for medicine name
+        category: Filter by category
+        sort_by: Sort field (name, stock, consumption)
+        limit: Maximum results
+    """
     if engine is None:
         raise HTTPException(status_code=500, detail="Data not loaded")
     
@@ -298,7 +311,8 @@ async def get_medicines():
     stock_by_medicine = engine.inventory_df.groupby('medicine_id').agg({
         'quantity': 'sum',
         'medicine_name': 'first',
-        'category': 'first'
+        'category': 'first',
+        'unit_cost_inr': 'first'
     }).reset_index()
     
     # Get consumption stats
@@ -308,7 +322,334 @@ async def get_medicines():
         how='left'
     )
     
-    return result.to_dict(orient='records')
+    # Calculate days of stock
+    result['days_of_stock'] = (result['quantity'] / result['avg_daily']).replace([float('inf'), -float('inf')], 999).fillna(999).round(0)
+    result['stock_value'] = result['quantity'] * result['unit_cost_inr']
+    
+    # Get stockout risk levels
+    stockout_risks = {r.medicine_id: r.risk_level for r in engine.calculate_stockout_risks()}
+    result['risk_level'] = result['medicine_id'].map(stockout_risks).fillna('LOW')
+    
+    # Apply filters
+    if search:
+        result = result[result['medicine_name'].str.contains(search, case=False, na=False)]
+    
+    if category:
+        result = result[result['category'] == category]
+    
+    # Apply sorting
+    if sort_by == "stock":
+        result = result.sort_values('quantity', ascending=True)
+    elif sort_by == "consumption":
+        result = result.sort_values('avg_daily', ascending=False)
+    elif sort_by == "risk":
+        risk_order = {'CRITICAL': 0, 'HIGH': 1, 'MEDIUM': 2, 'LOW': 3}
+        result['risk_order'] = result['risk_level'].map(risk_order)
+        result = result.sort_values('risk_order')
+    else:
+        result = result.sort_values('medicine_name')
+    
+    return result.head(limit).to_dict(orient='records')
+
+
+@app.get("/api/medicines/{medicine_id}")
+async def get_medicine_detail(medicine_id: int):
+    """Get detailed information for a single medicine"""
+    if engine is None:
+        raise HTTPException(status_code=500, detail="Data not loaded")
+    
+    # Get medicine info
+    medicine_info = engine.medicines_df[engine.medicines_df['medicine_id'] == medicine_id]
+    if medicine_info.empty:
+        raise HTTPException(status_code=404, detail="Medicine not found")
+    
+    medicine = medicine_info.iloc[0].to_dict()
+    
+    # Get all batches for this medicine
+    batches = engine.inventory_df[engine.inventory_df['medicine_id'] == medicine_id]
+    batches_list = batches.to_dict(orient='records')
+    
+    # Get consumption stats
+    stats = engine.daily_consumption[engine.daily_consumption['medicine_id'] == medicine_id]
+    consumption_stats = stats.iloc[0].to_dict() if not stats.empty else {}
+    
+    # Get consumption history (last 90 days)
+    consumption_history = engine.consumption_df[
+        engine.consumption_df['medicine_id'] == medicine_id
+    ].sort_values('date', ascending=False).head(90)
+    
+    # Calculate totals
+    total_stock = batches['quantity'].sum()
+    total_value = (batches['quantity'] * batches['unit_cost_inr']).sum()
+    
+    # Get risk info
+    expiry_risks = [r for r in engine.calculate_expiry_risks() if r.medicine_id == medicine_id]
+    stockout_risks = [r for r in engine.calculate_stockout_risks() if r.medicine_id == medicine_id]
+    
+    return {
+        "medicine": medicine,
+        "total_stock": int(total_stock),
+        "total_value": round(total_value, 2),
+        "batch_count": len(batches_list),
+        "batches": batches_list,
+        "consumption_stats": consumption_stats,
+        "consumption_history": consumption_history.to_dict(orient='records'),
+        "expiry_risks": [
+            {
+                "batch_no": r.batch_no,
+                "days_to_expiry": r.days_to_expiry,
+                "quantity_at_risk": r.quantity_at_risk,
+                "risk_level": r.risk_level,
+                "potential_loss": r.potential_loss
+            }
+            for r in expiry_risks
+        ],
+        "stockout_risk": {
+            "days_until_stockout": stockout_risks[0].days_until_stockout if stockout_risks else None,
+            "risk_level": stockout_risks[0].risk_level if stockout_risks else "LOW",
+            "recommended_order": stockout_risks[0].recommended_order if stockout_risks else 0
+        }
+    }
+
+
+@app.get("/api/inventory")
+async def get_inventory(
+    category: Optional[str] = None,
+    risk_level: Optional[str] = None,
+    expiring_within_days: Optional[int] = None
+):
+    """Get full inventory with batch details"""
+    if engine is None:
+        raise HTTPException(status_code=500, detail="Data not loaded")
+    
+    inventory = engine.inventory_df.copy()
+    inventory['expiry_date'] = pd.to_datetime(inventory['expiry_date'])
+    inventory['days_to_expiry'] = (inventory['expiry_date'] - datetime.now()).dt.days
+    
+    # Apply filters
+    if category:
+        inventory = inventory[inventory['category'] == category]
+    
+    if expiring_within_days:
+        inventory = inventory[inventory['days_to_expiry'] <= expiring_within_days]
+    
+    # Add risk levels from expiry risks
+    expiry_risks = {(r.medicine_id, r.batch_no): r.risk_level for r in engine.calculate_expiry_risks()}
+    inventory['risk_level'] = inventory.apply(
+        lambda row: expiry_risks.get((row['medicine_id'], row['batch_no']), 'LOW'),
+        axis=1
+    )
+    
+    if risk_level:
+        inventory = inventory[inventory['risk_level'] == risk_level.upper()]
+    
+    # Sort by days to expiry
+    inventory = inventory.sort_values('days_to_expiry')
+    
+    # Format dates for JSON
+    inventory['expiry_date'] = inventory['expiry_date'].dt.strftime('%Y-%m-%d')
+    
+    return {
+        "total_batches": len(inventory),
+        "total_value": round(inventory['total_value_inr'].sum(), 2),
+        "batches": inventory.to_dict(orient='records')
+    }
+
+
+@app.get("/api/consumption/trends")
+async def get_consumption_trends(
+    medicine_id: Optional[int] = None,
+    category: Optional[str] = None,
+    days: int = 90
+):
+    """Get consumption trends over time"""
+    if engine is None:
+        raise HTTPException(status_code=500, detail="Data not loaded")
+    
+    consumption = engine.consumption_df.copy()
+    consumption['date'] = pd.to_datetime(consumption['date'])
+    
+    # Filter by date range
+    end_date = consumption['date'].max()
+    start_date = end_date - pd.Timedelta(days=days)
+    consumption = consumption[consumption['date'] >= start_date]
+    
+    # Apply filters
+    if medicine_id:
+        consumption = consumption[consumption['medicine_id'] == medicine_id]
+    
+    if category:
+        # Get medicine IDs for this category
+        category_meds = engine.medicines_df[engine.medicines_df['category'] == category]['medicine_id'].tolist()
+        consumption = consumption[consumption['medicine_id'].isin(category_meds)]
+    
+    # Aggregate by date
+    daily_totals = consumption.groupby('date').agg({
+        'quantity_dispensed': 'sum',
+        'patient_count': 'sum'
+    }).reset_index()
+    
+    daily_totals['date'] = daily_totals['date'].dt.strftime('%Y-%m-%d')
+    
+    # Weekly aggregation
+    consumption['week'] = consumption['date'].dt.to_period('W').dt.start_time
+    weekly_totals = consumption.groupby('week').agg({
+        'quantity_dispensed': 'sum',
+        'patient_count': 'sum'
+    }).reset_index()
+    weekly_totals['week'] = weekly_totals['week'].dt.strftime('%Y-%m-%d')
+    
+    return {
+        "daily": daily_totals.to_dict(orient='records'),
+        "weekly": weekly_totals.to_dict(orient='records'),
+        "summary": {
+            "total_dispensed": int(consumption['quantity_dispensed'].sum()),
+            "total_patients": int(consumption['patient_count'].sum()),
+            "avg_daily_dispensed": round(consumption.groupby('date')['quantity_dispensed'].sum().mean(), 1),
+            "avg_daily_patients": round(consumption.groupby('date')['patient_count'].sum().mean(), 1)
+        }
+    }
+
+
+@app.get("/api/categories")
+async def get_categories():
+    """Get list of all medicine categories with stats"""
+    if engine is None:
+        raise HTTPException(status_code=500, detail="Data not loaded")
+    
+    categories = engine.inventory_df.groupby('category').agg({
+        'medicine_id': 'nunique',
+        'quantity': 'sum',
+        'total_value_inr': 'sum'
+    }).reset_index()
+    
+    categories.columns = ['category', 'medicine_count', 'total_stock', 'total_value']
+    
+    return categories.to_dict(orient='records')
+
+
+@app.get("/api/recommendations")
+async def get_recommendations():
+    """Get actionable recommendations based on current risks"""
+    if engine is None:
+        raise HTTPException(status_code=500, detail="Data not loaded")
+    
+    expiry_risks = engine.calculate_expiry_risks()
+    stockout_risks = engine.calculate_stockout_risks()
+    
+    recommendations = []
+    
+    # Expiry recommendations
+    critical_expiry = [r for r in expiry_risks if r.risk_level == "CRITICAL"]
+    high_expiry = [r for r in expiry_risks if r.risk_level == "HIGH"]
+    
+    if critical_expiry:
+        total_loss = sum(r.potential_loss for r in critical_expiry)
+        recommendations.append({
+            "priority": "CRITICAL",
+            "category": "EXPIRY",
+            "title": f"{len(critical_expiry)} batches need immediate attention",
+            "description": f"Potential loss of ₹{total_loss:,.0f} from expiring medicines",
+            "actions": [
+                "Apply 20-30% discount to accelerate sales",
+                "Transfer to high-volume facility",
+                "Contact nearby PHCs for redistribution"
+            ],
+            "affected_items": [
+                {"name": r.medicine_name, "batch": r.batch_no, "days": r.days_to_expiry, "loss": r.potential_loss}
+                for r in critical_expiry[:5]
+            ]
+        })
+    
+    if high_expiry:
+        recommendations.append({
+            "priority": "HIGH",
+            "category": "EXPIRY",
+            "title": f"{len(high_expiry)} batches expiring within 60 days",
+            "description": "Prioritize FIFO dispensing for these batches",
+            "actions": [
+                "Ensure FIFO compliance",
+                "Consider 10% promotional discount",
+                "Monitor weekly consumption"
+            ],
+            "affected_items": [
+                {"name": r.medicine_name, "batch": r.batch_no, "days": r.days_to_expiry}
+                for r in high_expiry[:5]
+            ]
+        })
+    
+    # Stockout recommendations
+    critical_stockout = [r for r in stockout_risks if r.risk_level == "CRITICAL"]
+    high_stockout = [r for r in stockout_risks if r.risk_level == "HIGH"]
+    
+    if critical_stockout:
+        total_order = sum(r.recommended_order for r in critical_stockout)
+        recommendations.append({
+            "priority": "CRITICAL",
+            "category": "STOCKOUT",
+            "title": f"{len(critical_stockout)} medicines will run out within 7 days",
+            "description": f"Recommended order quantity: {total_order:,} units",
+            "actions": [
+                "Place emergency order immediately",
+                "Check with nearby facilities for transfers",
+                "Inform patients about temporary alternatives"
+            ],
+            "affected_items": [
+                {"name": r.medicine_name, "days": r.days_until_stockout, "order_qty": r.recommended_order}
+                for r in critical_stockout[:5]
+            ]
+        })
+    
+    if high_stockout:
+        recommendations.append({
+            "priority": "HIGH",
+            "category": "STOCKOUT",
+            "title": f"{len(high_stockout)} medicines running low",
+            "description": "Order within next 3 days to avoid stockout",
+            "actions": [
+                "Prepare purchase order",
+                "Contact regular suppliers",
+                "Review consumption patterns"
+            ],
+            "affected_items": [
+                {"name": r.medicine_name, "days": r.days_until_stockout, "order_qty": r.recommended_order}
+                for r in high_stockout[:5]
+            ]
+        })
+    
+    # Seasonal recommendations
+    current_month = datetime.now().month
+    if current_month in [6, 7, 8, 9]:  # Monsoon
+        recommendations.append({
+            "priority": "MEDIUM",
+            "category": "SEASONAL",
+            "title": "Monsoon Season Alert",
+            "description": "Increase stock of ORS, antibiotics, and antidiarrheals",
+            "actions": [
+                "Order 50% extra ORS packets",
+                "Stock up on Metronidazole and Ciprofloxacin",
+                "Prepare for dengue/malaria surge"
+            ],
+            "affected_items": []
+        })
+    elif current_month in [11, 12, 1, 2]:  # Winter
+        recommendations.append({
+            "priority": "MEDIUM",
+            "category": "SEASONAL",
+            "title": "Winter Season Alert",
+            "description": "Expect increased respiratory illness cases",
+            "actions": [
+                "Order extra cough syrups and antihistamines",
+                "Stock up on Paracetamol",
+                "Ensure adequate inhaler supply"
+            ],
+            "affected_items": []
+        })
+    
+    return {
+        "total_recommendations": len(recommendations),
+        "recommendations": recommendations
+    }
 
 
 @app.post("/api/reload-data")

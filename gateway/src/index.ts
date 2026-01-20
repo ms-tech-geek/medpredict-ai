@@ -94,9 +94,34 @@ app.get('/api/alerts', (req: Request, res: Response) => {
   proxyToMLService(req, res, '/api/alerts');
 });
 
-// Medicines
+// Medicines - List
 app.get('/api/medicines', (req: Request, res: Response) => {
   proxyToMLService(req, res, '/api/medicines');
+});
+
+// Medicines - Detail
+app.get('/api/medicines/:id', (req: Request, res: Response) => {
+  proxyToMLService(req, res, `/api/medicines/${req.params.id}`);
+});
+
+// Inventory
+app.get('/api/inventory', (req: Request, res: Response) => {
+  proxyToMLService(req, res, '/api/inventory');
+});
+
+// Consumption Trends
+app.get('/api/consumption/trends', (req: Request, res: Response) => {
+  proxyToMLService(req, res, '/api/consumption/trends');
+});
+
+// Categories
+app.get('/api/categories', (req: Request, res: Response) => {
+  proxyToMLService(req, res, '/api/categories');
+});
+
+// Recommendations
+app.get('/api/recommendations', (req: Request, res: Response) => {
+  proxyToMLService(req, res, '/api/recommendations');
 });
 
 // Reload Data
@@ -124,23 +149,28 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`
-╔═══════════════════════════════════════════════════════════╗
-║                                                           ║
-║   🚀 MedPredict API Gateway                               ║
-║                                                           ║
-║   Gateway:     http://localhost:${PORT}                      ║
-║   ML Service:  ${ML_SERVICE_URL}                     ║
-║                                                           ║
-║   Endpoints:                                              ║
-║   • GET  /api/health           - Health check             ║
-║   • GET  /api/dashboard/summary - Dashboard stats         ║
-║   • GET  /api/expiry-risks     - Expiry predictions       ║
-║   • GET  /api/stockout-risks   - Stockout predictions     ║
-║   • GET  /api/alerts           - Active alerts            ║
-║   • GET  /api/medicines        - Medicine list            ║
-║   • POST /api/reload-data      - Reload data              ║
-║                                                           ║
-╚═══════════════════════════════════════════════════════════╝
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║   🚀 MedPredict API Gateway                                   ║
+║                                                               ║
+║   Gateway:     http://localhost:${PORT}                          ║
+║   ML Service:  ${ML_SERVICE_URL}                         ║
+║                                                               ║
+║   Endpoints:                                                  ║
+║   • GET  /api/health             - Health check               ║
+║   • GET  /api/dashboard/summary  - Dashboard stats            ║
+║   • GET  /api/expiry-risks       - Expiry predictions         ║
+║   • GET  /api/stockout-risks     - Stockout predictions       ║
+║   • GET  /api/alerts             - Active alerts              ║
+║   • GET  /api/medicines          - Medicine list              ║
+║   • GET  /api/medicines/:id      - Medicine detail            ║
+║   • GET  /api/inventory          - Inventory batches          ║
+║   • GET  /api/consumption/trends - Consumption trends         ║
+║   • GET  /api/categories         - Category list              ║
+║   • GET  /api/recommendations    - Action recommendations     ║
+║   • POST /api/reload-data        - Reload data                ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
   `);
 });
 
