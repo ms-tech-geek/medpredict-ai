@@ -1,4 +1,4 @@
-import { Search, Filter, X } from 'lucide-react';
+import { Search, Filter, X, Loader } from 'lucide-react';
 import type { Category } from '../types';
 
 interface SearchFilterProps {
@@ -9,6 +9,7 @@ interface SearchFilterProps {
   categories: Category[];
   sortBy: string;
   onSortChange: (value: string) => void;
+  isSearching?: boolean;
 }
 
 export function SearchFilter({
@@ -19,23 +20,28 @@ export function SearchFilter({
   categories,
   sortBy,
   onSortChange,
+  isSearching = false,
 }: SearchFilterProps) {
   return (
     <div className="flex flex-wrap gap-4">
       {/* Search Input */}
       <div className="relative flex-1 min-w-[250px]">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+        {isSearching ? (
+          <Loader className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-primary-400 animate-spin" />
+        ) : (
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+        )}
         <input
           type="text"
           placeholder="Search medicines..."
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full pl-10 pr-10 py-2.5 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="w-full pl-10 pr-10 py-2.5 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
         />
-        {searchTerm && (
+        {searchTerm && !isSearching && (
           <button
             onClick={() => onSearchChange('')}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -75,4 +81,3 @@ export function SearchFilter({
     </div>
   );
 }
-

@@ -33,8 +33,10 @@ import type { RiskLevel } from './types';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 30000,
-      retry: 2,
+      staleTime: 30000, // Consider data fresh for 30 seconds
+      gcTime: 5 * 60 * 1000, // Keep unused data in cache for 5 minutes
+      retry: 1, // Only retry once on failure
+      refetchOnWindowFocus: false, // Don't refetch when tab regains focus
     },
   },
 });

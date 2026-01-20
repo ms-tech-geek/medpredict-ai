@@ -12,7 +12,9 @@ import os
 import sys
 from pathlib import Path
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
+from functools import lru_cache
+import time
 
 import pandas as pd
 from fastapi import FastAPI, HTTPException, UploadFile, File
@@ -47,6 +49,35 @@ DATA_DIR = Path(__file__).parent.parent.parent / "data"
 # Global engine instances
 engine: Optional[MedPredictEngine] = None
 advanced_engine: Optional[AdvancedPredictor] = None
+
+# ============================================================================
+# SIMPLE IN-MEMORY CACHE
+# ============================================================================
+class SimpleCache:
+    """Simple time-based cache for expensive calculations"""
+    def __init__(self, ttl_seconds: int = 60):
+        self.cache: Dict[str, tuple] = {}  # key -> (value, timestamp)
+        self.ttl = ttl_seconds
+    
+    def get(self, key: str) -> Optional[Any]:
+        if key in self.cache:
+            value, timestamp = self.cache[key]
+            if time.time() - timestamp < self.ttl:
+                return value
+            del self.cache[key]
+        return None
+    
+    def set(self, key: str, value: Any):
+        self.cache[key] = (value, time.time())
+    
+    def clear(self):
+        self.cache.clear()
+
+# Cache instances
+expiry_cache = SimpleCache(ttl_seconds=30)
+stockout_cache = SimpleCache(ttl_seconds=30)
+summary_cache = SimpleCache(ttl_seconds=30)
+medicines_cache = SimpleCache(ttl_seconds=60)
 
 
 # Pydantic models for API responses
@@ -144,9 +175,14 @@ async def get_dashboard_summary():
     if engine is None:
         raise HTTPException(status_code=500, detail="Data not loaded")
     
+    # Check cache first
+    cached = summary_cache.get("dashboard_summary")
+    if cached:
+        return cached
+    
     summary = engine.get_dashboard_summary()
     
-    return DashboardSummary(
+    result = DashboardSummary(
         total_medicines=summary["total_medicines"],
         total_batches=summary["total_batches"],
         total_inventory_value=summary["total_inventory_value"],
@@ -157,6 +193,9 @@ async def get_dashboard_summary():
         critical_stockout_count=summary["stockout_risk"]["critical_count"],
         high_stockout_count=summary["stockout_risk"]["high_count"]
     )
+    
+    summary_cache.set("dashboard_summary", result)
+    return result
 
 
 @app.get("/api/expiry-risks", response_model=List[ExpiryRiskResponse])
@@ -174,7 +213,12 @@ async def get_expiry_risks(
     if engine is None:
         raise HTTPException(status_code=500, detail="Data not loaded")
     
-    risks = engine.calculate_expiry_risks()
+    # Check cache for base risks (unfiltered)
+    cache_key = "all_expiry_risks"
+    risks = expiry_cache.get(cache_key)
+    if risks is None:
+        risks = engine.calculate_expiry_risks()
+        expiry_cache.set(cache_key, risks)
     
     # Filter by risk level if specified
     if risk_level:
@@ -217,7 +261,12 @@ async def get_stockout_risks(
     if engine is None:
         raise HTTPException(status_code=500, detail="Data not loaded")
     
-    risks = engine.calculate_stockout_risks()
+    # Check cache for base risks (unfiltered)
+    cache_key = "all_stockout_risks"
+    risks = stockout_cache.get(cache_key)
+    if risks is None:
+        risks = engine.calculate_stockout_risks()
+        stockout_cache.set(cache_key, risks)
     
     # Filter by risk level if specified
     if risk_level:
@@ -660,6 +709,11 @@ async def reload_data():
     """Reload data from CSV files"""
     success = load_data()
     if success:
+        # Clear all caches when data is reloaded
+        expiry_cache.clear()
+        stockout_cache.clear()
+        summary_cache.clear()
+        medicines_cache.clear()
         return {"status": "success", "message": "Data reloaded successfully"}
     else:
         raise HTTPException(status_code=500, detail="Failed to reload data")

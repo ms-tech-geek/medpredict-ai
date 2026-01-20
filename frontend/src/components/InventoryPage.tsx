@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Package, AlertTriangle, IndianRupee, Search, ChevronDown } from 'lucide-react';
 import { fetchMedicines, fetchCategories } from '../services/api';
 import { SearchFilter } from './SearchFilter';
 import { ExportButton } from './ExportButton';
+import { useDebounce } from '../hooks/useDebounce';
 import type { Medicine } from '../types';
 
 interface InventoryPageProps {
@@ -21,20 +22,27 @@ export function InventoryPage({ onMedicineClick }: InventoryPageProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [sortBy, setSortBy] = useState('name');
-  const [expandedId, setExpandedId] = useState<number | null>(null);
 
+  // Debounce search term to avoid excessive API calls
+  const debouncedSearch = useDebounce(searchTerm, 300);
+
+  // Cache categories - they rarely change
   const { data: categories = [] } = useQuery({
     queryKey: ['categories'],
     queryFn: fetchCategories,
+    staleTime: 5 * 60 * 1000, // Cache for 5 minutes
   });
 
-  const { data: medicines = [], isLoading } = useQuery({
-    queryKey: ['medicines', searchTerm, selectedCategory, sortBy],
+  // Fetch medicines with debounced search
+  const { data: medicines = [], isLoading, isFetching } = useQuery({
+    queryKey: ['medicines', debouncedSearch, selectedCategory, sortBy],
     queryFn: () => fetchMedicines({
-      search: searchTerm || undefined,
+      search: debouncedSearch || undefined,
       category: selectedCategory || undefined,
       sortBy: sortBy as 'name' | 'stock' | 'consumption' | 'risk',
     }),
+    staleTime: 30000, // Cache for 30 seconds
+    placeholderData: (previousData) => previousData, // Keep showing old data while fetching
   });
 
   const formatCurrency = (value: number) => {
@@ -43,10 +51,23 @@ export function InventoryPage({ onMedicineClick }: InventoryPageProps) {
     return `₹${value.toFixed(0)}`;
   };
 
-  const totalValue = medicines.reduce((sum, m) => sum + (m.stock_value || 0), 0);
-  const totalStock = medicines.reduce((sum, m) => sum + m.quantity, 0);
-  const criticalCount = medicines.filter(m => m.risk_level === 'CRITICAL').length;
-  const highCount = medicines.filter(m => m.risk_level === 'HIGH').length;
+  // Memoize expensive calculations
+  const { totalValue, criticalCount, highCount } = useMemo(() => {
+    let value = 0;
+    let critical = 0;
+    let high = 0;
+    
+    for (const m of medicines) {
+      value += m.stock_value || 0;
+      if (m.risk_level === 'CRITICAL') critical++;
+      else if (m.risk_level === 'HIGH') high++;
+    }
+    
+    return { totalValue: value, criticalCount: critical, highCount: high };
+  }, [medicines]);
+
+  // Show loading indicator while searching
+  const showLoadingOverlay = isFetching && searchTerm !== debouncedSearch;
 
   if (isLoading) {
     return (
@@ -120,6 +141,7 @@ export function InventoryPage({ onMedicineClick }: InventoryPageProps) {
             categories={categories}
             sortBy={sortBy}
             onSortChange={setSortBy}
+            isSearching={showLoadingOverlay}
           />
         </div>
         <ExportButton 
