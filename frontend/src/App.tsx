@@ -17,6 +17,7 @@ import { RiskDistributionChart } from './components/RiskDistributionChart';
 import { StockoutChart } from './components/StockoutChart';
 import { AlertsTable } from './components/AlertsTable';
 import { RecommendationsPanel } from './components/RecommendationsPanel';
+import { AIInsightsPanel } from './components/AIInsightsPanel';
 import { InventoryPage } from './components/InventoryPage';
 import { MedicineDetailModal } from './components/MedicineDetailModal';
 import { OnboardingTour, useTour } from './components/OnboardingTour';
@@ -309,6 +310,11 @@ function Dashboard() {
               <HealthGauge score={summary?.health_score || 0} />
               <RiskDistributionChart risks={expiryRisks} />
               <StockoutChart risks={stockoutRisks} />
+            </div>
+
+            {/* AI Intelligence Center */}
+            <div className="mb-8" data-tour="ai-insights">
+              <AIInsightsPanel />
             </div>
 
             {/* Recommendations Panel */}

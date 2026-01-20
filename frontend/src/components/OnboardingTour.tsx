@@ -12,7 +12,8 @@ import {
   Download,
   Bell,
   RefreshCw,
-  Lightbulb
+  Lightbulb,
+  Brain
 } from 'lucide-react';
 
 interface TourStep {
@@ -58,6 +59,13 @@ const tourSteps: TourStep[] = [
     content: 'Filter data by risk level: Critical (immediate action), High (urgent), Medium (monitor), or Low (healthy).',
     icon: Filter,
     position: 'right',
+  },
+  {
+    target: '[data-tour="ai-insights"]',
+    title: 'AI Intelligence Center',
+    content: 'The brain of MedPredict! Uses Prophet ML for demand forecasting and Isolation Forest for anomaly detection. See predictions, detect unusual patterns, and understand consumption trends.',
+    icon: Brain,
+    position: 'top',
   },
   {
     target: '[data-tour="recommendations"]',
