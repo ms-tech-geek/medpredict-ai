@@ -1,4 +1,5 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, Component } from 'react';
+import type { ErrorInfo, ReactNode } from 'react';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { 
   IndianRupee, 
@@ -21,6 +22,7 @@ import { AIInsightsPanel } from './components/AIInsightsPanel';
 import { InventoryPage } from './components/InventoryPage';
 import { MedicineDetailModal } from './components/MedicineDetailModal';
 import { OnboardingTour, useTour } from './components/OnboardingTour';
+import { SupplierIntelligence } from './components/SupplierIntelligence';
 
 import { 
   fetchDashboardSummary, 
@@ -137,6 +139,9 @@ function Dashboard() {
         return (
           <InventoryPage onMedicineClick={(id) => setSelectedMedicineId(id)} />
         );
+
+      case 'suppliers':
+        return <SupplierIntelligence />;
 
       case 'expiry':
         return (
@@ -374,6 +379,7 @@ function Dashboard() {
               {activeTab === 'expiry' && 'Expiry Risk Management'}
               {activeTab === 'stockout' && 'Stockout Prevention'}
               {activeTab === 'inventory' && 'Inventory Management'}
+              {activeTab === 'suppliers' && 'Supplier Intelligence'}
             </h2>
             <p className="text-slate-400">
               {new Date().toLocaleDateString('en-IN', { 
@@ -446,11 +452,66 @@ function Dashboard() {
   );
 }
 
+// Error Boundary Component
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+  error: Error | null;
+}
+
+class ErrorBoundary extends Component<{ children: ReactNode }, ErrorBoundaryState> {
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('App Error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
+          <div className="text-center max-w-lg">
+            <div className="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mx-auto mb-4">
+              <AlertCircle className="w-8 h-8 text-red-400" />
+            </div>
+            <h2 className="text-xl font-bold text-white mb-2">Something went wrong</h2>
+            <p className="text-slate-400 mb-4">
+              The application encountered an error. Please try refreshing the page.
+            </p>
+            <pre className="text-xs text-left text-red-400 bg-slate-900 p-4 rounded-lg overflow-auto max-h-48 mb-4">
+              {this.state.error?.message}
+              {'\n\n'}
+              {this.state.error?.stack}
+            </pre>
+            <button 
+              onClick={() => window.location.reload()}
+              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:opacity-90"
+            >
+              Refresh Page
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Dashboard />
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <Dashboard />
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

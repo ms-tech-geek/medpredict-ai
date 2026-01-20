@@ -1,11 +1,9 @@
 import { 
   LayoutDashboard, 
-  AlertTriangle, 
   Package, 
   TrendingDown,
-  Settings,
-  HelpCircle,
-  Calendar
+  Calendar,
+  Truck
 } from 'lucide-react';
 import type { RiskLevel } from '../types';
 
@@ -21,6 +19,7 @@ const navItems = [
   { id: 'expiry', label: 'Expiry Alerts', icon: Calendar },
   { id: 'stockout', label: 'Stockout Alerts', icon: TrendingDown },
   { id: 'inventory', label: 'Inventory', icon: Package },
+  { id: 'suppliers', label: 'Supply Chain', icon: Truck },
 ];
 
 const riskLevels: { value: RiskLevel; label: string; color: string }[] = [
