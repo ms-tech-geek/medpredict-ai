@@ -23,6 +23,7 @@ from pydantic import BaseModel
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from src.ml.predictor import MedPredictEngine, ExpiryRisk, StockoutRisk
+from src.ml.advanced_predictor import AdvancedPredictor
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -43,8 +44,9 @@ app.add_middleware(
 # Data paths
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
 
-# Global engine instance
+# Global engine instances
 engine: Optional[MedPredictEngine] = None
+advanced_engine: Optional[AdvancedPredictor] = None
 
 
 # Pydantic models for API responses
@@ -94,8 +96,8 @@ class HealthResponse(BaseModel):
 
 
 def load_data():
-    """Load data and initialize prediction engine"""
-    global engine
+    """Load data and initialize prediction engines"""
+    global engine, advanced_engine
     
     try:
         consumption_df = pd.read_csv(DATA_DIR / "consumption_log.csv")
@@ -103,6 +105,7 @@ def load_data():
         medicines_df = pd.read_csv(DATA_DIR / "medicines_master.csv")
         
         engine = MedPredictEngine(consumption_df, inventory_df, medicines_df)
+        advanced_engine = AdvancedPredictor(consumption_df, medicines_df)
         return True
     except Exception as e:
         print(f"Error loading data: {e}")
@@ -660,6 +663,110 @@ async def reload_data():
         return {"status": "success", "message": "Data reloaded successfully"}
     else:
         raise HTTPException(status_code=500, detail="Failed to reload data")
+
+
+# ============================================================================
+# ADVANCED ML ENDPOINTS
+# ============================================================================
+
+@app.get("/api/forecast/{medicine_id}")
+async def get_forecast(medicine_id: int, days: int = 30):
+    """
+    Get demand forecast for a specific medicine
+    
+    Args:
+        medicine_id: Medicine to forecast
+        days: Number of days to forecast (default: 30)
+    """
+    if advanced_engine is None:
+        raise HTTPException(status_code=500, detail="Advanced engine not loaded")
+    
+    forecast = advanced_engine.forecast(medicine_id, days)
+    
+    if forecast is None:
+        raise HTTPException(status_code=404, detail="Medicine not found or insufficient data")
+    
+    return {
+        "medicine_id": forecast.medicine_id,
+        "medicine_name": forecast.medicine_name,
+        "forecast_days": forecast.forecast_days,
+        "predicted_quantity": forecast.predicted_quantity,
+        "lower_bound": forecast.lower_bound,
+        "upper_bound": forecast.upper_bound,
+        "confidence": forecast.confidence,
+        "trend": forecast.trend,
+        "growth_rate_percent": forecast.growth_rate,
+        "seasonality_factor": forecast.seasonality_factor,
+        "anomalies_detected": forecast.anomalies_detected
+    }
+
+
+@app.get("/api/forecast/summary")
+async def get_forecast_summary(days: int = 30):
+    """Get forecast summary for all medicines"""
+    if advanced_engine is None:
+        raise HTTPException(status_code=500, detail="Advanced engine not loaded")
+    
+    return advanced_engine.get_forecast_summary(days)
+
+
+@app.get("/api/anomalies")
+async def get_anomalies(
+    days: int = 30,
+    min_severity: str = "medium",
+    medicine_id: Optional[int] = None
+):
+    """
+    Detect anomalies in consumption patterns
+    
+    Args:
+        days: Days to look back (default: 30)
+        min_severity: Minimum severity to include (low, medium, high)
+        medicine_id: Optional - filter by specific medicine
+    """
+    if advanced_engine is None:
+        raise HTTPException(status_code=500, detail="Advanced engine not loaded")
+    
+    if medicine_id:
+        anomalies = advanced_engine.detect_anomalies(medicine_id, days)
+    else:
+        anomalies = advanced_engine.detect_all_anomalies(days, min_severity)
+    
+    return {
+        "total_anomalies": len(anomalies),
+        "anomalies": [
+            {
+                "medicine_id": a.medicine_id,
+                "medicine_name": a.medicine_name,
+                "date": a.date,
+                "actual_quantity": a.actual_quantity,
+                "expected_quantity": a.expected_quantity,
+                "deviation": a.deviation,
+                "anomaly_type": a.anomaly_type,
+                "severity": a.severity
+            }
+            for a in anomalies
+        ]
+    }
+
+
+@app.get("/api/trends/{medicine_id}")
+async def get_trends(medicine_id: int):
+    """
+    Get detailed trend analysis for a medicine
+    
+    Args:
+        medicine_id: Medicine to analyze
+    """
+    if advanced_engine is None:
+        raise HTTPException(status_code=500, detail="Advanced engine not loaded")
+    
+    trend_data = advanced_engine.get_trend_analysis(medicine_id)
+    
+    if trend_data is None:
+        raise HTTPException(status_code=404, detail="Medicine not found or insufficient data")
+    
+    return trend_data
 
 
 # Run with: uvicorn src.api.main:app --reload --port 8000

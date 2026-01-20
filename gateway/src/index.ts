@@ -124,6 +124,25 @@ app.get('/api/recommendations', (req: Request, res: Response) => {
   proxyToMLService(req, res, '/api/recommendations');
 });
 
+// Advanced ML - Forecast
+app.get('/api/forecast/summary', (req: Request, res: Response) => {
+  proxyToMLService(req, res, '/api/forecast/summary');
+});
+
+app.get('/api/forecast/:id', (req: Request, res: Response) => {
+  proxyToMLService(req, res, `/api/forecast/${req.params.id}`);
+});
+
+// Advanced ML - Anomalies
+app.get('/api/anomalies', (req: Request, res: Response) => {
+  proxyToMLService(req, res, '/api/anomalies');
+});
+
+// Advanced ML - Trends
+app.get('/api/trends/:id', (req: Request, res: Response) => {
+  proxyToMLService(req, res, `/api/trends/${req.params.id}`);
+});
+
 // Reload Data
 app.post('/api/reload-data', (req: Request, res: Response) => {
   proxyToMLService(req, res, '/api/reload-data');
