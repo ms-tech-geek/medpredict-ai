@@ -23,6 +23,7 @@ import { InventoryPage } from './components/InventoryPage';
 import { MedicineDetailModal } from './components/MedicineDetailModal';
 import { OnboardingTour, useTour } from './components/OnboardingTour';
 import { SupplierIntelligence } from './components/SupplierIntelligence';
+import { AIFeaturesShowcase } from './components/AIFeaturesShowcase';
 
 import { 
   fetchDashboardSummary, 
@@ -142,6 +143,9 @@ function Dashboard() {
 
       case 'suppliers':
         return <SupplierIntelligence />;
+
+      case 'ai-engine':
+        return <AIFeaturesShowcase />;
 
       case 'expiry':
         return (
@@ -380,6 +384,7 @@ function Dashboard() {
               {activeTab === 'stockout' && 'Stockout Prevention'}
               {activeTab === 'inventory' && 'Inventory Management'}
               {activeTab === 'suppliers' && 'Supplier Intelligence'}
+              {activeTab === 'ai-engine' && 'AI Intelligence Engine'}
             </h2>
             <p className="text-slate-400">
               {new Date().toLocaleDateString('en-IN', { 

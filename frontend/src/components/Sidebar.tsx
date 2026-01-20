@@ -3,7 +3,11 @@ import {
   Package, 
   TrendingDown,
   Calendar,
-  Truck
+  Truck,
+  Brain,
+  AlertTriangle,
+  Settings,
+  HelpCircle
 } from 'lucide-react';
 import type { RiskLevel } from '../types';
 
@@ -16,6 +20,7 @@ interface SidebarProps {
 
 const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { id: 'ai-engine', label: 'AI Engine', icon: Brain },
   { id: 'expiry', label: 'Expiry Alerts', icon: Calendar },
   { id: 'stockout', label: 'Stockout Alerts', icon: TrendingDown },
   { id: 'inventory', label: 'Inventory', icon: Package },
