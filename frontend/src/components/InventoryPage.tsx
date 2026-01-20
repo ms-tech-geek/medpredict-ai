@@ -5,7 +5,6 @@ import { fetchMedicines, fetchCategories } from '../services/api';
 import { SearchFilter } from './SearchFilter';
 import { ExportButton } from './ExportButton';
 import { useDebounce } from '../hooks/useDebounce';
-import type { Medicine } from '../types';
 
 interface InventoryPageProps {
   onMedicineClick: (medicineId: number) => void;

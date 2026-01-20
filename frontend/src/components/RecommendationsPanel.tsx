@@ -1,14 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { 
   Lightbulb, 
-  AlertTriangle, 
   ShoppingCart, 
   Calendar, 
   ChevronRight,
-  Clock,
-  TrendingDown,
-  Umbrella,
-  Snowflake
+  Umbrella
 } from 'lucide-react';
 import { fetchRecommendations } from '../services/api';
 import type { Recommendation } from '../types';

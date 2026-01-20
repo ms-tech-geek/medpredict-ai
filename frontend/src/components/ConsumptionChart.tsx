@@ -48,7 +48,7 @@ export function ConsumptionChart({ data }: ConsumptionChartProps) {
 
       {/* Bars */}
       <div className="flex items-end gap-1 h-48">
-        {chartData.map((d, i) => (
+        {chartData.map((d) => (
           <div key={d.date} className="flex-1 flex flex-col items-center group relative">
             {/* Tooltip */}
             <div className="absolute bottom-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white whitespace-nowrap z-20 pointer-events-none">

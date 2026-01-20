@@ -5,7 +5,6 @@ import {
   X, 
   AlertTriangle, 
   Package, 
-  Clock, 
   ChevronRight,
   CheckCircle,
   RefreshCw
@@ -41,10 +40,6 @@ export function NotificationPanel({ onNavigateToAlerts }: NotificationPanelProps
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
-  const formatTimeAgo = () => {
-    return 'Just now';
-  };
 
   return (
     <div className="relative" ref={panelRef}>

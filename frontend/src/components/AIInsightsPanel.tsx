@@ -8,7 +8,6 @@ import {
   AlertTriangle, 
   BarChart3,
   Sparkles,
-  ChevronRight,
   Zap,
   Target,
   Activity,
@@ -22,9 +21,10 @@ import {
 import { 
   fetchForecastSummary, 
   fetchAnomalies, 
-  fetchDashboardSummary,
   fetchExpiryRisks,
-  fetchStockoutRisks
+  fetchStockoutRisks,
+  type ForecastResult,
+  type AnomalyResult
 } from '../services/api';
 
 export function AIInsightsPanel() {
@@ -42,29 +42,23 @@ export function AIInsightsPanel() {
     staleTime: 60000,
   });
 
-  const { data: summary } = useQuery({
-    queryKey: ['dashboard-summary'],
-    queryFn: fetchDashboardSummary,
-  });
-
   const { data: expiryRisks = [] } = useQuery({
-    queryKey: ['expiry-risks'],
+    queryKey: ['expiry-risks-ai'],
     queryFn: () => fetchExpiryRisks(undefined, 100),
   });
 
   const { data: stockoutRisks = [] } = useQuery({
-    queryKey: ['stockout-risks'],
+    queryKey: ['stockout-risks-ai'],
     queryFn: () => fetchStockoutRisks(undefined, 100),
   });
 
   const isLoading = forecastLoading || anomaliesLoading;
 
   // Calculate AI-derived metrics
-  const increasingTrends = forecastData?.forecasts.filter(f => f.trend === 'increasing').length || 0;
-  const decreasingTrends = forecastData?.forecasts.filter(f => f.trend === 'decreasing').length || 0;
-  const stableTrends = forecastData?.forecasts.filter(f => f.trend === 'stable').length || 0;
-  const highConfidencePredictions = forecastData?.forecasts.filter(f => f.confidence >= 0.8).length || 0;
-  const criticalAnomalies = anomalies.filter(a => a.severity === 'HIGH').length;
+  const increasingTrends = forecastData?.forecasts.filter((f: ForecastResult) => f.trend === 'increasing').length || 0;
+  const decreasingTrends = forecastData?.forecasts.filter((f: ForecastResult) => f.trend === 'decreasing').length || 0;
+  const stableTrends = forecastData?.forecasts.filter((f: ForecastResult) => f.trend === 'stable').length || 0;
+  const criticalAnomalies = anomalies.filter((a: AnomalyResult) => a.severity === 'HIGH').length;
 
   // Calculate potential savings from AI insights
   const expiryLossPrevented = expiryRisks
@@ -211,7 +205,7 @@ export function AIInsightsPanel() {
                     Key Predictions (Next 30 Days)
                   </h4>
                   <div className="space-y-2 max-h-48 overflow-y-auto">
-                    {forecastData?.forecasts.slice(0, 6).map((forecast, idx) => (
+                    {forecastData?.forecasts.slice(0, 6).map((forecast: ForecastResult, idx: number) => (
                       <div 
                         key={idx}
                         className="flex items-center justify-between p-3 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-slate-600 transition-colors"
@@ -279,20 +273,20 @@ export function AIInsightsPanel() {
                       </div>
                       <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/30 text-center">
                         <p className="text-2xl font-bold text-yellow-400">
-                          {anomalies.filter(a => a.severity === 'MEDIUM').length}
+                          {anomalies.filter((a: AnomalyResult) => a.severity === 'MEDIUM').length}
                         </p>
                         <p className="text-xs text-slate-400">Medium Severity</p>
                       </div>
                       <div className="p-3 rounded-lg bg-slate-500/10 border border-slate-500/30 text-center">
                         <p className="text-2xl font-bold text-slate-400">
-                          {anomalies.filter(a => a.severity === 'LOW').length}
+                          {anomalies.filter((a: AnomalyResult) => a.severity === 'LOW').length}
                         </p>
                         <p className="text-xs text-slate-400">Low Severity</p>
                       </div>
                     </div>
 
                     <div className="space-y-2 max-h-48 overflow-y-auto">
-                      {anomalies.slice(0, 6).map((anomaly, idx) => (
+                      {anomalies.slice(0, 6).map((anomaly: AnomalyResult, idx: number) => (
                         <div 
                           key={idx}
                           className={`p-3 rounded-lg border ${
@@ -397,10 +391,10 @@ export function AIInsightsPanel() {
                   <h4 className="text-sm font-medium text-slate-300 mb-3">Annual Growth Analysis</h4>
                   <div className="space-y-2">
                     {forecastData?.forecasts
-                      .filter(f => Math.abs(f.growth_rate_percent) > 5)
-                      .sort((a, b) => Math.abs(b.growth_rate_percent) - Math.abs(a.growth_rate_percent))
+                      .filter((f: ForecastResult) => Math.abs(f.growth_rate_percent) > 5)
+                      .sort((a: ForecastResult, b: ForecastResult) => Math.abs(b.growth_rate_percent) - Math.abs(a.growth_rate_percent))
                       .slice(0, 5)
-                      .map((item, idx) => (
+                      .map((item: ForecastResult, idx: number) => (
                         <div key={idx} className="flex items-center gap-3 p-2 rounded-lg bg-slate-800/30">
                           <div className="flex-1">
                             <p className="text-sm text-white">{item.medicine_name}</p>

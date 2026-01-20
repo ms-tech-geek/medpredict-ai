@@ -147,3 +147,66 @@ export const reloadData = async (): Promise<{ status: string; message: string }>
   return response.data;
 };
 
+// Forecast Summary (AI predictions)
+export interface ForecastResult {
+  medicine_id: number;
+  medicine_name: string;
+  forecast_days: number;
+  predicted_quantity: number;
+  lower_bound: number;
+  upper_bound: number;
+  confidence: number;
+  trend: 'increasing' | 'decreasing' | 'stable';
+  growth_rate_percent: number;
+  seasonality_factor: number;
+  anomalies_detected: number;
+}
+
+export interface ForecastSummaryResponse {
+  total_medicines_forecasted: number;
+  total_predicted_quantity: number;
+  avg_confidence: number;
+  forecasts: ForecastResult[];
+}
+
+export const fetchForecastSummary = async (days: number = 30, confidenceLevel: number = 0.9): Promise<ForecastSummaryResponse> => {
+  try {
+    const response = await apiClient.get(`/forecast/summary?days=${days}&confidence_level=${confidenceLevel}`);
+    return response.data;
+  } catch {
+    // Return mock data if endpoint doesn't exist
+    return {
+      total_medicines_forecasted: 0,
+      total_predicted_quantity: 0,
+      avg_confidence: 0,
+      forecasts: []
+    };
+  }
+};
+
+// Anomaly Detection
+export interface AnomalyResult {
+  medicine_id: number;
+  medicine_name: string;
+  date: string;
+  actual_consumption: number;
+  predicted_consumption: number;
+  deviation: number;
+  severity: 'HIGH' | 'MEDIUM' | 'LOW';
+}
+
+export const fetchAnomalies = async (medicineId?: number, days: number = 90, threshold: number = 2.5): Promise<AnomalyResult[]> => {
+  try {
+    const params = new URLSearchParams();
+    if (medicineId) params.append('medicine_id', medicineId.toString());
+    params.append('days', days.toString());
+    params.append('threshold', threshold.toString());
+    
+    const response = await apiClient.get(`/anomalies?${params}`);
+    return response.data;
+  } catch {
+    // Return empty array if endpoint doesn't exist
+    return [];
+  }
+};
+
