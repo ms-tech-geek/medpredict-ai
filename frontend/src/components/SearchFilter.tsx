@@ -21,7 +21,7 @@ export function SearchFilter({
   onSortChange,
 }: SearchFilterProps) {
   return (
-    <div className="flex flex-wrap gap-4 mb-6">
+    <div className="flex flex-wrap gap-4">
       {/* Search Input */}
       <div className="relative flex-1 min-w-[250px]">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Package, AlertTriangle, Calendar, IndianRupee, Search, ChevronDown, ChevronUp } from 'lucide-react';
+import { Package, AlertTriangle, IndianRupee, Search, ChevronDown } from 'lucide-react';
 import { fetchMedicines, fetchCategories } from '../services/api';
 import { SearchFilter } from './SearchFilter';
+import { ExportButton } from './ExportButton';
 import type { Medicine } from '../types';
 
 interface InventoryPageProps {
@@ -109,15 +110,33 @@ export function InventoryPage({ onMedicineClick }: InventoryPageProps) {
       </div>
 
       {/* Search & Filters */}
-      <SearchFilter
-        searchTerm={searchTerm}
-        onSearchChange={setSearchTerm}
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-        categories={categories}
-        sortBy={sortBy}
-        onSortChange={setSortBy}
-      />
+      <div className="flex items-center justify-between gap-4 mb-6">
+        <div className="flex-1">
+          <SearchFilter
+            searchTerm={searchTerm}
+            onSearchChange={setSearchTerm}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+            categories={categories}
+            sortBy={sortBy}
+            onSortChange={setSortBy}
+          />
+        </div>
+        <ExportButton 
+          data={medicines.map(m => ({
+            medicine_id: m.medicine_id,
+            name: m.medicine_name,
+            category: m.category,
+            quantity: m.quantity,
+            stock_value: m.stock_value,
+            daily_consumption: m.avg_daily,
+            days_of_stock: m.days_of_stock,
+            risk_level: m.risk_level
+          }))}
+          filename="inventory"
+          title="Export Inventory"
+        />
+      </div>
 
       {/* Medicine List */}
       <div className="card overflow-hidden">

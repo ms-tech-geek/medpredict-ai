@@ -1,5 +1,6 @@
 import { AlertTriangle, Calendar, Package, ChevronRight } from 'lucide-react';
 import type { ExpiryRisk, StockoutRisk } from '../types';
+import { ExportButton } from './ExportButton';
 
 interface AlertsTableProps {
   expiryRisks: ExpiryRisk[];
@@ -16,10 +17,33 @@ const riskBadgeClass = {
 };
 
 export function AlertsTable({ expiryRisks, stockoutRisks, activeTab, onTabChange }: AlertsTableProps) {
+  // Prepare data for export
+  const exportData = activeTab === 'expiry' 
+    ? expiryRisks.map(r => ({
+        medicine: r.medicine_name,
+        batch: r.batch_no,
+        quantity: r.current_quantity,
+        days_to_expiry: r.days_to_expiry,
+        quantity_at_risk: r.quantity_at_risk,
+        risk_level: r.risk_level,
+        potential_loss: r.potential_loss,
+        recommendation: r.recommendation
+      }))
+    : stockoutRisks.map(r => ({
+        medicine: r.medicine_name,
+        current_stock: r.current_stock,
+        daily_consumption: r.avg_daily_consumption,
+        days_until_stockout: r.days_until_stockout,
+        risk_level: r.risk_level,
+        recommended_order: r.recommended_order,
+        recommendation: r.recommendation
+      }));
+
   return (
     <div className="card animate-fade-in" style={{ animationDelay: '300ms' }}>
-      {/* Tabs */}
-      <div className="flex items-center gap-4 mb-6">
+      {/* Header with Tabs and Export */}
+      <div className="flex items-center justify-between gap-4 mb-6">
+        <div className="flex items-center gap-4">
         <button
           onClick={() => onTabChange('expiry')}
           className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
@@ -48,6 +72,13 @@ export function AlertsTable({ expiryRisks, stockoutRisks, activeTab, onTabChange
             {stockoutRisks.filter(r => ['CRITICAL', 'HIGH'].includes(r.risk_level)).length}
           </span>
         </button>
+        </div>
+        
+        <ExportButton 
+          data={exportData}
+          filename={activeTab === 'expiry' ? 'expiry_alerts' : 'stockout_alerts'}
+          title="Export"
+        />
       </div>
 
       {/* Table */}
