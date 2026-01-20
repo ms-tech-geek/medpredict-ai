@@ -104,7 +104,7 @@ export function AIInsightsPanel() {
         <div className="text-center p-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
           <div className="flex items-center justify-center gap-1 text-primary-400 mb-1">
             <Target className="w-4 h-4" />
-            <span className="text-xl font-bold">{forecastData?.avg_confidence ? Math.round(forecastData.avg_confidence * 100) : '--'}%</span>
+            <span className="text-xl font-bold">{forecastData?.avg_confidence ? (forecastData.avg_confidence * 100).toFixed(1) : '--'}%</span>
           </div>
           <p className="text-xs text-slate-400">Prediction Accuracy</p>
         </div>
@@ -246,7 +246,7 @@ export function AIInsightsPanel() {
                             <div className="text-right">
                               <p className="text-sm font-semibold text-white">{forecast.predicted_quantity || 0} units</p>
                               <p className="text-xs text-slate-500">
-                                {Math.round(confidence * 100)}% confidence
+                                {(confidence * 100).toFixed(1)}% confidence
                               </p>
                             </div>
                           </div>

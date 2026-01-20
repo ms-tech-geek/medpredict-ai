@@ -788,7 +788,7 @@ export function SupplierIntelligence() {
                                 <div className="w-16 h-1.5 bg-slate-700 rounded-full overflow-hidden">
                                   <div className="h-full bg-violet-500 rounded-full" style={{ width: `${reason.confidence}%` }} />
                                 </div>
-                                <span className="text-xs text-slate-500">{reason.confidence}%</span>
+                                <span className="text-xs text-slate-500">{reason.confidence.toFixed(1)}%</span>
                               </div>
                             </div>
                           </div>
@@ -835,7 +835,7 @@ export function SupplierIntelligence() {
                                       {rec.priority.toUpperCase()}
                                     </span>
                                     <span className="text-xs text-slate-500">{rec.type.replace('_', ' ')}</span>
-                                    <span className="text-xs text-slate-500">• {Math.round(rec.confidence * 100)}% confident</span>
+                                    <span className="text-xs text-slate-500">• {(rec.confidence * 100).toFixed(1)}% confident</span>
                                   </div>
                                   <h4 className="text-white font-medium">{rec.title}</h4>
                                   <p className="text-sm text-slate-400 mt-1">{rec.description}</p>
@@ -948,7 +948,7 @@ export function SupplierIntelligence() {
                                 <h4 className="font-medium text-white">{supplier.name}</h4>
                                 <div className="flex items-center gap-2 mt-0.5">
                                   <span className={`text-xs ${supplier.reliability_score >= 90 ? 'text-emerald-400' : 'text-amber-400'}`}>
-                                    {supplier.reliability_score}% reliable
+                                    {supplier.reliability_score.toFixed(1)}% reliable
                                   </span>
                                   <span className="text-slate-500">•</span>
                                   <span className="text-xs text-slate-400">{supplier.predicted_lead_time} day delivery</span>
@@ -1134,7 +1134,7 @@ export function SupplierIntelligence() {
                     supplier.reliability_score >= 70 ? 'bg-yellow-500/20 text-yellow-400' :
                     'bg-red-500/20 text-red-400'
                   }`}>
-                    {supplier.reliability_score}% reliable
+                    {supplier.reliability_score.toFixed(1)}% reliable
                   </div>
                 </div>
 
@@ -1163,7 +1163,7 @@ export function SupplierIntelligence() {
                   <div className="flex items-center justify-between text-xs mb-1">
                     <span className="text-slate-400">Delay Probability</span>
                     <span className={supplier.delay_probability > 0.3 ? 'text-red-400' : 'text-emerald-400'}>
-                      {(supplier.delay_probability * 100).toFixed(0)}%
+                      {(supplier.delay_probability * 100).toFixed(1)}%
                     </span>
                   </div>
                   <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
@@ -1178,7 +1178,7 @@ export function SupplierIntelligence() {
                 </div>
 
                 <div className="flex items-center justify-between text-xs text-slate-400 pt-3 border-t border-slate-800">
-                  <span>{supplier.on_time_rate * 100}% on-time</span>
+                  <span>{(supplier.on_time_rate * 100).toFixed(1)}% on-time</span>
                   <span>{supplier.pending_orders} pending</span>
                   <span>{supplier.total_orders} total</span>
                 </div>
@@ -1211,7 +1211,7 @@ export function SupplierIntelligence() {
                       </span>
                       <span className="text-sm text-slate-300">{supplier.name}</span>
                     </div>
-                    <span className="text-sm font-medium text-white">{supplier.reliability_score}%</span>
+                    <span className="text-sm font-medium text-white">{supplier.reliability_score.toFixed(1)}%</span>
                   </div>
                   <div className="h-3 bg-slate-800 rounded-full overflow-hidden">
                     <div

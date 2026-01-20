@@ -95,7 +95,7 @@ export function RiskDistributionChart({ risks }: RiskDistributionChartProps) {
               <div className="flex items-center gap-3">
                 <span className="text-sm font-semibold text-white">{item.value}</span>
                 <span className="text-xs text-slate-500 w-12 text-right">
-                  {((item.value / total) * 100).toFixed(0)}%
+                  {((item.value / total) * 100).toFixed(1)}%
                 </span>
               </div>
             </div>

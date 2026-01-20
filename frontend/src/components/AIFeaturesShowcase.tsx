@@ -254,7 +254,7 @@ export function AIFeaturesShowcase({ compact = false }: AIFeaturesShowcaseProps)
                     <div className="mb-3">
                       <div className="flex items-center justify-between text-xs mb-1">
                         <span className="text-slate-400">Model Accuracy</span>
-                        <span className="text-white font-medium">{model.accuracy}%</span>
+                        <span className="text-white font-medium">{model.accuracy.toFixed(1)}%</span>
                       </div>
                       <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
                         <div
