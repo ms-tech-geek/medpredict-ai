@@ -39,8 +39,8 @@ export function RiskDistributionChart({ risks }: RiskDistributionChartProps) {
       <h3 className="text-sm font-semibold text-slate-400 mb-4">Risk Distribution</h3>
       
       <div className="flex items-center gap-6">
-        <div className="w-40 h-40" style={{ minWidth: '160px', minHeight: '160px' }}>
-          <ResponsiveContainer width="100%" height="100%" minWidth={160} minHeight={160}>
+        <div style={{ width: '160px', height: '160px', flexShrink: 0 }}>
+          <ResponsiveContainer width={160} height={160}>
             <PieChart>
               <Pie
                 data={data}
