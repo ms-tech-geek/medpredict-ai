@@ -54,15 +54,17 @@ export function AIInsightsPanel() {
 
   const isLoading = forecastLoading || anomaliesLoading;
 
-  // Ensure anomalies is always an array
-  const anomalyList = Array.isArray(anomalies) ? anomalies : [];
-  const forecastList = Array.isArray(forecastData?.forecasts) ? forecastData.forecasts : [];
+  // Ensure anomalies is always an array with valid items
+  const anomalyList = Array.isArray(anomalies) ? anomalies.filter(a => a != null) : [];
+  const forecastList = Array.isArray(forecastData?.forecasts) 
+    ? forecastData.forecasts.filter((f: ForecastResult) => f != null && f.medicine_name != null) 
+    : [];
 
-  // Calculate AI-derived metrics
-  const increasingTrends = forecastList.filter((f: ForecastResult) => f.trend === 'increasing').length;
-  const decreasingTrends = forecastList.filter((f: ForecastResult) => f.trend === 'decreasing').length;
-  const stableTrends = forecastList.filter((f: ForecastResult) => f.trend === 'stable').length;
-  const criticalAnomalies = anomalyList.filter((a: AnomalyResult) => a.severity === 'HIGH').length;
+  // Calculate AI-derived metrics (with null safety)
+  const increasingTrends = forecastList.filter((f: ForecastResult) => f?.trend === 'increasing').length;
+  const decreasingTrends = forecastList.filter((f: ForecastResult) => f?.trend === 'decreasing').length;
+  const stableTrends = forecastList.filter((f: ForecastResult) => f?.trend === 'stable').length;
+  const criticalAnomalies = anomalyList.filter((a: AnomalyResult) => a?.severity === 'HIGH').length;
 
   // Calculate potential savings from AI insights
   const expiryLossPrevented = expiryRisks
@@ -209,43 +211,48 @@ export function AIInsightsPanel() {
                     Key Predictions (Next 30 Days)
                   </h4>
                   <div className="space-y-2 max-h-48 overflow-y-auto">
-                    {forecastList.slice(0, 6).map((forecast: ForecastResult, idx: number) => {
-                      const growthRate = forecast.growth_rate ?? 0;
-                      const confidence = forecast.confidence ?? 0;
-                      return (
-                        <div 
-                          key={idx}
-                          className="flex items-center justify-between p-3 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-slate-600 transition-colors"
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                              forecast.trend === 'increasing' ? 'bg-emerald-500/20' :
-                              forecast.trend === 'decreasing' ? 'bg-red-500/20' : 'bg-slate-500/20'
-                            }`}>
-                              {forecast.trend === 'increasing' ? (
-                                <TrendingUp className="w-4 h-4 text-emerald-400" />
-                              ) : forecast.trend === 'decreasing' ? (
-                                <TrendingDown className="w-4 h-4 text-red-400" />
-                              ) : (
-                                <Minus className="w-4 h-4 text-slate-400" />
-                              )}
+                    {forecastList.length === 0 ? (
+                      <p className="text-sm text-slate-500 text-center py-4">No forecast data available</p>
+                    ) : (
+                      forecastList.slice(0, 6).map((forecast: ForecastResult, idx: number) => {
+                        if (!forecast) return null;
+                        const growthRate = typeof forecast.growth_rate === 'number' ? forecast.growth_rate : 0;
+                        const confidence = typeof forecast.confidence === 'number' ? forecast.confidence : 0;
+                        return (
+                          <div 
+                            key={idx}
+                            className="flex items-center justify-between p-3 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-slate-600 transition-colors"
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                                forecast.trend === 'increasing' ? 'bg-emerald-500/20' :
+                                forecast.trend === 'decreasing' ? 'bg-red-500/20' : 'bg-slate-500/20'
+                              }`}>
+                                {forecast.trend === 'increasing' ? (
+                                  <TrendingUp className="w-4 h-4 text-emerald-400" />
+                                ) : forecast.trend === 'decreasing' ? (
+                                  <TrendingDown className="w-4 h-4 text-red-400" />
+                                ) : (
+                                  <Minus className="w-4 h-4 text-slate-400" />
+                                )}
+                              </div>
+                              <div>
+                                <p className="text-sm font-medium text-white">{forecast.medicine_name || 'Unknown'}</p>
+                                <p className="text-xs text-slate-400">
+                                  Growth: {growthRate > 0 ? '+' : ''}{growthRate.toFixed(1)}%/year
+                                </p>
+                              </div>
                             </div>
-                            <div>
-                              <p className="text-sm font-medium text-white">{forecast.medicine_name || 'Unknown'}</p>
-                              <p className="text-xs text-slate-400">
-                                Growth: {growthRate > 0 ? '+' : ''}{growthRate.toFixed(1)}%/year
+                            <div className="text-right">
+                              <p className="text-sm font-semibold text-white">{forecast.predicted_quantity || 0} units</p>
+                              <p className="text-xs text-slate-500">
+                                {Math.round(confidence * 100)}% confidence
                               </p>
                             </div>
                           </div>
-                          <div className="text-right">
-                            <p className="text-sm font-semibold text-white">{forecast.predicted_quantity || 0} units</p>
-                            <p className="text-xs text-slate-500">
-                              {Math.round(confidence * 100)}% confidence
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })
+                    )}
                   </div>
                 </div>
               </div>
