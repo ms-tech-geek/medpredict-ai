@@ -12,18 +12,17 @@ Usage:
     python run.py ml           # Run only ML service
     python run.py gateway      # Run only API gateway
     python run.py frontend     # Run only frontend
-    python run.py dashboard    # Run legacy Streamlit dashboard
 """
 
 import subprocess
 import sys
 import os
-import signal
 import time
 from pathlib import Path
 
 # Project root directory
 ROOT_DIR = Path(__file__).parent
+
 
 def run_ml_service():
     """Run the FastAPI ML service"""
@@ -37,12 +36,14 @@ def run_ml_service():
         "--host", "0.0.0.0"
     ])
 
+
 def run_gateway():
     """Run the Node.js API Gateway"""
     print("\n🌐 Starting API Gateway (Node.js)...")
     gateway_dir = ROOT_DIR / "gateway"
     os.chdir(gateway_dir)
     subprocess.run(["npm", "run", "dev"])
+
 
 def run_frontend():
     """Run the React frontend"""
@@ -51,15 +52,6 @@ def run_frontend():
     os.chdir(frontend_dir)
     subprocess.run(["npm", "run", "dev"])
 
-def run_streamlit_dashboard():
-    """Run the legacy Streamlit dashboard"""
-    print("\n📊 Starting Streamlit Dashboard...")
-    os.chdir(ROOT_DIR)
-    subprocess.run([
-        sys.executable, "-m", "streamlit", "run", 
-        "dashboard/app.py",
-        "--server.port", "8501"
-    ])
 
 def run_all_services():
     """Run all services concurrently"""
@@ -121,6 +113,7 @@ def run_all_services():
             p.wait()
         print("✅ All services stopped")
 
+
 def main():
     if len(sys.argv) < 2:
         run_all_services()
@@ -133,8 +126,6 @@ def main():
             run_gateway()
         elif command == "frontend":
             run_frontend()
-        elif command == "dashboard":
-            run_streamlit_dashboard()
         elif command == "api":
             # Backward compatibility
             run_ml_service()
@@ -142,6 +133,7 @@ def main():
             print(f"Unknown command: {command}")
             print(__doc__)
             sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
