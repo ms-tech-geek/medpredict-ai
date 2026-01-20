@@ -1,657 +1,946 @@
-week_start_date,year,week_number,disease,case_count,district,state
-2024-07-01,2024,27,Dengue,16,Rangareddy,Telangana
-2024-07-01,2024,27,Malaria,25,Rangareddy,Telangana
-2024-07-01,2024,27,Diarrhea,59,Rangareddy,Telangana
-2024-07-01,2024,27,Typhoid,10,Rangareddy,Telangana
-2024-07-01,2024,27,Influenza,11,Rangareddy,Telangana
-2024-07-01,2024,27,Respiratory Infections,13,Rangareddy,Telangana
-2024-07-01,2024,27,Viral Fever,137,Rangareddy,Telangana
-2024-07-01,2024,27,Conjunctivitis,20,Rangareddy,Telangana
-2024-07-08,2024,28,Dengue,12,Rangareddy,Telangana
-2024-07-08,2024,28,Malaria,37,Rangareddy,Telangana
-2024-07-08,2024,28,Diarrhea,63,Rangareddy,Telangana
-2024-07-08,2024,28,Typhoid,11,Rangareddy,Telangana
-2024-07-08,2024,28,Influenza,5,Rangareddy,Telangana
-2024-07-08,2024,28,Respiratory Infections,16,Rangareddy,Telangana
-2024-07-08,2024,28,Viral Fever,75,Rangareddy,Telangana
-2024-07-08,2024,28,Conjunctivitis,30,Rangareddy,Telangana
-2024-07-15,2024,29,Dengue,17,Rangareddy,Telangana
-2024-07-15,2024,29,Malaria,22,Rangareddy,Telangana
-2024-07-15,2024,29,Diarrhea,70,Rangareddy,Telangana
-2024-07-15,2024,29,Typhoid,10,Rangareddy,Telangana
-2024-07-15,2024,29,Influenza,5,Rangareddy,Telangana
-2024-07-15,2024,29,Respiratory Infections,48,Rangareddy,Telangana
-2024-07-15,2024,29,Viral Fever,88,Rangareddy,Telangana
-2024-07-15,2024,29,Conjunctivitis,26,Rangareddy,Telangana
-2024-07-22,2024,30,Dengue,11,Rangareddy,Telangana
-2024-07-22,2024,30,Malaria,19,Rangareddy,Telangana
-2024-07-22,2024,30,Diarrhea,80,Rangareddy,Telangana
-2024-07-22,2024,30,Typhoid,8,Rangareddy,Telangana
-2024-07-22,2024,30,Influenza,6,Rangareddy,Telangana
-2024-07-22,2024,30,Respiratory Infections,20,Rangareddy,Telangana
-2024-07-22,2024,30,Viral Fever,85,Rangareddy,Telangana
-2024-07-22,2024,30,Conjunctivitis,44,Rangareddy,Telangana
-2024-07-29,2024,31,Dengue,11,Rangareddy,Telangana
-2024-07-29,2024,31,Malaria,26,Rangareddy,Telangana
-2024-07-29,2024,31,Diarrhea,66,Rangareddy,Telangana
-2024-07-29,2024,31,Typhoid,12,Rangareddy,Telangana
-2024-07-29,2024,31,Influenza,6,Rangareddy,Telangana
-2024-07-29,2024,31,Respiratory Infections,9,Rangareddy,Telangana
-2024-07-29,2024,31,Viral Fever,101,Rangareddy,Telangana
-2024-07-29,2024,31,Conjunctivitis,30,Rangareddy,Telangana
-2024-08-05,2024,32,Dengue,19,Rangareddy,Telangana
-2024-08-05,2024,32,Malaria,27,Rangareddy,Telangana
-2024-08-05,2024,32,Diarrhea,82,Rangareddy,Telangana
-2024-08-05,2024,32,Typhoid,8,Rangareddy,Telangana
-2024-08-05,2024,32,Influenza,8,Rangareddy,Telangana
-2024-08-05,2024,32,Respiratory Infections,14,Rangareddy,Telangana
-2024-08-05,2024,32,Viral Fever,99,Rangareddy,Telangana
-2024-08-05,2024,32,Conjunctivitis,30,Rangareddy,Telangana
-2024-08-12,2024,33,Dengue,14,Rangareddy,Telangana
-2024-08-12,2024,33,Malaria,24,Rangareddy,Telangana
-2024-08-12,2024,33,Diarrhea,52,Rangareddy,Telangana
-2024-08-12,2024,33,Typhoid,8,Rangareddy,Telangana
-2024-08-12,2024,33,Influenza,8,Rangareddy,Telangana
-2024-08-12,2024,33,Respiratory Infections,15,Rangareddy,Telangana
-2024-08-12,2024,33,Viral Fever,60,Rangareddy,Telangana
-2024-08-12,2024,33,Conjunctivitis,34,Rangareddy,Telangana
-2024-08-19,2024,34,Dengue,14,Rangareddy,Telangana
-2024-08-19,2024,34,Malaria,30,Rangareddy,Telangana
-2024-08-19,2024,34,Diarrhea,42,Rangareddy,Telangana
-2024-08-19,2024,34,Typhoid,11,Rangareddy,Telangana
-2024-08-19,2024,34,Influenza,6,Rangareddy,Telangana
-2024-08-19,2024,34,Respiratory Infections,14,Rangareddy,Telangana
-2024-08-19,2024,34,Viral Fever,57,Rangareddy,Telangana
-2024-08-19,2024,34,Conjunctivitis,31,Rangareddy,Telangana
-2024-08-26,2024,35,Dengue,14,Rangareddy,Telangana
-2024-08-26,2024,35,Malaria,31,Rangareddy,Telangana
-2024-08-26,2024,35,Diarrhea,46,Rangareddy,Telangana
-2024-08-26,2024,35,Typhoid,12,Rangareddy,Telangana
-2024-08-26,2024,35,Influenza,7,Rangareddy,Telangana
-2024-08-26,2024,35,Respiratory Infections,14,Rangareddy,Telangana
-2024-08-26,2024,35,Viral Fever,92,Rangareddy,Telangana
-2024-08-26,2024,35,Conjunctivitis,43,Rangareddy,Telangana
-2024-09-02,2024,36,Dengue,12,Rangareddy,Telangana
-2024-09-02,2024,36,Malaria,23,Rangareddy,Telangana
-2024-09-02,2024,36,Diarrhea,97,Rangareddy,Telangana
-2024-09-02,2024,36,Typhoid,8,Rangareddy,Telangana
-2024-09-02,2024,36,Influenza,8,Rangareddy,Telangana
-2024-09-02,2024,36,Respiratory Infections,12,Rangareddy,Telangana
-2024-09-02,2024,36,Viral Fever,25,Rangareddy,Telangana
-2024-09-02,2024,36,Conjunctivitis,29,Rangareddy,Telangana
-2024-09-09,2024,37,Dengue,23,Rangareddy,Telangana
-2024-09-09,2024,37,Malaria,23,Rangareddy,Telangana
-2024-09-09,2024,37,Diarrhea,46,Rangareddy,Telangana
-2024-09-09,2024,37,Typhoid,11,Rangareddy,Telangana
-2024-09-09,2024,37,Influenza,7,Rangareddy,Telangana
-2024-09-09,2024,37,Respiratory Infections,12,Rangareddy,Telangana
-2024-09-09,2024,37,Viral Fever,13,Rangareddy,Telangana
-2024-09-09,2024,37,Conjunctivitis,21,Rangareddy,Telangana
-2024-09-16,2024,38,Dengue,17,Rangareddy,Telangana
-2024-09-16,2024,38,Malaria,26,Rangareddy,Telangana
-2024-09-16,2024,38,Diarrhea,64,Rangareddy,Telangana
-2024-09-16,2024,38,Typhoid,6,Rangareddy,Telangana
-2024-09-16,2024,38,Influenza,6,Rangareddy,Telangana
-2024-09-16,2024,38,Respiratory Infections,14,Rangareddy,Telangana
-2024-09-16,2024,38,Viral Fever,19,Rangareddy,Telangana
-2024-09-16,2024,38,Conjunctivitis,30,Rangareddy,Telangana
-2024-09-23,2024,39,Dengue,43,Rangareddy,Telangana
-2024-09-23,2024,39,Malaria,28,Rangareddy,Telangana
-2024-09-23,2024,39,Diarrhea,57,Rangareddy,Telangana
-2024-09-23,2024,39,Typhoid,7,Rangareddy,Telangana
-2024-09-23,2024,39,Influenza,15,Rangareddy,Telangana
-2024-09-23,2024,39,Respiratory Infections,20,Rangareddy,Telangana
-2024-09-23,2024,39,Viral Fever,12,Rangareddy,Telangana
-2024-09-23,2024,39,Conjunctivitis,21,Rangareddy,Telangana
-2024-09-30,2024,40,Dengue,13,Rangareddy,Telangana
-2024-09-30,2024,40,Malaria,25,Rangareddy,Telangana
-2024-09-30,2024,40,Diarrhea,53,Rangareddy,Telangana
-2024-09-30,2024,40,Typhoid,8,Rangareddy,Telangana
-2024-09-30,2024,40,Influenza,8,Rangareddy,Telangana
-2024-09-30,2024,40,Respiratory Infections,49,Rangareddy,Telangana
-2024-09-30,2024,40,Viral Fever,12,Rangareddy,Telangana
-2024-09-30,2024,40,Conjunctivitis,28,Rangareddy,Telangana
-2024-10-07,2024,41,Dengue,14,Rangareddy,Telangana
-2024-10-07,2024,41,Malaria,3,Rangareddy,Telangana
-2024-10-07,2024,41,Diarrhea,8,Rangareddy,Telangana
-2024-10-07,2024,41,Typhoid,35,Rangareddy,Telangana
-2024-10-07,2024,41,Influenza,7,Rangareddy,Telangana
-2024-10-07,2024,41,Respiratory Infections,22,Rangareddy,Telangana
-2024-10-07,2024,41,Viral Fever,21,Rangareddy,Telangana
-2024-10-07,2024,41,Conjunctivitis,7,Rangareddy,Telangana
-2024-10-14,2024,42,Dengue,18,Rangareddy,Telangana
-2024-10-14,2024,42,Malaria,3,Rangareddy,Telangana
-2024-10-14,2024,42,Diarrhea,15,Rangareddy,Telangana
-2024-10-14,2024,42,Typhoid,9,Rangareddy,Telangana
-2024-10-14,2024,42,Influenza,26,Rangareddy,Telangana
-2024-10-14,2024,42,Respiratory Infections,72,Rangareddy,Telangana
-2024-10-14,2024,42,Viral Fever,18,Rangareddy,Telangana
-2024-10-14,2024,42,Conjunctivitis,3,Rangareddy,Telangana
-2024-10-21,2024,43,Dengue,16,Rangareddy,Telangana
-2024-10-21,2024,43,Malaria,5,Rangareddy,Telangana
-2024-10-21,2024,43,Diarrhea,7,Rangareddy,Telangana
-2024-10-21,2024,43,Typhoid,7,Rangareddy,Telangana
-2024-10-21,2024,43,Influenza,7,Rangareddy,Telangana
-2024-10-21,2024,43,Respiratory Infections,14,Rangareddy,Telangana
-2024-10-21,2024,43,Viral Fever,28,Rangareddy,Telangana
-2024-10-21,2024,43,Conjunctivitis,6,Rangareddy,Telangana
-2024-10-28,2024,44,Dengue,13,Rangareddy,Telangana
-2024-10-28,2024,44,Malaria,6,Rangareddy,Telangana
-2024-10-28,2024,44,Diarrhea,14,Rangareddy,Telangana
-2024-10-28,2024,44,Typhoid,6,Rangareddy,Telangana
-2024-10-28,2024,44,Influenza,7,Rangareddy,Telangana
-2024-10-28,2024,44,Respiratory Infections,13,Rangareddy,Telangana
-2024-10-28,2024,44,Viral Fever,14,Rangareddy,Telangana
-2024-10-28,2024,44,Conjunctivitis,5,Rangareddy,Telangana
-2024-11-04,2024,45,Dengue,3,Rangareddy,Telangana
-2024-11-04,2024,45,Malaria,4,Rangareddy,Telangana
-2024-11-04,2024,45,Diarrhea,9,Rangareddy,Telangana
-2024-11-04,2024,45,Typhoid,0,Rangareddy,Telangana
-2024-11-04,2024,45,Influenza,51,Rangareddy,Telangana
-2024-11-04,2024,45,Respiratory Infections,114,Rangareddy,Telangana
-2024-11-04,2024,45,Viral Fever,16,Rangareddy,Telangana
-2024-11-04,2024,45,Conjunctivitis,20,Rangareddy,Telangana
-2024-11-11,2024,46,Dengue,4,Rangareddy,Telangana
-2024-11-11,2024,46,Malaria,6,Rangareddy,Telangana
-2024-11-11,2024,46,Diarrhea,10,Rangareddy,Telangana
-2024-11-11,2024,46,Typhoid,1,Rangareddy,Telangana
-2024-11-11,2024,46,Influenza,49,Rangareddy,Telangana
-2024-11-11,2024,46,Respiratory Infections,79,Rangareddy,Telangana
-2024-11-11,2024,46,Viral Fever,11,Rangareddy,Telangana
-2024-11-11,2024,46,Conjunctivitis,9,Rangareddy,Telangana
-2024-11-18,2024,47,Dengue,1,Rangareddy,Telangana
-2024-11-18,2024,47,Malaria,5,Rangareddy,Telangana
-2024-11-18,2024,47,Diarrhea,11,Rangareddy,Telangana
-2024-11-18,2024,47,Typhoid,1,Rangareddy,Telangana
-2024-11-18,2024,47,Influenza,44,Rangareddy,Telangana
-2024-11-18,2024,47,Respiratory Infections,98,Rangareddy,Telangana
-2024-11-18,2024,47,Viral Fever,11,Rangareddy,Telangana
-2024-11-18,2024,47,Conjunctivitis,6,Rangareddy,Telangana
-2024-11-25,2024,48,Dengue,1,Rangareddy,Telangana
-2024-11-25,2024,48,Malaria,5,Rangareddy,Telangana
-2024-11-25,2024,48,Diarrhea,11,Rangareddy,Telangana
-2024-11-25,2024,48,Typhoid,1,Rangareddy,Telangana
-2024-11-25,2024,48,Influenza,51,Rangareddy,Telangana
-2024-11-25,2024,48,Respiratory Infections,83,Rangareddy,Telangana
-2024-11-25,2024,48,Viral Fever,21,Rangareddy,Telangana
-2024-11-25,2024,48,Conjunctivitis,6,Rangareddy,Telangana
-2024-12-02,2024,49,Dengue,2,Rangareddy,Telangana
-2024-12-02,2024,49,Malaria,6,Rangareddy,Telangana
-2024-12-02,2024,49,Diarrhea,4,Rangareddy,Telangana
-2024-12-02,2024,49,Typhoid,1,Rangareddy,Telangana
-2024-12-02,2024,49,Influenza,44,Rangareddy,Telangana
-2024-12-02,2024,49,Respiratory Infections,84,Rangareddy,Telangana
-2024-12-02,2024,49,Viral Fever,13,Rangareddy,Telangana
-2024-12-02,2024,49,Conjunctivitis,8,Rangareddy,Telangana
-2024-12-09,2024,50,Dengue,2,Rangareddy,Telangana
-2024-12-09,2024,50,Malaria,5,Rangareddy,Telangana
-2024-12-09,2024,50,Diarrhea,8,Rangareddy,Telangana
-2024-12-09,2024,50,Typhoid,2,Rangareddy,Telangana
-2024-12-09,2024,50,Influenza,44,Rangareddy,Telangana
-2024-12-09,2024,50,Respiratory Infections,97,Rangareddy,Telangana
-2024-12-09,2024,50,Viral Fever,21,Rangareddy,Telangana
-2024-12-09,2024,50,Conjunctivitis,4,Rangareddy,Telangana
-2024-12-16,2024,51,Dengue,2,Rangareddy,Telangana
-2024-12-16,2024,51,Malaria,2,Rangareddy,Telangana
-2024-12-16,2024,51,Diarrhea,5,Rangareddy,Telangana
-2024-12-16,2024,51,Typhoid,1,Rangareddy,Telangana
-2024-12-16,2024,51,Influenza,54,Rangareddy,Telangana
-2024-12-16,2024,51,Respiratory Infections,224,Rangareddy,Telangana
-2024-12-16,2024,51,Viral Fever,15,Rangareddy,Telangana
-2024-12-16,2024,51,Conjunctivitis,3,Rangareddy,Telangana
-2024-12-23,2024,52,Dengue,1,Rangareddy,Telangana
-2024-12-23,2024,52,Malaria,2,Rangareddy,Telangana
-2024-12-23,2024,52,Diarrhea,10,Rangareddy,Telangana
-2024-12-23,2024,52,Typhoid,0,Rangareddy,Telangana
-2024-12-23,2024,52,Influenza,44,Rangareddy,Telangana
-2024-12-23,2024,52,Respiratory Infections,79,Rangareddy,Telangana
-2024-12-23,2024,52,Viral Fever,28,Rangareddy,Telangana
-2024-12-23,2024,52,Conjunctivitis,3,Rangareddy,Telangana
-2024-12-30,2024,1,Dengue,1,Rangareddy,Telangana
-2024-12-30,2024,1,Malaria,6,Rangareddy,Telangana
-2024-12-30,2024,1,Diarrhea,16,Rangareddy,Telangana
-2024-12-30,2024,1,Typhoid,1,Rangareddy,Telangana
-2024-12-30,2024,1,Influenza,40,Rangareddy,Telangana
-2024-12-30,2024,1,Respiratory Infections,111,Rangareddy,Telangana
-2024-12-30,2024,1,Viral Fever,11,Rangareddy,Telangana
-2024-12-30,2024,1,Conjunctivitis,3,Rangareddy,Telangana
-2025-01-06,2025,2,Dengue,2,Rangareddy,Telangana
-2025-01-06,2025,2,Malaria,2,Rangareddy,Telangana
-2025-01-06,2025,2,Diarrhea,11,Rangareddy,Telangana
-2025-01-06,2025,2,Typhoid,1,Rangareddy,Telangana
-2025-01-06,2025,2,Influenza,39,Rangareddy,Telangana
-2025-01-06,2025,2,Respiratory Infections,98,Rangareddy,Telangana
-2025-01-06,2025,2,Viral Fever,12,Rangareddy,Telangana
-2025-01-06,2025,2,Conjunctivitis,6,Rangareddy,Telangana
-2025-01-13,2025,3,Dengue,2,Rangareddy,Telangana
-2025-01-13,2025,3,Malaria,4,Rangareddy,Telangana
-2025-01-13,2025,3,Diarrhea,10,Rangareddy,Telangana
-2025-01-13,2025,3,Typhoid,1,Rangareddy,Telangana
-2025-01-13,2025,3,Influenza,67,Rangareddy,Telangana
-2025-01-13,2025,3,Respiratory Infections,60,Rangareddy,Telangana
-2025-01-13,2025,3,Viral Fever,13,Rangareddy,Telangana
-2025-01-13,2025,3,Conjunctivitis,5,Rangareddy,Telangana
-2025-01-20,2025,4,Dengue,2,Rangareddy,Telangana
-2025-01-20,2025,4,Malaria,5,Rangareddy,Telangana
-2025-01-20,2025,4,Diarrhea,10,Rangareddy,Telangana
-2025-01-20,2025,4,Typhoid,1,Rangareddy,Telangana
-2025-01-20,2025,4,Influenza,41,Rangareddy,Telangana
-2025-01-20,2025,4,Respiratory Infections,82,Rangareddy,Telangana
-2025-01-20,2025,4,Viral Fever,20,Rangareddy,Telangana
-2025-01-20,2025,4,Conjunctivitis,5,Rangareddy,Telangana
-2025-01-27,2025,5,Dengue,2,Rangareddy,Telangana
-2025-01-27,2025,5,Malaria,4,Rangareddy,Telangana
-2025-01-27,2025,5,Diarrhea,6,Rangareddy,Telangana
-2025-01-27,2025,5,Typhoid,1,Rangareddy,Telangana
-2025-01-27,2025,5,Influenza,47,Rangareddy,Telangana
-2025-01-27,2025,5,Respiratory Infections,279,Rangareddy,Telangana
-2025-01-27,2025,5,Viral Fever,9,Rangareddy,Telangana
-2025-01-27,2025,5,Conjunctivitis,3,Rangareddy,Telangana
-2025-02-03,2025,6,Dengue,2,Rangareddy,Telangana
-2025-02-03,2025,6,Malaria,3,Rangareddy,Telangana
-2025-02-03,2025,6,Diarrhea,12,Rangareddy,Telangana
-2025-02-03,2025,6,Typhoid,1,Rangareddy,Telangana
-2025-02-03,2025,6,Influenza,57,Rangareddy,Telangana
-2025-02-03,2025,6,Respiratory Infections,81,Rangareddy,Telangana
-2025-02-03,2025,6,Viral Fever,18,Rangareddy,Telangana
-2025-02-03,2025,6,Conjunctivitis,7,Rangareddy,Telangana
-2025-02-10,2025,7,Dengue,4,Rangareddy,Telangana
-2025-02-10,2025,7,Malaria,4,Rangareddy,Telangana
-2025-02-10,2025,7,Diarrhea,7,Rangareddy,Telangana
-2025-02-10,2025,7,Typhoid,1,Rangareddy,Telangana
-2025-02-10,2025,7,Influenza,29,Rangareddy,Telangana
-2025-02-10,2025,7,Respiratory Infections,86,Rangareddy,Telangana
-2025-02-10,2025,7,Viral Fever,9,Rangareddy,Telangana
-2025-02-10,2025,7,Conjunctivitis,3,Rangareddy,Telangana
-2025-02-17,2025,8,Dengue,4,Rangareddy,Telangana
-2025-02-17,2025,8,Malaria,5,Rangareddy,Telangana
-2025-02-17,2025,8,Diarrhea,42,Rangareddy,Telangana
-2025-02-17,2025,8,Typhoid,2,Rangareddy,Telangana
-2025-02-17,2025,8,Influenza,59,Rangareddy,Telangana
-2025-02-17,2025,8,Respiratory Infections,81,Rangareddy,Telangana
-2025-02-17,2025,8,Viral Fever,19,Rangareddy,Telangana
-2025-02-17,2025,8,Conjunctivitis,2,Rangareddy,Telangana
-2025-02-24,2025,9,Dengue,3,Rangareddy,Telangana
-2025-02-24,2025,9,Malaria,2,Rangareddy,Telangana
-2025-02-24,2025,9,Diarrhea,7,Rangareddy,Telangana
-2025-02-24,2025,9,Typhoid,2,Rangareddy,Telangana
-2025-02-24,2025,9,Influenza,45,Rangareddy,Telangana
-2025-02-24,2025,9,Respiratory Infections,70,Rangareddy,Telangana
-2025-02-24,2025,9,Viral Fever,14,Rangareddy,Telangana
-2025-02-24,2025,9,Conjunctivitis,8,Rangareddy,Telangana
-2025-03-03,2025,10,Dengue,4,Rangareddy,Telangana
-2025-03-03,2025,10,Malaria,6,Rangareddy,Telangana
-2025-03-03,2025,10,Diarrhea,9,Rangareddy,Telangana
-2025-03-03,2025,10,Typhoid,1,Rangareddy,Telangana
-2025-03-03,2025,10,Influenza,13,Rangareddy,Telangana
-2025-03-03,2025,10,Respiratory Infections,11,Rangareddy,Telangana
-2025-03-03,2025,10,Viral Fever,128,Rangareddy,Telangana
-2025-03-03,2025,10,Conjunctivitis,6,Rangareddy,Telangana
-2025-03-10,2025,11,Dengue,3,Rangareddy,Telangana
-2025-03-10,2025,11,Malaria,3,Rangareddy,Telangana
-2025-03-10,2025,11,Diarrhea,12,Rangareddy,Telangana
-2025-03-10,2025,11,Typhoid,1,Rangareddy,Telangana
-2025-03-10,2025,11,Influenza,10,Rangareddy,Telangana
-2025-03-10,2025,11,Respiratory Infections,29,Rangareddy,Telangana
-2025-03-10,2025,11,Viral Fever,68,Rangareddy,Telangana
-2025-03-10,2025,11,Conjunctivitis,7,Rangareddy,Telangana
-2025-03-17,2025,12,Dengue,1,Rangareddy,Telangana
-2025-03-17,2025,12,Malaria,3,Rangareddy,Telangana
-2025-03-17,2025,12,Diarrhea,5,Rangareddy,Telangana
-2025-03-17,2025,12,Typhoid,2,Rangareddy,Telangana
-2025-03-17,2025,12,Influenza,5,Rangareddy,Telangana
-2025-03-17,2025,12,Respiratory Infections,16,Rangareddy,Telangana
-2025-03-17,2025,12,Viral Fever,85,Rangareddy,Telangana
-2025-03-17,2025,12,Conjunctivitis,7,Rangareddy,Telangana
-2025-03-24,2025,13,Dengue,2,Rangareddy,Telangana
-2025-03-24,2025,13,Malaria,2,Rangareddy,Telangana
-2025-03-24,2025,13,Diarrhea,9,Rangareddy,Telangana
-2025-03-24,2025,13,Typhoid,2,Rangareddy,Telangana
-2025-03-24,2025,13,Influenza,6,Rangareddy,Telangana
-2025-03-24,2025,13,Respiratory Infections,12,Rangareddy,Telangana
-2025-03-24,2025,13,Viral Fever,82,Rangareddy,Telangana
-2025-03-24,2025,13,Conjunctivitis,3,Rangareddy,Telangana
-2025-03-31,2025,14,Dengue,2,Rangareddy,Telangana
-2025-03-31,2025,14,Malaria,2,Rangareddy,Telangana
-2025-03-31,2025,14,Diarrhea,9,Rangareddy,Telangana
-2025-03-31,2025,14,Typhoid,1,Rangareddy,Telangana
-2025-03-31,2025,14,Influenza,10,Rangareddy,Telangana
-2025-03-31,2025,14,Respiratory Infections,12,Rangareddy,Telangana
-2025-03-31,2025,14,Viral Fever,66,Rangareddy,Telangana
-2025-03-31,2025,14,Conjunctivitis,3,Rangareddy,Telangana
-2025-04-07,2025,15,Dengue,3,Rangareddy,Telangana
-2025-04-07,2025,15,Malaria,4,Rangareddy,Telangana
-2025-04-07,2025,15,Diarrhea,7,Rangareddy,Telangana
-2025-04-07,2025,15,Typhoid,1,Rangareddy,Telangana
-2025-04-07,2025,15,Influenza,5,Rangareddy,Telangana
-2025-04-07,2025,15,Respiratory Infections,11,Rangareddy,Telangana
-2025-04-07,2025,15,Viral Fever,140,Rangareddy,Telangana
-2025-04-07,2025,15,Conjunctivitis,7,Rangareddy,Telangana
-2025-04-14,2025,16,Dengue,2,Rangareddy,Telangana
-2025-04-14,2025,16,Malaria,13,Rangareddy,Telangana
-2025-04-14,2025,16,Diarrhea,18,Rangareddy,Telangana
-2025-04-14,2025,16,Typhoid,1,Rangareddy,Telangana
-2025-04-14,2025,16,Influenza,8,Rangareddy,Telangana
-2025-04-14,2025,16,Respiratory Infections,7,Rangareddy,Telangana
-2025-04-14,2025,16,Viral Fever,73,Rangareddy,Telangana
-2025-04-14,2025,16,Conjunctivitis,3,Rangareddy,Telangana
-2025-04-21,2025,17,Dengue,2,Rangareddy,Telangana
-2025-04-21,2025,17,Malaria,5,Rangareddy,Telangana
-2025-04-21,2025,17,Diarrhea,14,Rangareddy,Telangana
-2025-04-21,2025,17,Typhoid,1,Rangareddy,Telangana
-2025-04-21,2025,17,Influenza,6,Rangareddy,Telangana
-2025-04-21,2025,17,Respiratory Infections,9,Rangareddy,Telangana
-2025-04-21,2025,17,Viral Fever,94,Rangareddy,Telangana
-2025-04-21,2025,17,Conjunctivitis,6,Rangareddy,Telangana
-2025-04-28,2025,18,Dengue,2,Rangareddy,Telangana
-2025-04-28,2025,18,Malaria,3,Rangareddy,Telangana
-2025-04-28,2025,18,Diarrhea,44,Rangareddy,Telangana
-2025-04-28,2025,18,Typhoid,1,Rangareddy,Telangana
-2025-04-28,2025,18,Influenza,8,Rangareddy,Telangana
-2025-04-28,2025,18,Respiratory Infections,12,Rangareddy,Telangana
-2025-04-28,2025,18,Viral Fever,131,Rangareddy,Telangana
-2025-04-28,2025,18,Conjunctivitis,4,Rangareddy,Telangana
-2025-05-05,2025,19,Dengue,3,Rangareddy,Telangana
-2025-05-05,2025,19,Malaria,4,Rangareddy,Telangana
-2025-05-05,2025,19,Diarrhea,11,Rangareddy,Telangana
-2025-05-05,2025,19,Typhoid,2,Rangareddy,Telangana
-2025-05-05,2025,19,Influenza,7,Rangareddy,Telangana
-2025-05-05,2025,19,Respiratory Infections,6,Rangareddy,Telangana
-2025-05-05,2025,19,Viral Fever,73,Rangareddy,Telangana
-2025-05-05,2025,19,Conjunctivitis,3,Rangareddy,Telangana
-2025-05-12,2025,20,Dengue,1,Rangareddy,Telangana
-2025-05-12,2025,20,Malaria,7,Rangareddy,Telangana
-2025-05-12,2025,20,Diarrhea,7,Rangareddy,Telangana
-2025-05-12,2025,20,Typhoid,1,Rangareddy,Telangana
-2025-05-12,2025,20,Influenza,10,Rangareddy,Telangana
-2025-05-12,2025,20,Respiratory Infections,10,Rangareddy,Telangana
-2025-05-12,2025,20,Viral Fever,111,Rangareddy,Telangana
-2025-05-12,2025,20,Conjunctivitis,3,Rangareddy,Telangana
-2025-05-19,2025,21,Dengue,2,Rangareddy,Telangana
-2025-05-19,2025,21,Malaria,7,Rangareddy,Telangana
-2025-05-19,2025,21,Diarrhea,8,Rangareddy,Telangana
-2025-05-19,2025,21,Typhoid,1,Rangareddy,Telangana
-2025-05-19,2025,21,Influenza,8,Rangareddy,Telangana
-2025-05-19,2025,21,Respiratory Infections,15,Rangareddy,Telangana
-2025-05-19,2025,21,Viral Fever,75,Rangareddy,Telangana
-2025-05-19,2025,21,Conjunctivitis,5,Rangareddy,Telangana
-2025-05-26,2025,22,Dengue,3,Rangareddy,Telangana
-2025-05-26,2025,22,Malaria,5,Rangareddy,Telangana
-2025-05-26,2025,22,Diarrhea,6,Rangareddy,Telangana
-2025-05-26,2025,22,Typhoid,2,Rangareddy,Telangana
-2025-05-26,2025,22,Influenza,13,Rangareddy,Telangana
-2025-05-26,2025,22,Respiratory Infections,8,Rangareddy,Telangana
-2025-05-26,2025,22,Viral Fever,66,Rangareddy,Telangana
-2025-05-26,2025,22,Conjunctivitis,5,Rangareddy,Telangana
-2025-06-02,2025,23,Dengue,3,Rangareddy,Telangana
-2025-06-02,2025,23,Malaria,23,Rangareddy,Telangana
-2025-06-02,2025,23,Diarrhea,76,Rangareddy,Telangana
-2025-06-02,2025,23,Typhoid,11,Rangareddy,Telangana
-2025-06-02,2025,23,Influenza,9,Rangareddy,Telangana
-2025-06-02,2025,23,Respiratory Infections,9,Rangareddy,Telangana
-2025-06-02,2025,23,Viral Fever,108,Rangareddy,Telangana
-2025-06-02,2025,23,Conjunctivitis,4,Rangareddy,Telangana
-2025-06-09,2025,24,Dengue,3,Rangareddy,Telangana
-2025-06-09,2025,24,Malaria,24,Rangareddy,Telangana
-2025-06-09,2025,24,Diarrhea,62,Rangareddy,Telangana
-2025-06-09,2025,24,Typhoid,11,Rangareddy,Telangana
-2025-06-09,2025,24,Influenza,11,Rangareddy,Telangana
-2025-06-09,2025,24,Respiratory Infections,7,Rangareddy,Telangana
-2025-06-09,2025,24,Viral Fever,135,Rangareddy,Telangana
-2025-06-09,2025,24,Conjunctivitis,11,Rangareddy,Telangana
-2025-06-16,2025,25,Dengue,3,Rangareddy,Telangana
-2025-06-16,2025,25,Malaria,23,Rangareddy,Telangana
-2025-06-16,2025,25,Diarrhea,89,Rangareddy,Telangana
-2025-06-16,2025,25,Typhoid,12,Rangareddy,Telangana
-2025-06-16,2025,25,Influenza,7,Rangareddy,Telangana
-2025-06-16,2025,25,Respiratory Infections,17,Rangareddy,Telangana
-2025-06-16,2025,25,Viral Fever,71,Rangareddy,Telangana
-2025-06-16,2025,25,Conjunctivitis,4,Rangareddy,Telangana
-2025-06-23,2025,26,Dengue,3,Rangareddy,Telangana
-2025-06-23,2025,26,Malaria,22,Rangareddy,Telangana
-2025-06-23,2025,26,Diarrhea,55,Rangareddy,Telangana
-2025-06-23,2025,26,Typhoid,10,Rangareddy,Telangana
-2025-06-23,2025,26,Influenza,8,Rangareddy,Telangana
-2025-06-23,2025,26,Respiratory Infections,6,Rangareddy,Telangana
-2025-06-23,2025,26,Viral Fever,127,Rangareddy,Telangana
-2025-06-23,2025,26,Conjunctivitis,5,Rangareddy,Telangana
-2025-06-30,2025,27,Dengue,1,Rangareddy,Telangana
-2025-06-30,2025,27,Malaria,26,Rangareddy,Telangana
-2025-06-30,2025,27,Diarrhea,48,Rangareddy,Telangana
-2025-06-30,2025,27,Typhoid,10,Rangareddy,Telangana
-2025-06-30,2025,27,Influenza,11,Rangareddy,Telangana
-2025-06-30,2025,27,Respiratory Infections,8,Rangareddy,Telangana
-2025-06-30,2025,27,Viral Fever,82,Rangareddy,Telangana
-2025-06-30,2025,27,Conjunctivitis,4,Rangareddy,Telangana
-2025-07-07,2025,28,Dengue,14,Rangareddy,Telangana
-2025-07-07,2025,28,Malaria,25,Rangareddy,Telangana
-2025-07-07,2025,28,Diarrhea,65,Rangareddy,Telangana
-2025-07-07,2025,28,Typhoid,16,Rangareddy,Telangana
-2025-07-07,2025,28,Influenza,10,Rangareddy,Telangana
-2025-07-07,2025,28,Respiratory Infections,9,Rangareddy,Telangana
-2025-07-07,2025,28,Viral Fever,96,Rangareddy,Telangana
-2025-07-07,2025,28,Conjunctivitis,34,Rangareddy,Telangana
-2025-07-14,2025,29,Dengue,17,Rangareddy,Telangana
-2025-07-14,2025,29,Malaria,67,Rangareddy,Telangana
-2025-07-14,2025,29,Diarrhea,95,Rangareddy,Telangana
-2025-07-14,2025,29,Typhoid,7,Rangareddy,Telangana
-2025-07-14,2025,29,Influenza,11,Rangareddy,Telangana
-2025-07-14,2025,29,Respiratory Infections,11,Rangareddy,Telangana
-2025-07-14,2025,29,Viral Fever,95,Rangareddy,Telangana
-2025-07-14,2025,29,Conjunctivitis,30,Rangareddy,Telangana
-2025-07-21,2025,30,Dengue,25,Rangareddy,Telangana
-2025-07-21,2025,30,Malaria,24,Rangareddy,Telangana
-2025-07-21,2025,30,Diarrhea,82,Rangareddy,Telangana
-2025-07-21,2025,30,Typhoid,8,Rangareddy,Telangana
-2025-07-21,2025,30,Influenza,8,Rangareddy,Telangana
-2025-07-21,2025,30,Respiratory Infections,14,Rangareddy,Telangana
-2025-07-21,2025,30,Viral Fever,78,Rangareddy,Telangana
-2025-07-21,2025,30,Conjunctivitis,26,Rangareddy,Telangana
-2025-07-28,2025,31,Dengue,23,Rangareddy,Telangana
-2025-07-28,2025,31,Malaria,32,Rangareddy,Telangana
-2025-07-28,2025,31,Diarrhea,76,Rangareddy,Telangana
-2025-07-28,2025,31,Typhoid,34,Rangareddy,Telangana
-2025-07-28,2025,31,Influenza,3,Rangareddy,Telangana
-2025-07-28,2025,31,Respiratory Infections,13,Rangareddy,Telangana
-2025-07-28,2025,31,Viral Fever,65,Rangareddy,Telangana
-2025-07-28,2025,31,Conjunctivitis,27,Rangareddy,Telangana
-2025-08-04,2025,32,Dengue,15,Rangareddy,Telangana
-2025-08-04,2025,32,Malaria,27,Rangareddy,Telangana
-2025-08-04,2025,32,Diarrhea,58,Rangareddy,Telangana
-2025-08-04,2025,32,Typhoid,14,Rangareddy,Telangana
-2025-08-04,2025,32,Influenza,5,Rangareddy,Telangana
-2025-08-04,2025,32,Respiratory Infections,10,Rangareddy,Telangana
-2025-08-04,2025,32,Viral Fever,130,Rangareddy,Telangana
-2025-08-04,2025,32,Conjunctivitis,29,Rangareddy,Telangana
-2025-08-11,2025,33,Dengue,17,Rangareddy,Telangana
-2025-08-11,2025,33,Malaria,24,Rangareddy,Telangana
-2025-08-11,2025,33,Diarrhea,64,Rangareddy,Telangana
-2025-08-11,2025,33,Typhoid,8,Rangareddy,Telangana
-2025-08-11,2025,33,Influenza,7,Rangareddy,Telangana
-2025-08-11,2025,33,Respiratory Infections,19,Rangareddy,Telangana
-2025-08-11,2025,33,Viral Fever,87,Rangareddy,Telangana
-2025-08-11,2025,33,Conjunctivitis,32,Rangareddy,Telangana
-2025-08-18,2025,34,Dengue,48,Rangareddy,Telangana
-2025-08-18,2025,34,Malaria,24,Rangareddy,Telangana
-2025-08-18,2025,34,Diarrhea,66,Rangareddy,Telangana
-2025-08-18,2025,34,Typhoid,9,Rangareddy,Telangana
-2025-08-18,2025,34,Influenza,4,Rangareddy,Telangana
-2025-08-18,2025,34,Respiratory Infections,9,Rangareddy,Telangana
-2025-08-18,2025,34,Viral Fever,263,Rangareddy,Telangana
-2025-08-18,2025,34,Conjunctivitis,20,Rangareddy,Telangana
-2025-08-25,2025,35,Dengue,11,Rangareddy,Telangana
-2025-08-25,2025,35,Malaria,14,Rangareddy,Telangana
-2025-08-25,2025,35,Diarrhea,51,Rangareddy,Telangana
-2025-08-25,2025,35,Typhoid,7,Rangareddy,Telangana
-2025-08-25,2025,35,Influenza,3,Rangareddy,Telangana
-2025-08-25,2025,35,Respiratory Infections,15,Rangareddy,Telangana
-2025-08-25,2025,35,Viral Fever,68,Rangareddy,Telangana
-2025-08-25,2025,35,Conjunctivitis,120,Rangareddy,Telangana
-2025-09-01,2025,36,Dengue,16,Rangareddy,Telangana
-2025-09-01,2025,36,Malaria,27,Rangareddy,Telangana
-2025-09-01,2025,36,Diarrhea,71,Rangareddy,Telangana
-2025-09-01,2025,36,Typhoid,11,Rangareddy,Telangana
-2025-09-01,2025,36,Influenza,6,Rangareddy,Telangana
-2025-09-01,2025,36,Respiratory Infections,14,Rangareddy,Telangana
-2025-09-01,2025,36,Viral Fever,14,Rangareddy,Telangana
-2025-09-01,2025,36,Conjunctivitis,33,Rangareddy,Telangana
-2025-09-08,2025,37,Dengue,14,Rangareddy,Telangana
-2025-09-08,2025,37,Malaria,108,Rangareddy,Telangana
-2025-09-08,2025,37,Diarrhea,79,Rangareddy,Telangana
-2025-09-08,2025,37,Typhoid,11,Rangareddy,Telangana
-2025-09-08,2025,37,Influenza,7,Rangareddy,Telangana
-2025-09-08,2025,37,Respiratory Infections,12,Rangareddy,Telangana
-2025-09-08,2025,37,Viral Fever,12,Rangareddy,Telangana
-2025-09-08,2025,37,Conjunctivitis,30,Rangareddy,Telangana
-2025-09-15,2025,38,Dengue,33,Rangareddy,Telangana
-2025-09-15,2025,38,Malaria,19,Rangareddy,Telangana
-2025-09-15,2025,38,Diarrhea,50,Rangareddy,Telangana
-2025-09-15,2025,38,Typhoid,6,Rangareddy,Telangana
-2025-09-15,2025,38,Influenza,4,Rangareddy,Telangana
-2025-09-15,2025,38,Respiratory Infections,9,Rangareddy,Telangana
-2025-09-15,2025,38,Viral Fever,22,Rangareddy,Telangana
-2025-09-15,2025,38,Conjunctivitis,26,Rangareddy,Telangana
-2025-09-22,2025,39,Dengue,22,Rangareddy,Telangana
-2025-09-22,2025,39,Malaria,23,Rangareddy,Telangana
-2025-09-22,2025,39,Diarrhea,57,Rangareddy,Telangana
-2025-09-22,2025,39,Typhoid,14,Rangareddy,Telangana
-2025-09-22,2025,39,Influenza,7,Rangareddy,Telangana
-2025-09-22,2025,39,Respiratory Infections,10,Rangareddy,Telangana
-2025-09-22,2025,39,Viral Fever,25,Rangareddy,Telangana
-2025-09-22,2025,39,Conjunctivitis,38,Rangareddy,Telangana
-2025-09-29,2025,40,Dengue,16,Rangareddy,Telangana
-2025-09-29,2025,40,Malaria,22,Rangareddy,Telangana
-2025-09-29,2025,40,Diarrhea,54,Rangareddy,Telangana
-2025-09-29,2025,40,Typhoid,6,Rangareddy,Telangana
-2025-09-29,2025,40,Influenza,7,Rangareddy,Telangana
-2025-09-29,2025,40,Respiratory Infections,13,Rangareddy,Telangana
-2025-09-29,2025,40,Viral Fever,11,Rangareddy,Telangana
-2025-09-29,2025,40,Conjunctivitis,22,Rangareddy,Telangana
-2025-10-06,2025,41,Dengue,14,Rangareddy,Telangana
-2025-10-06,2025,41,Malaria,3,Rangareddy,Telangana
-2025-10-06,2025,41,Diarrhea,7,Rangareddy,Telangana
-2025-10-06,2025,41,Typhoid,9,Rangareddy,Telangana
-2025-10-06,2025,41,Influenza,6,Rangareddy,Telangana
-2025-10-06,2025,41,Respiratory Infections,16,Rangareddy,Telangana
-2025-10-06,2025,41,Viral Fever,29,Rangareddy,Telangana
-2025-10-06,2025,41,Conjunctivitis,7,Rangareddy,Telangana
-2025-10-13,2025,42,Dengue,17,Rangareddy,Telangana
-2025-10-13,2025,42,Malaria,7,Rangareddy,Telangana
-2025-10-13,2025,42,Diarrhea,18,Rangareddy,Telangana
-2025-10-13,2025,42,Typhoid,8,Rangareddy,Telangana
-2025-10-13,2025,42,Influenza,10,Rangareddy,Telangana
-2025-10-13,2025,42,Respiratory Infections,6,Rangareddy,Telangana
-2025-10-13,2025,42,Viral Fever,16,Rangareddy,Telangana
-2025-10-13,2025,42,Conjunctivitis,5,Rangareddy,Telangana
-2025-10-20,2025,43,Dengue,19,Rangareddy,Telangana
-2025-10-20,2025,43,Malaria,5,Rangareddy,Telangana
-2025-10-20,2025,43,Diarrhea,17,Rangareddy,Telangana
-2025-10-20,2025,43,Typhoid,11,Rangareddy,Telangana
-2025-10-20,2025,43,Influenza,6,Rangareddy,Telangana
-2025-10-20,2025,43,Respiratory Infections,13,Rangareddy,Telangana
-2025-10-20,2025,43,Viral Fever,16,Rangareddy,Telangana
-2025-10-20,2025,43,Conjunctivitis,7,Rangareddy,Telangana
-2025-10-27,2025,44,Dengue,15,Rangareddy,Telangana
-2025-10-27,2025,44,Malaria,5,Rangareddy,Telangana
-2025-10-27,2025,44,Diarrhea,12,Rangareddy,Telangana
-2025-10-27,2025,44,Typhoid,8,Rangareddy,Telangana
-2025-10-27,2025,44,Influenza,4,Rangareddy,Telangana
-2025-10-27,2025,44,Respiratory Infections,16,Rangareddy,Telangana
-2025-10-27,2025,44,Viral Fever,22,Rangareddy,Telangana
-2025-10-27,2025,44,Conjunctivitis,2,Rangareddy,Telangana
-2025-11-03,2025,45,Dengue,2,Rangareddy,Telangana
-2025-11-03,2025,45,Malaria,4,Rangareddy,Telangana
-2025-11-03,2025,45,Diarrhea,9,Rangareddy,Telangana
-2025-11-03,2025,45,Typhoid,0,Rangareddy,Telangana
-2025-11-03,2025,45,Influenza,48,Rangareddy,Telangana
-2025-11-03,2025,45,Respiratory Infections,92,Rangareddy,Telangana
-2025-11-03,2025,45,Viral Fever,17,Rangareddy,Telangana
-2025-11-03,2025,45,Conjunctivitis,4,Rangareddy,Telangana
-2025-11-10,2025,46,Dengue,1,Rangareddy,Telangana
-2025-11-10,2025,46,Malaria,4,Rangareddy,Telangana
-2025-11-10,2025,46,Diarrhea,12,Rangareddy,Telangana
-2025-11-10,2025,46,Typhoid,1,Rangareddy,Telangana
-2025-11-10,2025,46,Influenza,37,Rangareddy,Telangana
-2025-11-10,2025,46,Respiratory Infections,102,Rangareddy,Telangana
-2025-11-10,2025,46,Viral Fever,22,Rangareddy,Telangana
-2025-11-10,2025,46,Conjunctivitis,15,Rangareddy,Telangana
-2025-11-17,2025,47,Dengue,1,Rangareddy,Telangana
-2025-11-17,2025,47,Malaria,2,Rangareddy,Telangana
-2025-11-17,2025,47,Diarrhea,6,Rangareddy,Telangana
-2025-11-17,2025,47,Typhoid,0,Rangareddy,Telangana
-2025-11-17,2025,47,Influenza,50,Rangareddy,Telangana
-2025-11-17,2025,47,Respiratory Infections,79,Rangareddy,Telangana
-2025-11-17,2025,47,Viral Fever,16,Rangareddy,Telangana
-2025-11-17,2025,47,Conjunctivitis,15,Rangareddy,Telangana
-2025-11-24,2025,48,Dengue,3,Rangareddy,Telangana
-2025-11-24,2025,48,Malaria,3,Rangareddy,Telangana
-2025-11-24,2025,48,Diarrhea,13,Rangareddy,Telangana
-2025-11-24,2025,48,Typhoid,1,Rangareddy,Telangana
-2025-11-24,2025,48,Influenza,122,Rangareddy,Telangana
-2025-11-24,2025,48,Respiratory Infections,67,Rangareddy,Telangana
-2025-11-24,2025,48,Viral Fever,62,Rangareddy,Telangana
-2025-11-24,2025,48,Conjunctivitis,5,Rangareddy,Telangana
-2025-12-01,2025,49,Dengue,1,Rangareddy,Telangana
-2025-12-01,2025,49,Malaria,2,Rangareddy,Telangana
-2025-12-01,2025,49,Diarrhea,8,Rangareddy,Telangana
-2025-12-01,2025,49,Typhoid,1,Rangareddy,Telangana
-2025-12-01,2025,49,Influenza,67,Rangareddy,Telangana
-2025-12-01,2025,49,Respiratory Infections,67,Rangareddy,Telangana
-2025-12-01,2025,49,Viral Fever,24,Rangareddy,Telangana
-2025-12-01,2025,49,Conjunctivitis,6,Rangareddy,Telangana
-2025-12-08,2025,50,Dengue,1,Rangareddy,Telangana
-2025-12-08,2025,50,Malaria,2,Rangareddy,Telangana
-2025-12-08,2025,50,Diarrhea,9,Rangareddy,Telangana
-2025-12-08,2025,50,Typhoid,1,Rangareddy,Telangana
-2025-12-08,2025,50,Influenza,47,Rangareddy,Telangana
-2025-12-08,2025,50,Respiratory Infections,57,Rangareddy,Telangana
-2025-12-08,2025,50,Viral Fever,9,Rangareddy,Telangana
-2025-12-08,2025,50,Conjunctivitis,3,Rangareddy,Telangana
-2025-12-15,2025,51,Dengue,1,Rangareddy,Telangana
-2025-12-15,2025,51,Malaria,3,Rangareddy,Telangana
-2025-12-15,2025,51,Diarrhea,8,Rangareddy,Telangana
-2025-12-15,2025,51,Typhoid,1,Rangareddy,Telangana
-2025-12-15,2025,51,Influenza,60,Rangareddy,Telangana
-2025-12-15,2025,51,Respiratory Infections,73,Rangareddy,Telangana
-2025-12-15,2025,51,Viral Fever,17,Rangareddy,Telangana
-2025-12-15,2025,51,Conjunctivitis,3,Rangareddy,Telangana
-2025-12-22,2025,52,Dengue,2,Rangareddy,Telangana
-2025-12-22,2025,52,Malaria,3,Rangareddy,Telangana
-2025-12-22,2025,52,Diarrhea,9,Rangareddy,Telangana
-2025-12-22,2025,52,Typhoid,1,Rangareddy,Telangana
-2025-12-22,2025,52,Influenza,48,Rangareddy,Telangana
-2025-12-22,2025,52,Respiratory Infections,78,Rangareddy,Telangana
-2025-12-22,2025,52,Viral Fever,11,Rangareddy,Telangana
-2025-12-22,2025,52,Conjunctivitis,5,Rangareddy,Telangana
-2025-12-29,2025,1,Dengue,4,Rangareddy,Telangana
-2025-12-29,2025,1,Malaria,10,Rangareddy,Telangana
-2025-12-29,2025,1,Diarrhea,7,Rangareddy,Telangana
-2025-12-29,2025,1,Typhoid,1,Rangareddy,Telangana
-2025-12-29,2025,1,Influenza,26,Rangareddy,Telangana
-2025-12-29,2025,1,Respiratory Infections,89,Rangareddy,Telangana
-2025-12-29,2025,1,Viral Fever,15,Rangareddy,Telangana
-2025-12-29,2025,1,Conjunctivitis,8,Rangareddy,Telangana
-2026-01-05,2026,2,Dengue,2,Rangareddy,Telangana
-2026-01-05,2026,2,Malaria,3,Rangareddy,Telangana
-2026-01-05,2026,2,Diarrhea,10,Rangareddy,Telangana
-2026-01-05,2026,2,Typhoid,1,Rangareddy,Telangana
-2026-01-05,2026,2,Influenza,35,Rangareddy,Telangana
-2026-01-05,2026,2,Respiratory Infections,81,Rangareddy,Telangana
-2026-01-05,2026,2,Viral Fever,18,Rangareddy,Telangana
-2026-01-05,2026,2,Conjunctivitis,7,Rangareddy,Telangana
-2026-01-12,2026,3,Dengue,3,Rangareddy,Telangana
-2026-01-12,2026,3,Malaria,4,Rangareddy,Telangana
-2026-01-12,2026,3,Diarrhea,13,Rangareddy,Telangana
-2026-01-12,2026,3,Typhoid,1,Rangareddy,Telangana
-2026-01-12,2026,3,Influenza,46,Rangareddy,Telangana
-2026-01-12,2026,3,Respiratory Infections,80,Rangareddy,Telangana
-2026-01-12,2026,3,Viral Fever,11,Rangareddy,Telangana
-2026-01-12,2026,3,Conjunctivitis,4,Rangareddy,Telangana
-2026-01-19,2026,4,Dengue,2,Rangareddy,Telangana
-2026-01-19,2026,4,Malaria,15,Rangareddy,Telangana
-2026-01-19,2026,4,Diarrhea,18,Rangareddy,Telangana
-2026-01-19,2026,4,Typhoid,1,Rangareddy,Telangana
-2026-01-19,2026,4,Influenza,31,Rangareddy,Telangana
-2026-01-19,2026,4,Respiratory Infections,89,Rangareddy,Telangana
-2026-01-19,2026,4,Viral Fever,8,Rangareddy,Telangana
-2026-01-19,2026,4,Conjunctivitis,3,Rangareddy,Telangana
+week_start,disease,cases_reported,deaths
+2024-01-22,Acute Diarrheal Disease,29,0
+2024-01-22,Acute Respiratory Infection,60,0
+2024-01-22,Malaria,13,0
+2024-01-22,Dengue,19,0
+2024-01-22,Typhoid,23,0
+2024-01-22,Viral Fever,18,0
+2024-01-22,Hypertension,31,0
+2024-01-22,Diabetes,49,2
+2024-01-22,Skin Infections,10,0
+2024-01-29,Acute Diarrheal Disease,21,0
+2024-01-29,Acute Respiratory Infection,46,0
+2024-01-29,Malaria,18,0
+2024-01-29,Dengue,19,0
+2024-01-29,Typhoid,18,1
+2024-01-29,Viral Fever,8,0
+2024-01-29,Hypertension,55,0
+2024-01-29,Diabetes,35,0
+2024-01-29,Skin Infections,10,0
+2024-02-05,Acute Diarrheal Disease,49,0
+2024-02-05,Acute Respiratory Infection,82,0
+2024-02-05,Malaria,11,0
+2024-02-05,Dengue,7,0
+2024-02-05,Typhoid,10,0
+2024-02-05,Viral Fever,22,2
+2024-02-05,Hypertension,41,0
+2024-02-05,Diabetes,32,0
+2024-02-05,Skin Infections,13,0
+2024-02-12,Acute Diarrheal Disease,23,0
+2024-02-12,Acute Respiratory Infection,68,0
+2024-02-12,Malaria,16,0
+2024-02-12,Dengue,13,0
+2024-02-12,Typhoid,22,0
+2024-02-12,Viral Fever,11,0
+2024-02-12,Hypertension,36,0
+2024-02-12,Diabetes,49,0
+2024-02-12,Skin Infections,24,0
+2024-02-19,Acute Diarrheal Disease,23,2
+2024-02-19,Acute Respiratory Infection,50,0
+2024-02-19,Malaria,18,0
+2024-02-19,Dengue,16,0
+2024-02-19,Typhoid,8,0
+2024-02-19,Viral Fever,6,0
+2024-02-19,Hypertension,60,0
+2024-02-19,Diabetes,42,0
+2024-02-19,Skin Infections,18,0
+2024-02-26,Acute Diarrheal Disease,35,0
+2024-02-26,Acute Respiratory Infection,68,0
+2024-02-26,Malaria,16,0
+2024-02-26,Dengue,15,0
+2024-02-26,Typhoid,22,0
+2024-02-26,Viral Fever,16,0
+2024-02-26,Hypertension,51,0
+2024-02-26,Diabetes,57,0
+2024-02-26,Skin Infections,14,0
+2024-03-04,Acute Diarrheal Disease,46,0
+2024-03-04,Acute Respiratory Infection,38,0
+2024-03-04,Malaria,16,0
+2024-03-04,Dengue,5,0
+2024-03-04,Typhoid,23,0
+2024-03-04,Viral Fever,21,0
+2024-03-04,Hypertension,30,0
+2024-03-04,Diabetes,41,0
+2024-03-04,Skin Infections,8,0
+2024-03-11,Acute Diarrheal Disease,36,0
+2024-03-11,Acute Respiratory Infection,24,0
+2024-03-11,Malaria,15,0
+2024-03-11,Dengue,12,0
+2024-03-11,Typhoid,22,0
+2024-03-11,Viral Fever,15,0
+2024-03-11,Hypertension,33,0
+2024-03-11,Diabetes,60,0
+2024-03-11,Skin Infections,23,0
+2024-03-18,Acute Diarrheal Disease,36,1
+2024-03-18,Acute Respiratory Infection,25,0
+2024-03-18,Malaria,11,0
+2024-03-18,Dengue,6,0
+2024-03-18,Typhoid,15,0
+2024-03-18,Viral Fever,18,0
+2024-03-18,Hypertension,58,2
+2024-03-18,Diabetes,47,0
+2024-03-18,Skin Infections,6,0
+2024-03-25,Acute Diarrheal Disease,48,0
+2024-03-25,Acute Respiratory Infection,20,0
+2024-03-25,Malaria,18,0
+2024-03-25,Dengue,19,0
+2024-03-25,Typhoid,23,0
+2024-03-25,Viral Fever,7,0
+2024-03-25,Hypertension,50,0
+2024-03-25,Diabetes,30,0
+2024-03-25,Skin Infections,20,0
+2024-04-01,Acute Diarrheal Disease,38,0
+2024-04-01,Acute Respiratory Infection,39,0
+2024-04-01,Malaria,20,0
+2024-04-01,Dengue,14,0
+2024-04-01,Typhoid,13,1
+2024-04-01,Viral Fever,23,0
+2024-04-01,Hypertension,33,0
+2024-04-01,Diabetes,37,0
+2024-04-01,Skin Infections,18,0
+2024-04-08,Acute Diarrheal Disease,37,0
+2024-04-08,Acute Respiratory Infection,27,0
+2024-04-08,Malaria,25,0
+2024-04-08,Dengue,16,0
+2024-04-08,Typhoid,18,0
+2024-04-08,Viral Fever,24,0
+2024-04-08,Hypertension,49,0
+2024-04-08,Diabetes,42,0
+2024-04-08,Skin Infections,18,0
+2024-04-15,Acute Diarrheal Disease,42,0
+2024-04-15,Acute Respiratory Infection,25,0
+2024-04-15,Malaria,12,0
+2024-04-15,Dengue,6,0
+2024-04-15,Typhoid,25,0
+2024-04-15,Viral Fever,23,0
+2024-04-15,Hypertension,31,0
+2024-04-15,Diabetes,42,0
+2024-04-15,Skin Infections,8,0
+2024-04-22,Acute Diarrheal Disease,28,0
+2024-04-22,Acute Respiratory Infection,27,0
+2024-04-22,Malaria,5,0
+2024-04-22,Dengue,17,0
+2024-04-22,Typhoid,12,0
+2024-04-22,Viral Fever,23,0
+2024-04-22,Hypertension,44,0
+2024-04-22,Diabetes,52,0
+2024-04-22,Skin Infections,25,0
+2024-04-29,Acute Diarrheal Disease,33,1
+2024-04-29,Acute Respiratory Infection,45,0
+2024-04-29,Malaria,7,0
+2024-04-29,Dengue,20,0
+2024-04-29,Typhoid,10,0
+2024-04-29,Viral Fever,10,0
+2024-04-29,Hypertension,43,0
+2024-04-29,Diabetes,44,0
+2024-04-29,Skin Infections,11,0
+2024-05-06,Acute Diarrheal Disease,37,0
+2024-05-06,Acute Respiratory Infection,22,0
+2024-05-06,Malaria,13,0
+2024-05-06,Dengue,7,0
+2024-05-06,Typhoid,20,0
+2024-05-06,Viral Fever,18,0
+2024-05-06,Hypertension,34,0
+2024-05-06,Diabetes,32,0
+2024-05-06,Skin Infections,14,0
+2024-05-13,Acute Diarrheal Disease,49,0
+2024-05-13,Acute Respiratory Infection,20,0
+2024-05-13,Malaria,13,0
+2024-05-13,Dengue,20,0
+2024-05-13,Typhoid,12,0
+2024-05-13,Viral Fever,14,0
+2024-05-13,Hypertension,56,0
+2024-05-13,Diabetes,59,0
+2024-05-13,Skin Infections,18,0
+2024-05-20,Acute Diarrheal Disease,34,0
+2024-05-20,Acute Respiratory Infection,26,0
+2024-05-20,Malaria,8,0
+2024-05-20,Dengue,21,0
+2024-05-20,Typhoid,23,0
+2024-05-20,Viral Fever,17,0
+2024-05-20,Hypertension,50,0
+2024-05-20,Diabetes,30,0
+2024-05-20,Skin Infections,25,0
+2024-05-27,Acute Diarrheal Disease,39,0
+2024-05-27,Acute Respiratory Infection,37,0
+2024-05-27,Malaria,8,0
+2024-05-27,Dengue,16,0
+2024-05-27,Typhoid,8,0
+2024-05-27,Viral Fever,18,2
+2024-05-27,Hypertension,60,2
+2024-05-27,Diabetes,55,0
+2024-05-27,Skin Infections,7,0
+2024-06-03,Acute Diarrheal Disease,78,2
+2024-06-03,Acute Respiratory Infection,24,0
+2024-06-03,Malaria,17,0
+2024-06-03,Dengue,10,0
+2024-06-03,Typhoid,10,0
+2024-06-03,Viral Fever,19,0
+2024-06-03,Hypertension,52,0
+2024-06-03,Diabetes,59,0
+2024-06-03,Skin Infections,22,0
+2024-06-10,Acute Diarrheal Disease,88,0
+2024-06-10,Acute Respiratory Infection,46,0
+2024-06-10,Malaria,13,0
+2024-06-10,Dengue,7,0
+2024-06-10,Typhoid,11,0
+2024-06-10,Viral Fever,9,0
+2024-06-10,Hypertension,48,0
+2024-06-10,Diabetes,46,0
+2024-06-10,Skin Infections,5,0
+2024-06-17,Acute Diarrheal Disease,40,0
+2024-06-17,Acute Respiratory Infection,20,0
+2024-06-17,Malaria,25,0
+2024-06-17,Dengue,12,0
+2024-06-17,Typhoid,8,0
+2024-06-17,Viral Fever,17,0
+2024-06-17,Hypertension,43,0
+2024-06-17,Diabetes,35,0
+2024-06-17,Skin Infections,11,0
+2024-06-24,Acute Diarrheal Disease,66,0
+2024-06-24,Acute Respiratory Infection,23,0
+2024-06-24,Malaria,12,0
+2024-06-24,Dengue,20,0
+2024-06-24,Typhoid,10,0
+2024-06-24,Viral Fever,22,0
+2024-06-24,Hypertension,32,0
+2024-06-24,Diabetes,58,0
+2024-06-24,Skin Infections,23,0
+2024-07-01,Acute Diarrheal Disease,84,0
+2024-07-01,Acute Respiratory Infection,27,0
+2024-07-01,Malaria,17,0
+2024-07-01,Dengue,20,0
+2024-07-01,Typhoid,6,0
+2024-07-01,Viral Fever,12,0
+2024-07-01,Hypertension,32,0
+2024-07-01,Diabetes,45,0
+2024-07-01,Skin Infections,19,0
+2024-07-08,Acute Diarrheal Disease,48,0
+2024-07-08,Acute Respiratory Infection,29,0
+2024-07-08,Malaria,12,0
+2024-07-08,Dengue,18,0
+2024-07-08,Typhoid,13,0
+2024-07-08,Viral Fever,7,2
+2024-07-08,Hypertension,30,0
+2024-07-08,Diabetes,32,0
+2024-07-08,Skin Infections,22,0
+2024-07-15,Acute Diarrheal Disease,72,0
+2024-07-15,Acute Respiratory Infection,27,0
+2024-07-15,Malaria,62,0
+2024-07-15,Dengue,25,0
+2024-07-15,Typhoid,25,0
+2024-07-15,Viral Fever,6,0
+2024-07-15,Hypertension,58,0
+2024-07-15,Diabetes,60,0
+2024-07-15,Skin Infections,19,0
+2024-07-22,Acute Diarrheal Disease,72,0
+2024-07-22,Acute Respiratory Infection,33,0
+2024-07-22,Malaria,30,0
+2024-07-22,Dengue,12,0
+2024-07-22,Typhoid,18,0
+2024-07-22,Viral Fever,9,0
+2024-07-22,Hypertension,60,0
+2024-07-22,Diabetes,31,0
+2024-07-22,Skin Infections,25,0
+2024-07-29,Acute Diarrheal Disease,72,0
+2024-07-29,Acute Respiratory Infection,47,0
+2024-07-29,Malaria,37,0
+2024-07-29,Dengue,10,0
+2024-07-29,Typhoid,6,0
+2024-07-29,Viral Fever,17,0
+2024-07-29,Hypertension,30,0
+2024-07-29,Diabetes,48,0
+2024-07-29,Skin Infections,20,0
+2024-08-05,Acute Diarrheal Disease,56,0
+2024-08-05,Acute Respiratory Infection,22,0
+2024-08-05,Malaria,55,0
+2024-08-05,Dengue,15,0
+2024-08-05,Typhoid,19,0
+2024-08-05,Viral Fever,10,2
+2024-08-05,Hypertension,36,0
+2024-08-05,Diabetes,34,0
+2024-08-05,Skin Infections,19,0
+2024-08-12,Acute Diarrheal Disease,60,0
+2024-08-12,Acute Respiratory Infection,26,0
+2024-08-12,Malaria,55,0
+2024-08-12,Dengue,66,0
+2024-08-12,Typhoid,7,0
+2024-08-12,Viral Fever,12,0
+2024-08-12,Hypertension,34,0
+2024-08-12,Diabetes,44,0
+2024-08-12,Skin Infections,5,0
+2024-08-19,Acute Diarrheal Disease,88,0
+2024-08-19,Acute Respiratory Infection,48,0
+2024-08-19,Malaria,37,0
+2024-08-19,Dengue,36,0
+2024-08-19,Typhoid,23,0
+2024-08-19,Viral Fever,6,0
+2024-08-19,Hypertension,54,0
+2024-08-19,Diabetes,32,0
+2024-08-19,Skin Infections,23,0
+2024-08-26,Acute Diarrheal Disease,80,0
+2024-08-26,Acute Respiratory Infection,48,0
+2024-08-26,Malaria,30,0
+2024-08-26,Dengue,60,0
+2024-08-26,Typhoid,16,0
+2024-08-26,Viral Fever,7,0
+2024-08-26,Hypertension,46,0
+2024-08-26,Diabetes,37,0
+2024-08-26,Skin Infections,19,0
+2024-09-02,Acute Diarrheal Disease,35,0
+2024-09-02,Acute Respiratory Infection,31,0
+2024-09-02,Malaria,60,0
+2024-09-02,Dengue,45,0
+2024-09-02,Typhoid,18,0
+2024-09-02,Viral Fever,21,0
+2024-09-02,Hypertension,36,0
+2024-09-02,Diabetes,39,0
+2024-09-02,Skin Infections,23,0
+2024-09-09,Acute Diarrheal Disease,26,0
+2024-09-09,Acute Respiratory Infection,48,0
+2024-09-09,Malaria,15,0
+2024-09-09,Dengue,39,0
+2024-09-09,Typhoid,5,0
+2024-09-09,Viral Fever,17,0
+2024-09-09,Hypertension,31,0
+2024-09-09,Diabetes,45,0
+2024-09-09,Skin Infections,10,0
+2024-09-16,Acute Diarrheal Disease,45,0
+2024-09-16,Acute Respiratory Infection,37,0
+2024-09-16,Malaria,17,0
+2024-09-16,Dengue,24,0
+2024-09-16,Typhoid,12,0
+2024-09-16,Viral Fever,18,0
+2024-09-16,Hypertension,35,0
+2024-09-16,Diabetes,30,0
+2024-09-16,Skin Infections,21,0
+2024-09-23,Acute Diarrheal Disease,43,0
+2024-09-23,Acute Respiratory Infection,29,0
+2024-09-23,Malaria,32,0
+2024-09-23,Dengue,30,0
+2024-09-23,Typhoid,22,0
+2024-09-23,Viral Fever,21,0
+2024-09-23,Hypertension,40,0
+2024-09-23,Diabetes,33,1
+2024-09-23,Skin Infections,8,0
+2024-09-30,Acute Diarrheal Disease,38,0
+2024-09-30,Acute Respiratory Infection,20,0
+2024-09-30,Malaria,52,0
+2024-09-30,Dengue,33,0
+2024-09-30,Typhoid,12,0
+2024-09-30,Viral Fever,14,2
+2024-09-30,Hypertension,45,0
+2024-09-30,Diabetes,48,0
+2024-09-30,Skin Infections,16,0
+2024-10-07,Acute Diarrheal Disease,22,0
+2024-10-07,Acute Respiratory Infection,32,0
+2024-10-07,Malaria,16,0
+2024-10-07,Dengue,60,0
+2024-10-07,Typhoid,17,0
+2024-10-07,Viral Fever,9,0
+2024-10-07,Hypertension,30,0
+2024-10-07,Diabetes,51,0
+2024-10-07,Skin Infections,5,0
+2024-10-14,Acute Diarrheal Disease,32,0
+2024-10-14,Acute Respiratory Infection,48,0
+2024-10-14,Malaria,15,0
+2024-10-14,Dengue,63,0
+2024-10-14,Typhoid,14,0
+2024-10-14,Viral Fever,23,0
+2024-10-14,Hypertension,54,1
+2024-10-14,Diabetes,59,0
+2024-10-14,Skin Infections,8,0
+2024-10-21,Acute Diarrheal Disease,45,0
+2024-10-21,Acute Respiratory Infection,22,0
+2024-10-21,Malaria,11,0
+2024-10-21,Dengue,57,0
+2024-10-21,Typhoid,5,0
+2024-10-21,Viral Fever,10,0
+2024-10-21,Hypertension,52,0
+2024-10-21,Diabetes,49,0
+2024-10-21,Skin Infections,23,0
+2024-10-28,Acute Diarrheal Disease,22,0
+2024-10-28,Acute Respiratory Infection,27,0
+2024-10-28,Malaria,17,0
+2024-10-28,Dengue,57,0
+2024-10-28,Typhoid,15,0
+2024-10-28,Viral Fever,16,0
+2024-10-28,Hypertension,55,2
+2024-10-28,Diabetes,36,0
+2024-10-28,Skin Infections,10,0
+2024-11-04,Acute Diarrheal Disease,31,0
+2024-11-04,Acute Respiratory Infection,94,0
+2024-11-04,Malaria,10,0
+2024-11-04,Dengue,14,0
+2024-11-04,Typhoid,23,0
+2024-11-04,Viral Fever,23,0
+2024-11-04,Hypertension,53,0
+2024-11-04,Diabetes,52,0
+2024-11-04,Skin Infections,8,0
+2024-11-11,Acute Diarrheal Disease,44,0
+2024-11-11,Acute Respiratory Infection,74,0
+2024-11-11,Malaria,14,0
+2024-11-11,Dengue,11,0
+2024-11-11,Typhoid,12,0
+2024-11-11,Viral Fever,21,0
+2024-11-11,Hypertension,40,0
+2024-11-11,Diabetes,55,0
+2024-11-11,Skin Infections,8,0
+2024-11-18,Acute Diarrheal Disease,48,0
+2024-11-18,Acute Respiratory Infection,68,0
+2024-11-18,Malaria,10,0
+2024-11-18,Dengue,24,0
+2024-11-18,Typhoid,5,0
+2024-11-18,Viral Fever,14,0
+2024-11-18,Hypertension,60,0
+2024-11-18,Diabetes,51,0
+2024-11-18,Skin Infections,11,0
+2024-11-25,Acute Diarrheal Disease,47,0
+2024-11-25,Acute Respiratory Infection,60,0
+2024-11-25,Malaria,24,0
+2024-11-25,Dengue,5,0
+2024-11-25,Typhoid,20,0
+2024-11-25,Viral Fever,17,0
+2024-11-25,Hypertension,57,0
+2024-11-25,Diabetes,47,0
+2024-11-25,Skin Infections,12,0
+2024-12-02,Acute Diarrheal Disease,40,0
+2024-12-02,Acute Respiratory Infection,66,0
+2024-12-02,Malaria,21,0
+2024-12-02,Dengue,19,0
+2024-12-02,Typhoid,25,0
+2024-12-02,Viral Fever,8,0
+2024-12-02,Hypertension,31,0
+2024-12-02,Diabetes,37,0
+2024-12-02,Skin Infections,19,0
+2024-12-09,Acute Diarrheal Disease,32,0
+2024-12-09,Acute Respiratory Infection,78,0
+2024-12-09,Malaria,23,0
+2024-12-09,Dengue,25,0
+2024-12-09,Typhoid,9,0
+2024-12-09,Viral Fever,9,0
+2024-12-09,Hypertension,49,0
+2024-12-09,Diabetes,36,0
+2024-12-09,Skin Infections,23,0
+2024-12-16,Acute Diarrheal Disease,30,0
+2024-12-16,Acute Respiratory Infection,68,0
+2024-12-16,Malaria,8,0
+2024-12-16,Dengue,5,0
+2024-12-16,Typhoid,14,0
+2024-12-16,Viral Fever,5,0
+2024-12-16,Hypertension,47,0
+2024-12-16,Diabetes,58,0
+2024-12-16,Skin Infections,14,0
+2024-12-23,Acute Diarrheal Disease,49,0
+2024-12-23,Acute Respiratory Infection,48,0
+2024-12-23,Malaria,23,0
+2024-12-23,Dengue,23,0
+2024-12-23,Typhoid,8,0
+2024-12-23,Viral Fever,17,0
+2024-12-23,Hypertension,38,0
+2024-12-23,Diabetes,46,0
+2024-12-23,Skin Infections,21,0
+2024-12-30,Acute Diarrheal Disease,38,0
+2024-12-30,Acute Respiratory Infection,94,1
+2024-12-30,Malaria,21,0
+2024-12-30,Dengue,23,0
+2024-12-30,Typhoid,14,0
+2024-12-30,Viral Fever,12,0
+2024-12-30,Hypertension,31,0
+2024-12-30,Diabetes,58,0
+2024-12-30,Skin Infections,24,0
+2025-01-06,Acute Diarrheal Disease,29,0
+2025-01-06,Acute Respiratory Infection,56,0
+2025-01-06,Malaria,10,0
+2025-01-06,Dengue,19,0
+2025-01-06,Typhoid,14,0
+2025-01-06,Viral Fever,9,0
+2025-01-06,Hypertension,43,0
+2025-01-06,Diabetes,49,0
+2025-01-06,Skin Infections,19,0
+2025-01-13,Acute Diarrheal Disease,25,0
+2025-01-13,Acute Respiratory Infection,56,0
+2025-01-13,Malaria,19,0
+2025-01-13,Dengue,7,0
+2025-01-13,Typhoid,12,0
+2025-01-13,Viral Fever,13,0
+2025-01-13,Hypertension,30,0
+2025-01-13,Diabetes,47,0
+2025-01-13,Skin Infections,22,0
+2025-01-20,Acute Diarrheal Disease,20,0
+2025-01-20,Acute Respiratory Infection,66,0
+2025-01-20,Malaria,24,0
+2025-01-20,Dengue,8,0
+2025-01-20,Typhoid,5,0
+2025-01-20,Viral Fever,25,0
+2025-01-20,Hypertension,45,0
+2025-01-20,Diabetes,30,0
+2025-01-20,Skin Infections,20,0
+2025-01-27,Acute Diarrheal Disease,23,0
+2025-01-27,Acute Respiratory Infection,80,0
+2025-01-27,Malaria,11,0
+2025-01-27,Dengue,24,0
+2025-01-27,Typhoid,15,0
+2025-01-27,Viral Fever,19,0
+2025-01-27,Hypertension,59,0
+2025-01-27,Diabetes,45,0
+2025-01-27,Skin Infections,14,0
+2025-02-03,Acute Diarrheal Disease,45,0
+2025-02-03,Acute Respiratory Infection,54,0
+2025-02-03,Malaria,20,0
+2025-02-03,Dengue,7,0
+2025-02-03,Typhoid,10,0
+2025-02-03,Viral Fever,19,0
+2025-02-03,Hypertension,57,0
+2025-02-03,Diabetes,32,0
+2025-02-03,Skin Infections,12,0
+2025-02-10,Acute Diarrheal Disease,44,0
+2025-02-10,Acute Respiratory Infection,52,0
+2025-02-10,Malaria,8,0
+2025-02-10,Dengue,11,0
+2025-02-10,Typhoid,18,0
+2025-02-10,Viral Fever,24,0
+2025-02-10,Hypertension,39,1
+2025-02-10,Diabetes,42,0
+2025-02-10,Skin Infections,13,0
+2025-02-17,Acute Diarrheal Disease,34,1
+2025-02-17,Acute Respiratory Infection,54,0
+2025-02-17,Malaria,13,0
+2025-02-17,Dengue,12,0
+2025-02-17,Typhoid,23,0
+2025-02-17,Viral Fever,14,0
+2025-02-17,Hypertension,33,0
+2025-02-17,Diabetes,42,0
+2025-02-17,Skin Infections,22,0
+2025-02-24,Acute Diarrheal Disease,47,0
+2025-02-24,Acute Respiratory Infection,50,0
+2025-02-24,Malaria,24,0
+2025-02-24,Dengue,13,0
+2025-02-24,Typhoid,10,0
+2025-02-24,Viral Fever,5,0
+2025-02-24,Hypertension,48,0
+2025-02-24,Diabetes,30,0
+2025-02-24,Skin Infections,17,0
+2025-03-03,Acute Diarrheal Disease,29,0
+2025-03-03,Acute Respiratory Infection,32,0
+2025-03-03,Malaria,24,0
+2025-03-03,Dengue,6,0
+2025-03-03,Typhoid,24,0
+2025-03-03,Viral Fever,11,0
+2025-03-03,Hypertension,55,0
+2025-03-03,Diabetes,34,0
+2025-03-03,Skin Infections,5,0
+2025-03-10,Acute Diarrheal Disease,48,0
+2025-03-10,Acute Respiratory Infection,49,0
+2025-03-10,Malaria,19,0
+2025-03-10,Dengue,13,0
+2025-03-10,Typhoid,9,0
+2025-03-10,Viral Fever,21,0
+2025-03-10,Hypertension,57,0
+2025-03-10,Diabetes,55,0
+2025-03-10,Skin Infections,19,0
+2025-03-17,Acute Diarrheal Disease,43,0
+2025-03-17,Acute Respiratory Infection,38,0
+2025-03-17,Malaria,11,0
+2025-03-17,Dengue,12,0
+2025-03-17,Typhoid,15,0
+2025-03-17,Viral Fever,24,0
+2025-03-17,Hypertension,34,2
+2025-03-17,Diabetes,38,0
+2025-03-17,Skin Infections,15,0
+2025-03-24,Acute Diarrheal Disease,50,0
+2025-03-24,Acute Respiratory Infection,33,0
+2025-03-24,Malaria,10,0
+2025-03-24,Dengue,16,0
+2025-03-24,Typhoid,18,0
+2025-03-24,Viral Fever,5,0
+2025-03-24,Hypertension,47,0
+2025-03-24,Diabetes,50,0
+2025-03-24,Skin Infections,20,0
+2025-03-31,Acute Diarrheal Disease,41,0
+2025-03-31,Acute Respiratory Infection,33,0
+2025-03-31,Malaria,9,0
+2025-03-31,Dengue,25,0
+2025-03-31,Typhoid,16,0
+2025-03-31,Viral Fever,16,0
+2025-03-31,Hypertension,53,0
+2025-03-31,Diabetes,56,0
+2025-03-31,Skin Infections,6,0
+2025-04-07,Acute Diarrheal Disease,44,0
+2025-04-07,Acute Respiratory Infection,43,0
+2025-04-07,Malaria,19,0
+2025-04-07,Dengue,18,0
+2025-04-07,Typhoid,6,0
+2025-04-07,Viral Fever,24,0
+2025-04-07,Hypertension,54,0
+2025-04-07,Diabetes,35,0
+2025-04-07,Skin Infections,21,0
+2025-04-14,Acute Diarrheal Disease,23,0
+2025-04-14,Acute Respiratory Infection,41,0
+2025-04-14,Malaria,15,0
+2025-04-14,Dengue,15,0
+2025-04-14,Typhoid,25,0
+2025-04-14,Viral Fever,10,0
+2025-04-14,Hypertension,52,0
+2025-04-14,Diabetes,43,0
+2025-04-14,Skin Infections,22,0
+2025-04-21,Acute Diarrheal Disease,33,0
+2025-04-21,Acute Respiratory Infection,40,2
+2025-04-21,Malaria,21,0
+2025-04-21,Dengue,12,0
+2025-04-21,Typhoid,21,0
+2025-04-21,Viral Fever,19,0
+2025-04-21,Hypertension,57,0
+2025-04-21,Diabetes,53,0
+2025-04-21,Skin Infections,6,0
+2025-04-28,Acute Diarrheal Disease,28,0
+2025-04-28,Acute Respiratory Infection,36,0
+2025-04-28,Malaria,15,2
+2025-04-28,Dengue,22,0
+2025-04-28,Typhoid,9,0
+2025-04-28,Viral Fever,6,0
+2025-04-28,Hypertension,51,0
+2025-04-28,Diabetes,54,0
+2025-04-28,Skin Infections,16,0
+2025-05-05,Acute Diarrheal Disease,21,0
+2025-05-05,Acute Respiratory Infection,20,0
+2025-05-05,Malaria,25,0
+2025-05-05,Dengue,8,0
+2025-05-05,Typhoid,16,0
+2025-05-05,Viral Fever,19,0
+2025-05-05,Hypertension,44,0
+2025-05-05,Diabetes,37,0
+2025-05-05,Skin Infections,12,0
+2025-05-12,Acute Diarrheal Disease,37,0
+2025-05-12,Acute Respiratory Infection,29,0
+2025-05-12,Malaria,24,0
+2025-05-12,Dengue,13,0
+2025-05-12,Typhoid,9,0
+2025-05-12,Viral Fever,15,0
+2025-05-12,Hypertension,30,0
+2025-05-12,Diabetes,35,0
+2025-05-12,Skin Infections,11,0
+2025-05-19,Acute Diarrheal Disease,31,0
+2025-05-19,Acute Respiratory Infection,21,0
+2025-05-19,Malaria,22,0
+2025-05-19,Dengue,5,0
+2025-05-19,Typhoid,15,0
+2025-05-19,Viral Fever,23,0
+2025-05-19,Hypertension,37,0
+2025-05-19,Diabetes,50,0
+2025-05-19,Skin Infections,25,0
+2025-05-26,Acute Diarrheal Disease,25,0
+2025-05-26,Acute Respiratory Infection,25,0
+2025-05-26,Malaria,9,1
+2025-05-26,Dengue,16,0
+2025-05-26,Typhoid,16,0
+2025-05-26,Viral Fever,17,0
+2025-05-26,Hypertension,58,0
+2025-05-26,Diabetes,49,0
+2025-05-26,Skin Infections,17,0
+2025-06-02,Acute Diarrheal Disease,86,0
+2025-06-02,Acute Respiratory Infection,37,0
+2025-06-02,Malaria,12,0
+2025-06-02,Dengue,24,0
+2025-06-02,Typhoid,14,0
+2025-06-02,Viral Fever,5,0
+2025-06-02,Hypertension,41,0
+2025-06-02,Diabetes,47,0
+2025-06-02,Skin Infections,16,0
+2025-06-09,Acute Diarrheal Disease,74,0
+2025-06-09,Acute Respiratory Infection,49,0
+2025-06-09,Malaria,21,0
+2025-06-09,Dengue,5,0
+2025-06-09,Typhoid,23,0
+2025-06-09,Viral Fever,10,0
+2025-06-09,Hypertension,56,0
+2025-06-09,Diabetes,49,0
+2025-06-09,Skin Infections,11,0
+2025-06-16,Acute Diarrheal Disease,74,0
+2025-06-16,Acute Respiratory Infection,33,0
+2025-06-16,Malaria,25,0
+2025-06-16,Dengue,21,0
+2025-06-16,Typhoid,25,0
+2025-06-16,Viral Fever,5,0
+2025-06-16,Hypertension,54,0
+2025-06-16,Diabetes,57,0
+2025-06-16,Skin Infections,15,0
+2025-06-23,Acute Diarrheal Disease,64,0
+2025-06-23,Acute Respiratory Infection,20,0
+2025-06-23,Malaria,10,0
+2025-06-23,Dengue,22,0
+2025-06-23,Typhoid,21,0
+2025-06-23,Viral Fever,21,0
+2025-06-23,Hypertension,40,0
+2025-06-23,Diabetes,48,0
+2025-06-23,Skin Infections,6,0
+2025-06-30,Acute Diarrheal Disease,42,0
+2025-06-30,Acute Respiratory Infection,48,0
+2025-06-30,Malaria,9,1
+2025-06-30,Dengue,23,0
+2025-06-30,Typhoid,19,0
+2025-06-30,Viral Fever,11,0
+2025-06-30,Hypertension,50,0
+2025-06-30,Diabetes,38,0
+2025-06-30,Skin Infections,13,0
+2025-07-07,Acute Diarrheal Disease,70,0
+2025-07-07,Acute Respiratory Infection,25,1
+2025-07-07,Malaria,62,0
+2025-07-07,Dengue,13,1
+2025-07-07,Typhoid,12,0
+2025-07-07,Viral Fever,23,0
+2025-07-07,Hypertension,59,0
+2025-07-07,Diabetes,49,0
+2025-07-07,Skin Infections,5,0
+2025-07-14,Acute Diarrheal Disease,50,0
+2025-07-14,Acute Respiratory Infection,26,0
+2025-07-14,Malaria,50,0
+2025-07-14,Dengue,24,0
+2025-07-14,Typhoid,25,0
+2025-07-14,Viral Fever,17,0
+2025-07-14,Hypertension,50,0
+2025-07-14,Diabetes,34,0
+2025-07-14,Skin Infections,7,0
+2025-07-21,Acute Diarrheal Disease,88,0
+2025-07-21,Acute Respiratory Infection,33,0
+2025-07-21,Malaria,32,0
+2025-07-21,Dengue,5,0
+2025-07-21,Typhoid,23,0
+2025-07-21,Viral Fever,10,0
+2025-07-21,Hypertension,43,0
+2025-07-21,Diabetes,52,0
+2025-07-21,Skin Infections,22,0
+2025-07-28,Acute Diarrheal Disease,100,0
+2025-07-28,Acute Respiratory Infection,48,0
+2025-07-28,Malaria,27,0
+2025-07-28,Dengue,7,0
+2025-07-28,Typhoid,7,0
+2025-07-28,Viral Fever,21,0
+2025-07-28,Hypertension,32,0
+2025-07-28,Diabetes,48,0
+2025-07-28,Skin Infections,6,0
+2025-08-04,Acute Diarrheal Disease,70,0
+2025-08-04,Acute Respiratory Infection,45,0
+2025-08-04,Malaria,42,0
+2025-08-04,Dengue,39,0
+2025-08-04,Typhoid,6,0
+2025-08-04,Viral Fever,5,0
+2025-08-04,Hypertension,34,0
+2025-08-04,Diabetes,51,0
+2025-08-04,Skin Infections,17,0
+2025-08-11,Acute Diarrheal Disease,52,0
+2025-08-11,Acute Respiratory Infection,29,0
+2025-08-11,Malaria,32,0
+2025-08-11,Dengue,60,0
+2025-08-11,Typhoid,17,1
+2025-08-11,Viral Fever,6,0
+2025-08-11,Hypertension,60,0
+2025-08-11,Diabetes,45,0
+2025-08-11,Skin Infections,21,0
+2025-08-18,Acute Diarrheal Disease,78,0
+2025-08-18,Acute Respiratory Infection,28,0
+2025-08-18,Malaria,20,1
+2025-08-18,Dengue,30,0
+2025-08-18,Typhoid,5,0
+2025-08-18,Viral Fever,13,0
+2025-08-18,Hypertension,55,0
+2025-08-18,Diabetes,47,0
+2025-08-18,Skin Infections,8,0
+2025-08-25,Acute Diarrheal Disease,68,0
+2025-08-25,Acute Respiratory Infection,31,0
+2025-08-25,Malaria,32,0
+2025-08-25,Dengue,54,0
+2025-08-25,Typhoid,22,0
+2025-08-25,Viral Fever,19,0
+2025-08-25,Hypertension,44,0
+2025-08-25,Diabetes,58,0
+2025-08-25,Skin Infections,12,0
+2025-09-01,Acute Diarrheal Disease,34,0
+2025-09-01,Acute Respiratory Infection,30,0
+2025-09-01,Malaria,32,0
+2025-09-01,Dengue,72,0
+2025-09-01,Typhoid,5,0
+2025-09-01,Viral Fever,24,0
+2025-09-01,Hypertension,48,0
+2025-09-01,Diabetes,36,0
+2025-09-01,Skin Infections,20,0
+2025-09-08,Acute Diarrheal Disease,37,0
+2025-09-08,Acute Respiratory Infection,32,0
+2025-09-08,Malaria,27,0
+2025-09-08,Dengue,66,1
+2025-09-08,Typhoid,11,0
+2025-09-08,Viral Fever,11,2
+2025-09-08,Hypertension,56,0
+2025-09-08,Diabetes,30,0
+2025-09-08,Skin Infections,6,0
+2025-09-15,Acute Diarrheal Disease,32,0
+2025-09-15,Acute Respiratory Infection,34,0
+2025-09-15,Malaria,32,0
+2025-09-15,Dengue,33,0
+2025-09-15,Typhoid,24,0
+2025-09-15,Viral Fever,14,0
+2025-09-15,Hypertension,32,0
+2025-09-15,Diabetes,36,0
+2025-09-15,Skin Infections,15,0
+2025-09-22,Acute Diarrheal Disease,35,0
+2025-09-22,Acute Respiratory Infection,24,0
+2025-09-22,Malaria,62,0
+2025-09-22,Dengue,33,0
+2025-09-22,Typhoid,16,0
+2025-09-22,Viral Fever,7,0
+2025-09-22,Hypertension,60,0
+2025-09-22,Diabetes,42,0
+2025-09-22,Skin Infections,12,0
+2025-09-29,Acute Diarrheal Disease,37,0
+2025-09-29,Acute Respiratory Infection,21,0
+2025-09-29,Malaria,32,0
+2025-09-29,Dengue,75,0
+2025-09-29,Typhoid,5,0
+2025-09-29,Viral Fever,21,0
+2025-09-29,Hypertension,58,0
+2025-09-29,Diabetes,33,0
+2025-09-29,Skin Infections,16,0
+2025-10-06,Acute Diarrheal Disease,29,0
+2025-10-06,Acute Respiratory Infection,48,0
+2025-10-06,Malaria,17,0
+2025-10-06,Dengue,57,0
+2025-10-06,Typhoid,9,0
+2025-10-06,Viral Fever,9,0
+2025-10-06,Hypertension,52,0
+2025-10-06,Diabetes,33,2
+2025-10-06,Skin Infections,8,0
+2025-10-13,Acute Diarrheal Disease,47,0
+2025-10-13,Acute Respiratory Infection,34,0
+2025-10-13,Malaria,18,0
+2025-10-13,Dengue,48,0
+2025-10-13,Typhoid,15,0
+2025-10-13,Viral Fever,18,0
+2025-10-13,Hypertension,56,0
+2025-10-13,Diabetes,33,0
+2025-10-13,Skin Infections,19,0
+2025-10-20,Acute Diarrheal Disease,49,0
+2025-10-20,Acute Respiratory Infection,33,0
+2025-10-20,Malaria,18,0
+2025-10-20,Dengue,42,0
+2025-10-20,Typhoid,20,0
+2025-10-20,Viral Fever,16,0
+2025-10-20,Hypertension,56,0
+2025-10-20,Diabetes,47,0
+2025-10-20,Skin Infections,11,0
+2025-10-27,Acute Diarrheal Disease,29,0
+2025-10-27,Acute Respiratory Infection,30,0
+2025-10-27,Malaria,19,0
+2025-10-27,Dengue,51,0
+2025-10-27,Typhoid,23,0
+2025-10-27,Viral Fever,20,0
+2025-10-27,Hypertension,55,0
+2025-10-27,Diabetes,51,0
+2025-10-27,Skin Infections,16,0
+2025-11-03,Acute Diarrheal Disease,40,0
+2025-11-03,Acute Respiratory Infection,42,0
+2025-11-03,Malaria,10,0
+2025-11-03,Dengue,25,0
+2025-11-03,Typhoid,20,0
+2025-11-03,Viral Fever,5,0
+2025-11-03,Hypertension,51,0
+2025-11-03,Diabetes,58,0
+2025-11-03,Skin Infections,25,0
+2025-11-10,Acute Diarrheal Disease,41,0
+2025-11-10,Acute Respiratory Infection,80,0
+2025-11-10,Malaria,16,0
+2025-11-10,Dengue,8,0
+2025-11-10,Typhoid,17,0
+2025-11-10,Viral Fever,25,0
+2025-11-10,Hypertension,34,0
+2025-11-10,Diabetes,50,0
+2025-11-10,Skin Infections,20,0
+2025-11-17,Acute Diarrheal Disease,42,0
+2025-11-17,Acute Respiratory Infection,44,0
+2025-11-17,Malaria,16,0
+2025-11-17,Dengue,25,0
+2025-11-17,Typhoid,16,0
+2025-11-17,Viral Fever,25,0
+2025-11-17,Hypertension,37,0
+2025-11-17,Diabetes,46,0
+2025-11-17,Skin Infections,7,0
+2025-11-24,Acute Diarrheal Disease,49,0
+2025-11-24,Acute Respiratory Infection,82,0
+2025-11-24,Malaria,5,0
+2025-11-24,Dengue,22,0
+2025-11-24,Typhoid,21,0
+2025-11-24,Viral Fever,18,0
+2025-11-24,Hypertension,51,0
+2025-11-24,Diabetes,59,0
+2025-11-24,Skin Infections,23,0
+2025-12-01,Acute Diarrheal Disease,31,0
+2025-12-01,Acute Respiratory Infection,80,0
+2025-12-01,Malaria,13,0
+2025-12-01,Dengue,13,0
+2025-12-01,Typhoid,11,0
+2025-12-01,Viral Fever,15,0
+2025-12-01,Hypertension,31,0
+2025-12-01,Diabetes,59,0
+2025-12-01,Skin Infections,19,0
+2025-12-08,Acute Diarrheal Disease,49,0
+2025-12-08,Acute Respiratory Infection,98,0
+2025-12-08,Malaria,20,0
+2025-12-08,Dengue,13,0
+2025-12-08,Typhoid,18,0
+2025-12-08,Viral Fever,9,0
+2025-12-08,Hypertension,47,0
+2025-12-08,Diabetes,39,0
+2025-12-08,Skin Infections,24,0
+2025-12-15,Acute Diarrheal Disease,35,0
+2025-12-15,Acute Respiratory Infection,78,0
+2025-12-15,Malaria,9,0
+2025-12-15,Dengue,12,0
+2025-12-15,Typhoid,21,0
+2025-12-15,Viral Fever,24,0
+2025-12-15,Hypertension,50,0
+2025-12-15,Diabetes,57,0
+2025-12-15,Skin Infections,18,0
+2025-12-22,Acute Diarrheal Disease,37,0
+2025-12-22,Acute Respiratory Infection,42,0
+2025-12-22,Malaria,16,0
+2025-12-22,Dengue,9,0
+2025-12-22,Typhoid,19,0
+2025-12-22,Viral Fever,11,0
+2025-12-22,Hypertension,57,0
+2025-12-22,Diabetes,40,0
+2025-12-22,Skin Infections,9,0
+2025-12-29,Acute Diarrheal Disease,50,0
+2025-12-29,Acute Respiratory Infection,98,0
+2025-12-29,Malaria,17,0
+2025-12-29,Dengue,5,0
+2025-12-29,Typhoid,8,0
+2025-12-29,Viral Fever,13,0
+2025-12-29,Hypertension,44,0
+2025-12-29,Diabetes,52,0
+2025-12-29,Skin Infections,9,0
+2026-01-05,Acute Diarrheal Disease,47,0
+2026-01-05,Acute Respiratory Infection,72,0
+2026-01-05,Malaria,8,0
+2026-01-05,Dengue,10,0
+2026-01-05,Typhoid,16,0
+2026-01-05,Viral Fever,8,0
+2026-01-05,Hypertension,52,0
+2026-01-05,Diabetes,50,0
+2026-01-05,Skin Infections,15,0
+2026-01-12,Acute Diarrheal Disease,34,2
+2026-01-12,Acute Respiratory Infection,92,0
+2026-01-12,Malaria,25,1
+2026-01-12,Dengue,13,0
+2026-01-12,Typhoid,21,0
+2026-01-12,Viral Fever,20,0
+2026-01-12,Hypertension,39,0
+2026-01-12,Diabetes,46,0
+2026-01-12,Skin Infections,12,0
+2026-01-19,Acute Diarrheal Disease,27,0
+2026-01-19,Acute Respiratory Infection,68,0
+2026-01-19,Malaria,20,0
+2026-01-19,Dengue,12,0
+2026-01-19,Typhoid,24,0
+2026-01-19,Viral Fever,10,0
+2026-01-19,Hypertension,57,0
+2026-01-19,Diabetes,59,0
+2026-01-19,Skin Infections,9,0

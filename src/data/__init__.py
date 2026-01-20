@@ -1,0 +1,5 @@
+# MedPredict AI - Data Module
+from .generator import generate_all_data
+
+__all__ = ["generate_all_data"]
+

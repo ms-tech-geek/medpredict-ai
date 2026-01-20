@@ -1,94 +1,266 @@
-medicine_id,medicine_name,category,batch_no,quantity,unit,expiry_date,received_date,unit_cost_inr,total_value_inr,days_to_expiry
-1,Metformin 500mg,Diabetes,B2119,840,tablet,2027-12-02,2025-12-02,1.5,1260.0,682
-2,Metformin 850mg,Diabetes,B2993,840,tablet,2027-11-14,2025-11-14,2.0,1680.0,664
-3,Glimepiride 1mg,Diabetes,B2775,700,tablet,2027-11-02,2025-11-02,3.5,2450.0,652
-3,Glimepiride 1mg,Diabetes,B2566,175,tablet,2027-12-20,2025-12-20,3.5,612.5,700
-3,Glimepiride 1mg,Diabetes,B2339,175,tablet,2028-01-09,2026-01-09,3.5,612.5,720
-4,Glimepiride 2mg,Diabetes,B2257,280,tablet,2027-12-12,2025-12-12,4.0,1120.0,692
-5,Insulin Human 40IU,Diabetes,B2235,56,vial,2026-05-26,2025-11-27,85.0,4760.0,127
-5,Insulin Human 40IU,Diabetes,B2753,28,vial,2026-05-02,2025-11-03,85.0,2380.0,103
-6,Amlodipine 5mg,Hypertension,B2523,945,tablet,2027-12-20,2025-12-20,2.5,2362.5,700
-6,Amlodipine 5mg,Hypertension,B2162,189,tablet,2027-11-13,2025-11-13,2.5,472.5,663
-6,Amlodipine 5mg,Hypertension,B2268,630,tablet,2028-01-12,2026-01-12,2.5,1575.0,723
-7,Amlodipine 10mg,Hypertension,B2484,105,tablet,2027-11-23,2025-11-23,3.5,367.5,673
-7,Amlodipine 10mg,Hypertension,B2388,175,tablet,2027-11-18,2025-11-18,3.5,612.5,668
-8,Enalapril 5mg,Hypertension,B2545,210,tablet,2028-01-07,2026-01-07,4.0,840.0,718
-8,Enalapril 5mg,Hypertension,B2553,210,tablet,2027-12-27,2025-12-27,4.0,840.0,707
-9,Losartan 50mg,Hypertension,B2306,980,tablet,2027-11-10,2025-11-10,5.0,4900.0,660
-9,Losartan 50mg,Hypertension,B2723,245,tablet,2027-12-02,2025-12-02,5.0,1225.0,682
-9,Losartan 50mg,Hypertension,B2457,490,tablet,2027-11-09,2025-11-09,5.0,2450.0,659
-10,Atenolol 50mg,Hypertension,B2056,168,tablet,2027-12-27,2025-12-27,2.0,336.0,707
-11,Amoxicillin 500mg,Antibiotic,B2320,1050,capsule,2027-11-13,2025-11-13,3.0,3150.0,663
-11,Amoxicillin 500mg,Antibiotic,B2073,700,capsule,2027-12-17,2025-12-17,3.0,2100.0,697
-11,Amoxicillin 500mg,Antibiotic,B2733,350,capsule,2027-12-16,2025-12-16,3.0,1050.0,696
-12,Azithromycin 500mg,Antibiotic,B2368,105,tablet,2027-11-02,2025-11-02,15.0,1575.0,652
-12,Azithromycin 500mg,Antibiotic,B2194,175,tablet,2027-10-27,2025-10-27,15.0,2625.0,646
-13,Ciprofloxacin 500mg,Antibiotic,B2795,420,tablet,2027-11-26,2025-11-26,8.0,3360.0,676
-14,Metronidazole 400mg,Antibiotic,B2405,168,tablet,2027-12-26,2025-12-26,2.5,420.0,706
-14,Metronidazole 400mg,Antibiotic,B2097,168,tablet,2027-12-27,2025-12-27,2.5,420.0,707
-14,Metronidazole 400mg,Antibiotic,B2035,560,tablet,2027-10-21,2025-10-21,2.5,1400.0,640
-15,Doxycycline 100mg,Antibiotic,B2728,140,capsule,2027-12-06,2025-12-06,5.0,700.0,686
-15,Doxycycline 100mg,Antibiotic,B2263,280,capsule,2028-01-02,2026-01-02,5.0,1400.0,713
-16,Paracetamol 500mg,Analgesic,B2003,1050,tablet,2028-12-14,2025-12-15,0.5,525.0,1060
-16,Paracetamol 500mg,Analgesic,B2838,4200,tablet,2028-10-22,2025-10-23,0.5,2100.0,1007
-17,Paracetamol 650mg,Analgesic,B2824,1120,tablet,2029-01-10,2026-01-11,0.8,896.0,1087
-18,Ibuprofen 400mg,Analgesic,B2284,168,tablet,2028-01-02,2026-01-02,1.5,252.0,713
-18,Ibuprofen 400mg,Analgesic,B2364,168,tablet,2027-12-07,2025-12-07,1.5,252.0,687
-19,Diclofenac 50mg,Analgesic,B2807,490,tablet,2027-10-29,2025-10-29,2.0,980.0,648
-20,Cetirizine 10mg,Antihistamine,B2953,630,tablet,2027-11-25,2025-11-25,2.0,1260.0,675
-20,Cetirizine 10mg,Antihistamine,B2360,420,tablet,2027-12-04,2025-12-04,2.0,840.0,684
-20,Cetirizine 10mg,Antihistamine,B2319,126,tablet,2027-11-14,2025-11-14,2.0,252.0,664
-21,Salbutamol Inhaler,Respiratory,B2218,42,inhaler,2026-12-17,2025-12-17,120.0,5040.0,332
-21,Salbutamol Inhaler,Respiratory,B2609,21,inhaler,2027-01-04,2026-01-04,120.0,2520.0,350
-22,Cough Syrup (Dextromethorphan),Respiratory,B2099,112,bottle,2027-11-12,2025-11-12,45.0,5040.0,662
-22,Cough Syrup (Dextromethorphan),Respiratory,B2699,112,bottle,2027-12-28,2025-12-28,45.0,5040.0,708
-22,Cough Syrup (Dextromethorphan),Respiratory,B2232,112,bottle,2027-11-27,2025-11-27,45.0,5040.0,677
-23,Montelukast 10mg,Respiratory,B2908,315,tablet,2027-12-12,2025-12-12,8.0,2520.0,692
-24,ORS Sachets,GI,B2955,525,sachet,2028-10-29,2025-10-30,5.0,2625.0,1014
-24,ORS Sachets,GI,B2168,525,sachet,2028-11-15,2025-11-16,5.0,2625.0,1031
-25,Omeprazole 20mg,GI,B2862,700,capsule,2027-11-18,2025-11-18,3.0,2100.0,668
-25,Omeprazole 20mg,GI,B2478,700,capsule,2027-10-26,2025-10-26,3.0,2100.0,645
-25,Omeprazole 20mg,GI,B2094,700,capsule,2028-01-09,2026-01-09,3.0,2100.0,720
-26,Pantoprazole 40mg,GI,B2764,280,tablet,2028-01-07,2026-01-07,4.0,1120.0,718
-27,Ranitidine 150mg,GI,B2309,630,tablet,2027-10-23,2025-10-23,2.0,1260.0,642
-28,Ondansetron 4mg,GI,B2308,210,tablet,2027-12-06,2025-12-06,5.0,1050.0,686
-29,Chloroquine 250mg,Antimalarial,B2508,70,tablet,2028-10-27,2025-10-28,3.0,210.0,1012
-29,Chloroquine 250mg,Antimalarial,B2756,35,tablet,2028-11-26,2025-11-27,3.0,105.0,1042
-29,Chloroquine 250mg,Antimalarial,B2717,70,tablet,2028-11-03,2025-11-04,3.0,210.0,1019
-30,Artemether-Lumefantrine,Antimalarial,B2734,56,tablet,2027-11-03,2025-11-03,25.0,1400.0,653
-30,Artemether-Lumefantrine,Antimalarial,B2641,56,tablet,2027-11-21,2025-11-21,25.0,1400.0,671
-31,Primaquine 15mg,Antimalarial,B2536,105,tablet,2027-11-06,2025-11-06,4.0,420.0,656
-32,BCG Vaccine,Vaccine,B2857,28,vial,2026-06-30,2026-01-01,50.0,1400.0,162
-32,BCG Vaccine,Vaccine,B2524,28,vial,2026-05-12,2025-11-13,50.0,1400.0,113
-32,BCG Vaccine,Vaccine,B2054,14,vial,2026-05-21,2025-11-22,50.0,700.0,122
-33,OPV Vaccine,Vaccine,B2118,21,vial,2026-06-25,2025-12-27,25.0,525.0,157
-33,OPV Vaccine,Vaccine,B2586,63,vial,2026-05-26,2025-11-27,25.0,1575.0,127
-33,OPV Vaccine,Vaccine,B2157,63,vial,2026-04-27,2025-10-29,25.0,1575.0,98
-34,Pentavalent Vaccine,Vaccine,B2261,84,vial,2026-04-25,2025-10-27,150.0,12600.0,96
-34,Pentavalent Vaccine,Vaccine,B2467,84,vial,2026-06-14,2025-12-16,150.0,12600.0,146
-35,Measles Vaccine,Vaccine,B2527,28,vial,2026-06-13,2025-12-15,35.0,980.0,145
-35,Measles Vaccine,Vaccine,B2502,42,vial,2026-06-25,2025-12-27,35.0,1470.0,157
-36,TT Vaccine,Vaccine,B2888,21,vial,2026-10-30,2025-10-30,20.0,420.0,284
-36,TT Vaccine,Vaccine,B2975,12,vial,2027-01-07,2026-01-07,20.0,240.0,353
-37,Normal Saline 500ml,IV Fluid,B2120,140,bottle,2027-12-16,2025-12-16,35.0,4900.0,696
-38,Ringer Lactate 500ml,IV Fluid,B2190,56,bottle,2027-12-22,2025-12-22,40.0,2240.0,702
-39,Dextrose 5% 500ml,IV Fluid,B2329,84,bottle,2027-10-27,2025-10-27,38.0,3192.0,646
-40,Iron + Folic Acid,Supplement,B2041,420,tablet,2027-11-02,2025-11-02,1.0,420.0,652
-40,Iron + Folic Acid,Supplement,B2014,840,tablet,2027-11-17,2025-11-17,1.0,840.0,667
-41,Calcium + Vitamin D3,Supplement,B2211,840,tablet,2027-11-16,2025-11-16,2.5,2100.0,666
-41,Calcium + Vitamin D3,Supplement,B2319,560,tablet,2027-12-28,2025-12-28,2.5,1400.0,708
-42,Multivitamin Syrup,Supplement,B2223,21,bottle,2026-11-06,2025-11-06,55.0,1155.0,291
-42,Multivitamin Syrup,Supplement,B2568,105,bottle,2026-11-23,2025-11-23,55.0,5775.0,308
-42,Multivitamin Syrup,Supplement,B2317,105,bottle,2026-11-14,2025-11-14,55.0,5775.0,299
-43,Vitamin B Complex,Supplement,B2740,210,tablet,2027-11-13,2025-11-13,1.5,315.0,663
-43,Vitamin B Complex,Supplement,B2261,630,tablet,2027-11-10,2025-11-10,1.5,945.0,660
-44,Betamethasone Cream,Dermatology,B2018,56,tube,2027-11-15,2025-11-15,25.0,1400.0,665
-45,Clotrimazole Cream,Dermatology,B2394,70,tube,2027-11-22,2025-11-22,30.0,2100.0,672
-46,Permethrin Lotion,Dermatology,B2411,84,bottle,2027-11-28,2025-11-28,40.0,3360.0,678
-46,Permethrin Lotion,Dermatology,B2003,12,bottle,2028-01-11,2026-01-11,40.0,480.0,722
-47,Adrenaline 1mg/ml,Emergency,B2386,14,ampoule,2026-11-16,2025-11-16,15.0,210.0,301
-47,Adrenaline 1mg/ml,Emergency,B2165,4,ampoule,2026-12-26,2025-12-26,15.0,60.0,341
-47,Adrenaline 1mg/ml,Emergency,B2872,21,ampoule,2026-11-03,2025-11-03,15.0,315.0,288
-48,Hydrocortisone 100mg,Emergency,B2886,42,vial,2026-12-28,2025-12-28,45.0,1890.0,343
-49,Atropine 0.6mg/ml,Emergency,B2551,4,ampoule,2026-10-22,2025-10-22,12.0,48.0,276
-50,Diazepam 5mg/ml,Emergency,B2594,8,ampoule,2026-12-28,2025-12-28,20.0,160.0,343
+medicine_id,medicine_name,category,batch_no,quantity,unit,expiry_date,received_date,unit_cost_inr,total_value_inr
+1,Metformin 500mg,Diabetes,B3001,1288,tablet,2027-11-19,2025-11-19,1.5,1932.0
+1,Metformin 500mg,Diabetes,B3002,765,tablet,2027-01-21,2025-01-21,1.5,1147.5
+1,Metformin 500mg,Diabetes,B3003,1311,tablet,2027-09-14,2025-09-14,1.5,1966.5
+2,Metformin 850mg,Diabetes,B3004,2235,tablet,2026-03-07,2024-03-07,2.0,4470.0
+3,Glimepiride 1mg,Diabetes,B3005,270,tablet,2027-09-14,2025-09-14,3.5,945.0
+3,Glimepiride 1mg,Diabetes,B3006,1069,tablet,2026-04-02,2024-04-02,3.5,3741.5
+3,Glimepiride 1mg,Diabetes,B3007,940,tablet,2026-10-19,2024-10-19,3.5,3290.0
+3,Glimepiride 1mg,Diabetes,B3008,193,tablet,2027-01-09,2025-01-09,3.5,675.5
+4,Glimepiride 2mg,Diabetes,B3009,700,tablet,2027-09-25,2025-09-25,4.0,2800.0
+4,Glimepiride 2mg,Diabetes,B3010,125,tablet,2026-09-08,2024-09-08,4.0,500.0
+5,Insulin Human 40IU,Diabetes,B3011,20,vial,2026-07-19,2026-01-20,85.0,1700.0
+5,Insulin Human 40IU,Diabetes,B3012,17,vial,2026-07-19,2026-01-20,85.0,1445.0
+5,Insulin Human 40IU,Diabetes,B3013,14,vial,2026-07-19,2026-01-20,85.0,1190.0
+6,Insulin Glargine,Diabetes,B3014,46,vial,2026-03-11,2025-09-12,450.0,20700.0
+6,Insulin Glargine,Diabetes,B3015,47,vial,2026-03-26,2025-09-27,450.0,21150.0
+6,Insulin Glargine,Diabetes,B3016,77,vial,2026-07-19,2026-01-20,450.0,34650.0
+6,Insulin Glargine,Diabetes,B3017,104,vial,2026-07-19,2026-01-20,450.0,46800.0
+7,Sitagliptin 100mg,Diabetes,B3018,524,tablet,2027-09-17,2025-09-17,25.0,13100.0
+7,Sitagliptin 100mg,Diabetes,B3019,18,tablet,2026-09-30,2024-09-30,25.0,450.0
+7,Sitagliptin 100mg,Diabetes,B3020,465,tablet,2027-04-11,2025-04-11,25.0,11625.0
+7,Sitagliptin 100mg,Diabetes,B3021,659,tablet,2026-01-31,2024-02-01,25.0,16475.0
+8,Pioglitazone 15mg,Diabetes,B3022,378,tablet,2027-08-27,2025-08-27,8.0,3024.0
+8,Pioglitazone 15mg,Diabetes,B3023,32,tablet,2027-10-13,2025-10-13,8.0,256.0
+9,Vildagliptin 50mg,Diabetes,B3024,363,tablet,2026-08-27,2024-08-27,18.0,6534.0
+9,Vildagliptin 50mg,Diabetes,B3025,300,tablet,2027-06-28,2025-06-28,18.0,5400.0
+9,Vildagliptin 50mg,Diabetes,B3026,41,tablet,2027-02-26,2025-02-26,18.0,738.0
+10,Gliclazide 80mg,Diabetes,B3027,2418,tablet,2027-02-09,2025-02-09,5.0,12090.0
+11,Amlodipine 5mg,Hypertension,B3028,330,tablet,2026-09-12,2024-09-12,2.5,825.0
+12,Amlodipine 10mg,Hypertension,B3029,794,tablet,2026-09-14,2024-09-14,3.5,2779.0
+13,Enalapril 5mg,Hypertension,B3030,335,tablet,2026-09-13,2024-09-13,4.0,1340.0
+13,Enalapril 5mg,Hypertension,B3031,148,tablet,2027-12-14,2025-12-14,4.0,592.0
+13,Enalapril 5mg,Hypertension,B3032,1239,tablet,2027-07-26,2025-07-26,4.0,4956.0
+13,Enalapril 5mg,Hypertension,B3033,336,tablet,2027-02-04,2025-02-04,4.0,1344.0
+14,Losartan 50mg,Hypertension,B3034,4006,tablet,2027-03-28,2025-03-28,5.0,20030.0
+14,Losartan 50mg,Hypertension,B3035,1155,tablet,2026-12-29,2024-12-29,5.0,5775.0
+14,Losartan 50mg,Hypertension,B3036,2007,tablet,2026-01-30,2024-01-31,5.0,10035.0
+14,Losartan 50mg,Hypertension,B3037,1529,tablet,2026-02-06,2024-02-07,5.0,7645.0
+15,Telmisartan 40mg,Hypertension,B3038,3235,tablet,2027-06-26,2025-06-26,6.0,19410.0
+15,Telmisartan 40mg,Hypertension,B3039,1747,tablet,2026-03-28,2024-03-28,6.0,10482.0
+15,Telmisartan 40mg,Hypertension,B3040,1580,tablet,2026-10-18,2024-10-18,6.0,9480.0
+15,Telmisartan 40mg,Hypertension,B3041,3631,tablet,2027-08-16,2025-08-16,6.0,21786.0
+16,Atenolol 50mg,Hypertension,B3042,1980,tablet,2027-01-22,2025-01-22,3.0,5940.0
+17,Metoprolol 50mg,Hypertension,B3043,962,tablet,2026-11-26,2024-11-26,4.5,4329.0
+17,Metoprolol 50mg,Hypertension,B3044,638,tablet,2026-11-03,2024-11-03,4.5,2871.0
+17,Metoprolol 50mg,Hypertension,B3045,960,tablet,2027-12-22,2025-12-22,4.5,4320.0
+17,Metoprolol 50mg,Hypertension,B3046,1143,tablet,2026-03-07,2024-03-07,4.5,5143.5
+18,Ramipril 5mg,Hypertension,B3047,986,tablet,2027-10-06,2025-10-06,7.0,6902.0
+18,Ramipril 5mg,Hypertension,B3048,112,tablet,2027-05-09,2025-05-09,7.0,784.0
+19,Hydrochlorothiazide 25mg,Hypertension,B3049,1029,tablet,2026-04-04,2024-04-04,2.0,2058.0
+19,Hydrochlorothiazide 25mg,Hypertension,B3050,1576,tablet,2026-01-27,2024-01-28,2.0,3152.0
+19,Hydrochlorothiazide 25mg,Hypertension,B3051,630,tablet,2027-08-06,2025-08-06,2.0,1260.0
+19,Hydrochlorothiazide 25mg,Hypertension,B3052,1894,tablet,2026-02-07,2024-02-08,2.0,3788.0
+20,Furosemide 40mg,Hypertension,B3053,844,tablet,2026-04-18,2024-04-18,3.5,2954.0
+20,Furosemide 40mg,Hypertension,B3054,660,tablet,2026-01-30,2024-01-31,3.5,2310.0
+20,Furosemide 40mg,Hypertension,B3055,2677,tablet,2027-07-24,2025-07-24,3.5,9369.5
+20,Furosemide 40mg,Hypertension,B3056,2334,tablet,2027-06-14,2025-06-14,3.5,8169.0
+21,Spironolactone 25mg,Hypertension,B3057,72,tablet,2027-10-09,2025-10-09,8.0,576.0
+22,Cilnidipine 10mg,Hypertension,B3058,170,tablet,2027-01-16,2025-01-16,12.0,2040.0
+22,Cilnidipine 10mg,Hypertension,B3059,527,tablet,2027-03-17,2025-03-17,12.0,6324.0
+23,Amoxicillin 500mg,Antibiotics,B3060,2564,capsule,2026-03-19,2024-03-19,4.0,10256.0
+23,Amoxicillin 500mg,Antibiotics,B3061,3017,capsule,2026-03-14,2024-03-14,4.0,12068.0
+24,Azithromycin 500mg,Antibiotics,B3062,784,tablet,2027-09-11,2025-09-11,25.0,19600.0
+24,Azithromycin 500mg,Antibiotics,B3063,76,tablet,2027-09-12,2025-09-12,25.0,1900.0
+25,Ciprofloxacin 500mg,Antibiotics,B3064,241,tablet,2027-12-11,2025-12-11,8.0,1928.0
+25,Ciprofloxacin 500mg,Antibiotics,B3065,1034,tablet,2027-07-22,2025-07-22,8.0,8272.0
+25,Ciprofloxacin 500mg,Antibiotics,B3066,2357,tablet,2026-02-28,2024-02-29,8.0,18856.0
+26,Cefixime 200mg,Antibiotics,B3067,1195,tablet,2026-07-29,2024-07-29,15.0,17925.0
+26,Cefixime 200mg,Antibiotics,B3068,1029,tablet,2027-07-15,2025-07-15,15.0,15435.0
+27,Doxycycline 100mg,Antibiotics,B3069,2041,capsule,2026-02-22,2024-02-23,5.0,10205.0
+28,Metronidazole 400mg,Antibiotics,B3070,1846,tablet,2027-06-01,2025-06-01,3.0,5538.0
+28,Metronidazole 400mg,Antibiotics,B3071,139,tablet,2026-08-14,2024-08-14,3.0,417.0
+28,Metronidazole 400mg,Antibiotics,B3072,1610,tablet,2026-11-09,2024-11-09,3.0,4830.0
+28,Metronidazole 400mg,Antibiotics,B3073,852,tablet,2026-07-29,2024-07-29,3.0,2556.0
+29,Levofloxacin 500mg,Antibiotics,B3074,1375,tablet,2026-03-22,2024-03-22,18.0,24750.0
+29,Levofloxacin 500mg,Antibiotics,B3075,733,tablet,2027-12-12,2025-12-12,18.0,13194.0
+29,Levofloxacin 500mg,Antibiotics,B3076,1108,tablet,2026-02-08,2024-02-09,18.0,19944.0
+29,Levofloxacin 500mg,Antibiotics,B3077,171,tablet,2027-09-29,2025-09-29,18.0,3078.0
+30,Ofloxacin 200mg,Antibiotics,B3078,199,tablet,2027-05-17,2025-05-17,6.0,1194.0
+30,Ofloxacin 200mg,Antibiotics,B3079,657,tablet,2027-02-28,2025-02-28,6.0,3942.0
+30,Ofloxacin 200mg,Antibiotics,B3080,173,tablet,2027-10-15,2025-10-15,6.0,1038.0
+30,Ofloxacin 200mg,Antibiotics,B3081,894,tablet,2026-02-01,2024-02-02,6.0,5364.0
+31,Cephalexin 500mg,Antibiotics,B3082,661,capsule,2026-01-29,2024-01-30,10.0,6610.0
+31,Cephalexin 500mg,Antibiotics,B3083,248,capsule,2027-10-02,2025-10-02,10.0,2480.0
+31,Cephalexin 500mg,Antibiotics,B3084,781,capsule,2026-11-13,2024-11-13,10.0,7810.0
+31,Cephalexin 500mg,Antibiotics,B3085,476,capsule,2026-07-19,2024-07-19,10.0,4760.0
+32,Norfloxacin 400mg,Antibiotics,B3086,625,tablet,2027-12-11,2025-12-11,5.0,3125.0
+32,Norfloxacin 400mg,Antibiotics,B3087,48,tablet,2026-09-08,2024-09-08,5.0,240.0
+32,Norfloxacin 400mg,Antibiotics,B3088,427,tablet,2027-05-11,2025-05-11,5.0,2135.0
+32,Norfloxacin 400mg,Antibiotics,B3089,42,tablet,2026-07-22,2024-07-22,5.0,210.0
+33,Co-trimoxazole DS,Antibiotics,B3090,314,tablet,2026-08-15,2024-08-15,4.0,1256.0
+33,Co-trimoxazole DS,Antibiotics,B3091,185,tablet,2027-09-29,2025-09-29,4.0,740.0
+34,Clindamycin 300mg,Antibiotics,B3092,399,capsule,2027-11-29,2025-11-29,22.0,8778.0
+35,Nitrofurantoin 100mg,Antibiotics,B3093,770,capsule,2028-01-15,2026-01-15,8.0,6160.0
+35,Nitrofurantoin 100mg,Antibiotics,B3094,52,capsule,2026-11-13,2024-11-13,8.0,416.0
+35,Nitrofurantoin 100mg,Antibiotics,B3095,606,capsule,2027-05-20,2025-05-20,8.0,4848.0
+35,Nitrofurantoin 100mg,Antibiotics,B3096,1942,capsule,2027-08-21,2025-08-21,8.0,15536.0
+36,Paracetamol 500mg,Pain & Fever,B3097,5900,tablet,2026-02-05,2024-02-06,0.5,2950.0
+36,Paracetamol 500mg,Pain & Fever,B3098,1309,tablet,2027-12-19,2025-12-19,0.5,654.5
+37,Paracetamol 650mg,Pain & Fever,B3099,196,tablet,2027-07-24,2025-07-24,0.8,156.8
+37,Paracetamol 650mg,Pain & Fever,B3100,2108,tablet,2028-01-18,2026-01-18,0.8,1686.4
+37,Paracetamol 650mg,Pain & Fever,B3101,1580,tablet,2027-08-22,2025-08-22,0.8,1264.0
+38,Ibuprofen 400mg,Pain & Fever,B3102,1144,tablet,2027-06-11,2025-06-11,2.0,2288.0
+38,Ibuprofen 400mg,Pain & Fever,B3103,2261,tablet,2026-03-21,2024-03-21,2.0,4522.0
+38,Ibuprofen 400mg,Pain & Fever,B3104,1915,tablet,2027-10-11,2025-10-11,2.0,3830.0
+38,Ibuprofen 400mg,Pain & Fever,B3105,1692,tablet,2027-03-03,2025-03-03,2.0,3384.0
+39,Diclofenac 50mg,Pain & Fever,B3106,2366,tablet,2026-03-15,2024-03-15,2.5,5915.0
+39,Diclofenac 50mg,Pain & Fever,B3107,1798,tablet,2026-10-10,2024-10-10,2.5,4495.0
+39,Diclofenac 50mg,Pain & Fever,B3108,305,tablet,2028-01-01,2026-01-01,2.5,762.5
+39,Diclofenac 50mg,Pain & Fever,B3109,1698,tablet,2028-01-20,2026-01-20,2.5,4245.0
+40,Aceclofenac 100mg,Pain & Fever,B3110,1103,tablet,2027-01-26,2025-01-26,5.0,5515.0
+40,Aceclofenac 100mg,Pain & Fever,B3111,1191,tablet,2026-08-17,2024-08-17,5.0,5955.0
+41,Nimesulide 100mg,Pain & Fever,B3112,1086,tablet,2026-02-04,2024-02-05,3.0,3258.0
+41,Nimesulide 100mg,Pain & Fever,B3113,2788,tablet,2027-10-10,2025-10-10,3.0,8364.0
+41,Nimesulide 100mg,Pain & Fever,B3114,768,tablet,2027-07-27,2025-07-27,3.0,2304.0
+42,Tramadol 50mg,Pain & Fever,B3115,1410,tablet,2026-09-25,2024-09-25,8.0,11280.0
+42,Tramadol 50mg,Pain & Fever,B3116,331,tablet,2027-01-24,2025-01-24,8.0,2648.0
+42,Tramadol 50mg,Pain & Fever,B3117,253,tablet,2027-11-11,2025-11-11,8.0,2024.0
+43,Aspirin 75mg,Pain & Fever,B3118,1150,tablet,2027-03-15,2025-03-15,1.0,1150.0
+43,Aspirin 75mg,Pain & Fever,B3119,490,tablet,2026-09-13,2024-09-13,1.0,490.0
+44,Mefenamic Acid 500mg,Pain & Fever,B3120,537,tablet,2027-02-11,2025-02-11,4.0,2148.0
+44,Mefenamic Acid 500mg,Pain & Fever,B3121,171,tablet,2027-07-31,2025-07-31,4.0,684.0
+44,Mefenamic Acid 500mg,Pain & Fever,B3122,1160,tablet,2026-04-19,2024-04-19,4.0,4640.0
+44,Mefenamic Acid 500mg,Pain & Fever,B3123,901,tablet,2026-01-25,2024-01-26,4.0,3604.0
+45,Etoricoxib 90mg,Pain & Fever,B3124,821,tablet,2026-04-06,2024-04-06,15.0,12315.0
+45,Etoricoxib 90mg,Pain & Fever,B3125,708,tablet,2026-01-25,2024-01-26,15.0,10620.0
+46,Omeprazole 20mg,Gastrointestinal,B3126,555,capsule,2027-06-17,2025-06-17,3.0,1665.0
+46,Omeprazole 20mg,Gastrointestinal,B3127,2822,capsule,2026-04-15,2024-04-15,3.0,8466.0
+46,Omeprazole 20mg,Gastrointestinal,B3128,727,capsule,2027-11-18,2025-11-18,3.0,2181.0
+46,Omeprazole 20mg,Gastrointestinal,B3129,2511,capsule,2026-04-20,2024-04-20,3.0,7533.0
+47,Pantoprazole 40mg,Gastrointestinal,B3130,2216,tablet,2026-02-09,2024-02-10,5.0,11080.0
+48,Ranitidine 150mg,Gastrointestinal,B3131,287,tablet,2027-08-17,2025-08-17,2.0,574.0
+48,Ranitidine 150mg,Gastrointestinal,B3132,1737,tablet,2026-02-09,2024-02-10,2.0,3474.0
+49,Domperidone 10mg,Gastrointestinal,B3133,116,tablet,2026-07-30,2024-07-30,2.5,290.0
+49,Domperidone 10mg,Gastrointestinal,B3134,217,tablet,2027-05-14,2025-05-14,2.5,542.5
+49,Domperidone 10mg,Gastrointestinal,B3135,1056,tablet,2026-09-04,2024-09-04,2.5,2640.0
+50,Ondansetron 4mg,Gastrointestinal,B3136,1352,tablet,2026-01-30,2024-01-31,8.0,10816.0
+50,Ondansetron 4mg,Gastrointestinal,B3137,207,tablet,2026-08-15,2024-08-15,8.0,1656.0
+51,ORS Powder,Gastrointestinal,B3138,107,sachet,2026-12-22,2025-12-22,5.0,535.0
+52,Loperamide 2mg,Gastrointestinal,B3139,2609,tablet,2026-12-17,2024-12-17,3.0,7827.0
+52,Loperamide 2mg,Gastrointestinal,B3140,553,tablet,2027-12-30,2025-12-30,3.0,1659.0
+53,Dicyclomine 20mg,Gastrointestinal,B3141,652,tablet,2026-08-04,2024-08-04,4.0,2608.0
+53,Dicyclomine 20mg,Gastrointestinal,B3142,970,tablet,2026-10-07,2024-10-07,4.0,3880.0
+53,Dicyclomine 20mg,Gastrointestinal,B3143,654,tablet,2026-02-26,2024-02-27,4.0,2616.0
+54,Sucralfate 1g,Gastrointestinal,B3144,372,tablet,2027-10-14,2025-10-14,6.0,2232.0
+54,Sucralfate 1g,Gastrointestinal,B3145,147,tablet,2027-06-07,2025-06-07,6.0,882.0
+54,Sucralfate 1g,Gastrointestinal,B3146,1963,tablet,2027-11-02,2025-11-02,6.0,11778.0
+54,Sucralfate 1g,Gastrointestinal,B3147,31,tablet,2027-12-13,2025-12-13,6.0,186.0
+55,Rabeprazole 20mg,Gastrointestinal,B3148,1133,tablet,2027-06-06,2025-06-06,7.0,7931.0
+55,Rabeprazole 20mg,Gastrointestinal,B3149,2729,tablet,2026-07-21,2024-07-21,7.0,19103.0
+55,Rabeprazole 20mg,Gastrointestinal,B3150,3071,tablet,2027-06-30,2025-06-30,7.0,21497.0
+55,Rabeprazole 20mg,Gastrointestinal,B3151,1256,tablet,2026-03-18,2024-03-18,7.0,8792.0
+56,Esomeprazole 40mg,Gastrointestinal,B3152,972,capsule,2027-10-26,2025-10-26,10.0,9720.0
+56,Esomeprazole 40mg,Gastrointestinal,B3153,26,capsule,2027-07-11,2025-07-11,10.0,260.0
+56,Esomeprazole 40mg,Gastrointestinal,B3154,712,capsule,2026-09-03,2024-09-03,10.0,7120.0
+57,Lactulose Syrup,Gastrointestinal,B3155,241,bottle,2026-02-23,2025-02-23,85.0,20485.0
+57,Lactulose Syrup,Gastrointestinal,B3156,172,bottle,2026-03-11,2025-03-11,85.0,14620.0
+57,Lactulose Syrup,Gastrointestinal,B3157,179,bottle,2026-11-11,2025-11-11,85.0,15215.0
+57,Lactulose Syrup,Gastrointestinal,B3158,34,bottle,2026-09-03,2025-09-03,85.0,2890.0
+58,Zinc Dispersible 20mg,Gastrointestinal,B3159,856,tablet,2026-12-25,2024-12-25,2.0,1712.0
+58,Zinc Dispersible 20mg,Gastrointestinal,B3160,78,tablet,2027-01-09,2025-01-09,2.0,156.0
+58,Zinc Dispersible 20mg,Gastrointestinal,B3161,1371,tablet,2026-11-01,2024-11-01,2.0,2742.0
+59,Salbutamol Inhaler,Respiratory,B3162,24,inhaler,2026-11-05,2025-11-05,120.0,2880.0
+60,Budesonide Inhaler,Respiratory,B3163,12,inhaler,2026-12-01,2025-12-01,250.0,3000.0
+61,Montelukast 10mg,Respiratory,B3164,994,tablet,2027-04-12,2025-04-12,8.0,7952.0
+61,Montelukast 10mg,Respiratory,B3165,1076,tablet,2026-04-15,2024-04-15,8.0,8608.0
+62,Cetirizine 10mg,Respiratory,B3166,1398,tablet,2026-03-01,2024-03-01,2.0,2796.0
+63,Levocetirizine 5mg,Respiratory,B3167,1490,tablet,2026-04-02,2024-04-02,3.0,4470.0
+63,Levocetirizine 5mg,Respiratory,B3168,85,tablet,2027-11-17,2025-11-17,3.0,255.0
+63,Levocetirizine 5mg,Respiratory,B3169,95,tablet,2027-07-12,2025-07-12,3.0,285.0
+63,Levocetirizine 5mg,Respiratory,B3170,1962,tablet,2026-03-06,2024-03-06,3.0,5886.0
+64,Chlorpheniramine 4mg,Respiratory,B3171,916,tablet,2026-07-22,2024-07-22,1.0,916.0
+64,Chlorpheniramine 4mg,Respiratory,B3172,3608,tablet,2027-10-14,2025-10-14,1.0,3608.0
+64,Chlorpheniramine 4mg,Respiratory,B3173,4441,tablet,2027-07-16,2025-07-16,1.0,4441.0
+65,Dextromethorphan Syrup,Respiratory,B3174,266,bottle,2026-10-11,2025-10-11,45.0,11970.0
+65,Dextromethorphan Syrup,Respiratory,B3175,64,bottle,2026-12-02,2025-12-02,45.0,2880.0
+65,Dextromethorphan Syrup,Respiratory,B3176,581,bottle,2026-12-06,2025-12-06,45.0,26145.0
+66,Ambroxol Syrup,Respiratory,B3177,66,bottle,2026-12-01,2025-12-01,50.0,3300.0
+66,Ambroxol Syrup,Respiratory,B3178,281,bottle,2026-11-20,2025-11-20,50.0,14050.0
+66,Ambroxol Syrup,Respiratory,B3179,79,bottle,2026-11-16,2025-11-16,50.0,3950.0
+67,Theophylline 300mg,Respiratory,B3180,683,tablet,2026-02-28,2024-02-29,5.0,3415.0
+68,Ipratropium Inhaler,Respiratory,B3181,32,inhaler,2026-09-30,2025-09-30,180.0,5760.0
+69,Fluticasone Nasal Spray,Respiratory,B3182,22,bottle,2026-10-04,2025-10-04,150.0,3300.0
+70,Bromhexine 8mg,Respiratory,B3183,1375,tablet,2026-02-19,2024-02-20,3.0,4125.0
+71,Vitamin B Complex,Vitamins,B3184,3235,tablet,2026-04-03,2024-04-03,1.5,4852.5
+72,Vitamin C 500mg,Vitamins,B3185,1581,tablet,2027-07-29,2025-07-29,2.0,3162.0
+73,Vitamin D3 60000IU,Vitamins,B3186,329,sachet,2026-12-31,2025-12-31,30.0,9870.0
+73,Vitamin D3 60000IU,Vitamins,B3187,1468,sachet,2026-11-08,2025-11-08,30.0,44040.0
+73,Vitamin D3 60000IU,Vitamins,B3188,227,sachet,2026-07-29,2025-07-29,30.0,6810.0
+73,Vitamin D3 60000IU,Vitamins,B3189,110,sachet,2026-10-12,2025-10-12,30.0,3300.0
+74,Calcium + D3,Vitamins,B3190,58,tablet,2026-12-07,2024-12-07,4.0,232.0
+75,Iron + Folic Acid,Vitamins,B3191,2996,tablet,2026-08-26,2024-08-26,2.0,5992.0
+75,Iron + Folic Acid,Vitamins,B3192,2360,tablet,2027-05-30,2025-05-30,2.0,4720.0
+75,Iron + Folic Acid,Vitamins,B3193,2602,tablet,2027-07-10,2025-07-10,2.0,5204.0
+75,Iron + Folic Acid,Vitamins,B3194,758,tablet,2027-12-19,2025-12-19,2.0,1516.0
+76,Folic Acid 5mg,Vitamins,B3195,248,tablet,2027-08-26,2025-08-26,1.0,248.0
+76,Folic Acid 5mg,Vitamins,B3196,1382,tablet,2027-05-14,2025-05-14,1.0,1382.0
+77,Multivitamin,Vitamins,B3197,1423,tablet,2027-06-17,2025-06-17,3.0,4269.0
+77,Multivitamin,Vitamins,B3198,82,tablet,2026-10-26,2024-10-26,3.0,246.0
+78,Vitamin E 400IU,Vitamins,B3199,789,capsule,2026-09-23,2024-09-23,5.0,3945.0
+78,Vitamin E 400IU,Vitamins,B3200,117,capsule,2027-01-23,2025-01-23,5.0,585.0
+79,Zinc Sulfate 20mg,Vitamins,B3201,1690,tablet,2026-03-06,2024-03-06,2.0,3380.0
+79,Zinc Sulfate 20mg,Vitamins,B3202,1308,tablet,2026-08-29,2024-08-29,2.0,2616.0
+79,Zinc Sulfate 20mg,Vitamins,B3203,1161,tablet,2027-02-20,2025-02-20,2.0,2322.0
+79,Zinc Sulfate 20mg,Vitamins,B3204,55,tablet,2026-08-06,2024-08-06,2.0,110.0
+80,B12 Methylcobalamin,Vitamins,B3205,1413,tablet,2026-03-01,2024-03-01,8.0,11304.0
+80,B12 Methylcobalamin,Vitamins,B3206,930,tablet,2026-07-29,2024-07-29,8.0,7440.0
+80,B12 Methylcobalamin,Vitamins,B3207,431,tablet,2027-10-10,2025-10-10,8.0,3448.0
+80,B12 Methylcobalamin,Vitamins,B3208,794,tablet,2026-02-08,2024-02-09,8.0,6352.0
+81,Fluconazole 150mg,Dermatology,B3209,123,tablet,2027-12-14,2025-12-14,15.0,1845.0
+81,Fluconazole 150mg,Dermatology,B3210,122,tablet,2027-09-08,2025-09-08,15.0,1830.0
+81,Fluconazole 150mg,Dermatology,B3211,15,tablet,2026-11-01,2024-11-01,15.0,225.0
+81,Fluconazole 150mg,Dermatology,B3212,295,tablet,2027-05-16,2025-05-16,15.0,4425.0
+82,Clotrimazole Cream,Dermatology,B3213,740,tube,2026-12-06,2025-12-06,35.0,25900.0
+83,Betamethasone Cream,Dermatology,B3214,277,tube,2026-09-21,2025-09-21,40.0,11080.0
+84,Permethrin Lotion,Dermatology,B3215,146,bottle,2026-08-27,2025-08-27,60.0,8760.0
+84,Permethrin Lotion,Dermatology,B3216,229,bottle,2026-08-27,2025-08-27,60.0,13740.0
+84,Permethrin Lotion,Dermatology,B3217,105,bottle,2026-08-15,2025-08-15,60.0,6300.0
+84,Permethrin Lotion,Dermatology,B3218,221,bottle,2026-03-23,2025-03-23,60.0,13260.0
+85,Mupirocin Ointment,Dermatology,B3219,72,tube,2026-08-29,2025-08-29,75.0,5400.0
+85,Mupirocin Ointment,Dermatology,B3220,13,tube,2026-12-15,2025-12-15,75.0,975.0
+86,Calamine Lotion,Dermatology,B3221,75,bottle,2026-12-29,2025-12-29,45.0,3375.0
+86,Calamine Lotion,Dermatology,B3222,241,bottle,2026-09-28,2025-09-28,45.0,10845.0
+86,Calamine Lotion,Dermatology,B3223,251,bottle,2026-02-08,2025-02-08,45.0,11295.0
+86,Calamine Lotion,Dermatology,B3224,13,bottle,2027-01-01,2026-01-01,45.0,585.0
+87,Silver Sulfadiazine,Dermatology,B3225,50,tube,2026-08-12,2025-08-12,55.0,2750.0
+87,Silver Sulfadiazine,Dermatology,B3226,94,tube,2026-09-28,2025-09-28,55.0,5170.0
+87,Silver Sulfadiazine,Dermatology,B3227,10,tube,2026-08-09,2025-08-09,55.0,550.0
+88,Ketoconazole Shampoo,Dermatology,B3228,142,bottle,2026-04-17,2025-04-17,120.0,17040.0
+88,Ketoconazole Shampoo,Dermatology,B3229,85,bottle,2026-09-24,2025-09-24,120.0,10200.0
+88,Ketoconazole Shampoo,Dermatology,B3230,104,bottle,2026-09-04,2025-09-04,120.0,12480.0
+89,Ciprofloxacin Eye Drops,Eye & ENT,B3231,19,bottle,2026-07-19,2026-01-20,25.0,475.0
+89,Ciprofloxacin Eye Drops,Eye & ENT,B3232,68,bottle,2026-07-19,2026-01-20,25.0,1700.0
+89,Ciprofloxacin Eye Drops,Eye & ENT,B3233,259,bottle,2026-07-19,2026-01-20,25.0,6475.0
+90,Tobramycin Eye Drops,Eye & ENT,B3234,37,bottle,2026-07-19,2026-01-20,45.0,1665.0
+91,Artificial Tears,Eye & ENT,B3235,399,bottle,2026-02-09,2025-08-13,50.0,19950.0
+91,Artificial Tears,Eye & ENT,B3236,293,bottle,2026-07-19,2026-01-20,50.0,14650.0
+91,Artificial Tears,Eye & ENT,B3237,41,bottle,2026-07-19,2026-01-20,50.0,2050.0
+92,Chloramphenicol Ear Drops,Eye & ENT,B3238,10,bottle,2026-07-19,2026-01-20,30.0,300.0
+92,Chloramphenicol Ear Drops,Eye & ENT,B3239,163,bottle,2026-07-19,2026-01-20,30.0,4890.0
+92,Chloramphenicol Ear Drops,Eye & ENT,B3240,109,bottle,2026-07-19,2026-01-20,30.0,3270.0
+92,Chloramphenicol Ear Drops,Eye & ENT,B3241,441,bottle,2026-07-19,2026-01-20,30.0,13230.0
+93,Ofloxacin Ear Drops,Eye & ENT,B3242,130,bottle,2026-07-19,2026-01-20,40.0,5200.0
+93,Ofloxacin Ear Drops,Eye & ENT,B3243,96,bottle,2026-07-19,2026-01-20,40.0,3840.0
+93,Ofloxacin Ear Drops,Eye & ENT,B3244,117,bottle,2026-07-19,2026-01-20,40.0,4680.0
+94,Timolol Eye Drops,Eye & ENT,B3245,198,bottle,2026-01-29,2025-08-02,55.0,10890.0
+95,Prednisolone Eye Drops,Eye & ENT,B3246,236,bottle,2026-07-19,2026-01-20,65.0,15340.0
+95,Prednisolone Eye Drops,Eye & ENT,B3247,114,bottle,2026-07-19,2026-01-20,65.0,7410.0
+95,Prednisolone Eye Drops,Eye & ENT,B3248,112,bottle,2026-07-19,2026-01-20,65.0,7280.0
+95,Prednisolone Eye Drops,Eye & ENT,B3249,91,bottle,2026-02-05,2025-08-09,65.0,5915.0
+96,Alprazolam 0.5mg,Mental Health,B3250,133,tablet,2027-07-24,2025-07-24,5.0,665.0
+96,Alprazolam 0.5mg,Mental Health,B3251,53,tablet,2027-07-01,2025-07-01,5.0,265.0
+97,Escitalopram 10mg,Mental Health,B3252,44,tablet,2027-12-16,2025-12-16,8.0,352.0
+97,Escitalopram 10mg,Mental Health,B3253,785,tablet,2026-03-08,2024-03-08,8.0,6280.0
+97,Escitalopram 10mg,Mental Health,B3254,817,tablet,2026-03-02,2024-03-02,8.0,6536.0
+97,Escitalopram 10mg,Mental Health,B3255,423,tablet,2026-03-21,2024-03-21,8.0,3384.0
+98,Amitriptyline 25mg,Mental Health,B3256,328,tablet,2027-05-29,2025-05-29,3.0,984.0
+98,Amitriptyline 25mg,Mental Health,B3257,1991,tablet,2027-02-20,2025-02-20,3.0,5973.0
+98,Amitriptyline 25mg,Mental Health,B3258,24,tablet,2027-03-30,2025-03-30,3.0,72.0
+98,Amitriptyline 25mg,Mental Health,B3259,652,tablet,2026-03-19,2024-03-19,3.0,1956.0
+99,Clonazepam 0.5mg,Mental Health,B3260,79,tablet,2026-11-24,2024-11-24,6.0,474.0
+99,Clonazepam 0.5mg,Mental Health,B3261,23,tablet,2027-10-01,2025-10-01,6.0,138.0
+100,Sertraline 50mg,Mental Health,B3262,158,tablet,2027-06-27,2025-06-27,10.0,1580.0
+100,Sertraline 50mg,Mental Health,B3263,121,tablet,2026-11-22,2024-11-22,10.0,1210.0
+100,Sertraline 50mg,Mental Health,B3264,116,tablet,2027-08-17,2025-08-17,10.0,1160.0
+100,Sertraline 50mg,Mental Health,B3265,592,tablet,2026-04-05,2024-04-05,10.0,5920.0

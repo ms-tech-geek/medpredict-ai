@@ -1,51 +1,101 @@
 medicine_id,name,category,unit,reorder_level,shelf_life_days,unit_cost_inr
-1,Metformin 500mg,Diabetes,tablet,840,730,1.5
-2,Metformin 850mg,Diabetes,tablet,420,730,2.0
-3,Glimepiride 1mg,Diabetes,tablet,350,730,3.5
-4,Glimepiride 2mg,Diabetes,tablet,280,730,4.0
-5,Insulin Human 40IU,Diabetes,vial,28,180,85.0
-6,Amlodipine 5mg,Hypertension,tablet,630,730,2.5
-7,Amlodipine 10mg,Hypertension,tablet,350,730,3.5
-8,Enalapril 5mg,Hypertension,tablet,420,730,4.0
-9,Losartan 50mg,Hypertension,tablet,490,730,5.0
-10,Atenolol 50mg,Hypertension,tablet,560,730,2.0
-11,Amoxicillin 500mg,Antibiotic,capsule,700,730,3.0
-12,Azithromycin 500mg,Antibiotic,tablet,350,730,15.0
-13,Ciprofloxacin 500mg,Antibiotic,tablet,420,730,8.0
-14,Metronidazole 400mg,Antibiotic,tablet,560,730,2.5
-15,Doxycycline 100mg,Antibiotic,capsule,280,730,5.0
-16,Paracetamol 500mg,Analgesic,tablet,2100,1095,0.5
-17,Paracetamol 650mg,Analgesic,tablet,1120,1095,0.8
-18,Ibuprofen 400mg,Analgesic,tablet,560,730,1.5
-19,Diclofenac 50mg,Analgesic,tablet,490,730,2.0
-20,Cetirizine 10mg,Antihistamine,tablet,420,730,2.0
-21,Salbutamol Inhaler,Respiratory,inhaler,42,365,120.0
-22,Cough Syrup (Dextromethorphan),Respiratory,bottle,112,730,45.0
-23,Montelukast 10mg,Respiratory,tablet,210,730,8.0
-24,ORS Sachets,GI,sachet,350,1095,5.0
-25,Omeprazole 20mg,GI,capsule,700,730,3.0
-26,Pantoprazole 40mg,GI,tablet,560,730,4.0
-27,Ranitidine 150mg,GI,tablet,420,730,2.0
-28,Ondansetron 4mg,GI,tablet,210,730,5.0
-29,Chloroquine 250mg,Antimalarial,tablet,70,1095,3.0
-30,Artemether-Lumefantrine,Antimalarial,tablet,112,730,25.0
-31,Primaquine 15mg,Antimalarial,tablet,70,730,4.0
-32,BCG Vaccine,Vaccine,vial,28,180,50.0
-33,OPV Vaccine,Vaccine,vial,42,180,25.0
-34,Pentavalent Vaccine,Vaccine,vial,56,180,150.0
-35,Measles Vaccine,Vaccine,vial,28,180,35.0
-36,TT Vaccine,Vaccine,vial,42,365,20.0
-37,Normal Saline 500ml,IV Fluid,bottle,140,730,35.0
-38,Ringer Lactate 500ml,IV Fluid,bottle,112,730,40.0
-39,Dextrose 5% 500ml,IV Fluid,bottle,84,730,38.0
-40,Iron + Folic Acid,Supplement,tablet,840,730,1.0
-41,Calcium + Vitamin D3,Supplement,tablet,560,730,2.5
-42,Multivitamin Syrup,Supplement,bottle,70,365,55.0
-43,Vitamin B Complex,Supplement,tablet,420,730,1.5
-44,Betamethasone Cream,Dermatology,tube,56,730,25.0
-45,Clotrimazole Cream,Dermatology,tube,70,730,30.0
-46,Permethrin Lotion,Dermatology,bottle,42,730,40.0
-47,Adrenaline 1mg/ml,Emergency,ampoule,14,365,15.0
-48,Hydrocortisone 100mg,Emergency,vial,28,365,45.0
-49,Atropine 0.6mg/ml,Emergency,ampoule,14,365,12.0
-50,Diazepam 5mg/ml,Emergency,ampoule,28,365,20.0
+1,Metformin 500mg,Diabetes,tablet,1000,730,1.5
+2,Metformin 850mg,Diabetes,tablet,500,730,2.0
+3,Glimepiride 1mg,Diabetes,tablet,400,730,3.5
+4,Glimepiride 2mg,Diabetes,tablet,300,730,4.0
+5,Insulin Human 40IU,Diabetes,vial,30,180,85.0
+6,Insulin Glargine,Diabetes,vial,20,180,450.0
+7,Sitagliptin 100mg,Diabetes,tablet,200,730,25.0
+8,Pioglitazone 15mg,Diabetes,tablet,250,730,8.0
+9,Vildagliptin 50mg,Diabetes,tablet,180,730,18.0
+10,Gliclazide 80mg,Diabetes,tablet,350,730,5.0
+11,Amlodipine 5mg,Hypertension,tablet,700,730,2.5
+12,Amlodipine 10mg,Hypertension,tablet,400,730,3.5
+13,Enalapril 5mg,Hypertension,tablet,500,730,4.0
+14,Losartan 50mg,Hypertension,tablet,550,730,5.0
+15,Telmisartan 40mg,Hypertension,tablet,450,730,6.0
+16,Atenolol 50mg,Hypertension,tablet,600,730,3.0
+17,Metoprolol 50mg,Hypertension,tablet,400,730,4.5
+18,Ramipril 5mg,Hypertension,tablet,350,730,7.0
+19,Hydrochlorothiazide 25mg,Hypertension,tablet,500,730,2.0
+20,Furosemide 40mg,Hypertension,tablet,300,730,3.5
+21,Spironolactone 25mg,Hypertension,tablet,200,730,8.0
+22,Cilnidipine 10mg,Hypertension,tablet,300,730,12.0
+23,Amoxicillin 500mg,Antibiotics,capsule,800,730,4.0
+24,Azithromycin 500mg,Antibiotics,tablet,500,730,25.0
+25,Ciprofloxacin 500mg,Antibiotics,tablet,600,730,8.0
+26,Cefixime 200mg,Antibiotics,tablet,400,730,15.0
+27,Doxycycline 100mg,Antibiotics,capsule,500,730,5.0
+28,Metronidazole 400mg,Antibiotics,tablet,600,730,3.0
+29,Levofloxacin 500mg,Antibiotics,tablet,350,730,18.0
+30,Ofloxacin 200mg,Antibiotics,tablet,400,730,6.0
+31,Cephalexin 500mg,Antibiotics,capsule,350,730,10.0
+32,Norfloxacin 400mg,Antibiotics,tablet,400,730,5.0
+33,Co-trimoxazole DS,Antibiotics,tablet,500,730,4.0
+34,Clindamycin 300mg,Antibiotics,capsule,200,730,22.0
+35,Nitrofurantoin 100mg,Antibiotics,capsule,300,730,8.0
+36,Paracetamol 500mg,Pain & Fever,tablet,1500,730,0.5
+37,Paracetamol 650mg,Pain & Fever,tablet,1000,730,0.8
+38,Ibuprofen 400mg,Pain & Fever,tablet,800,730,2.0
+39,Diclofenac 50mg,Pain & Fever,tablet,600,730,2.5
+40,Aceclofenac 100mg,Pain & Fever,tablet,400,730,5.0
+41,Nimesulide 100mg,Pain & Fever,tablet,500,730,3.0
+42,Tramadol 50mg,Pain & Fever,tablet,200,730,8.0
+43,Aspirin 75mg,Pain & Fever,tablet,700,730,1.0
+44,Mefenamic Acid 500mg,Pain & Fever,tablet,300,730,4.0
+45,Etoricoxib 90mg,Pain & Fever,tablet,250,730,15.0
+46,Omeprazole 20mg,Gastrointestinal,capsule,800,730,3.0
+47,Pantoprazole 40mg,Gastrointestinal,tablet,700,730,5.0
+48,Ranitidine 150mg,Gastrointestinal,tablet,600,730,2.0
+49,Domperidone 10mg,Gastrointestinal,tablet,500,730,2.5
+50,Ondansetron 4mg,Gastrointestinal,tablet,300,730,8.0
+51,ORS Powder,Gastrointestinal,sachet,1000,365,5.0
+52,Loperamide 2mg,Gastrointestinal,tablet,400,730,3.0
+53,Dicyclomine 20mg,Gastrointestinal,tablet,350,730,4.0
+54,Sucralfate 1g,Gastrointestinal,tablet,250,730,6.0
+55,Rabeprazole 20mg,Gastrointestinal,tablet,400,730,7.0
+56,Esomeprazole 40mg,Gastrointestinal,capsule,350,730,10.0
+57,Lactulose Syrup,Gastrointestinal,bottle,80,365,85.0
+58,Zinc Dispersible 20mg,Gastrointestinal,tablet,600,730,2.0
+59,Salbutamol Inhaler,Respiratory,inhaler,50,365,120.0
+60,Budesonide Inhaler,Respiratory,inhaler,40,365,250.0
+61,Montelukast 10mg,Respiratory,tablet,400,730,8.0
+62,Cetirizine 10mg,Respiratory,tablet,600,730,2.0
+63,Levocetirizine 5mg,Respiratory,tablet,500,730,3.0
+64,Chlorpheniramine 4mg,Respiratory,tablet,500,730,1.0
+65,Dextromethorphan Syrup,Respiratory,bottle,100,365,45.0
+66,Ambroxol Syrup,Respiratory,bottle,120,365,50.0
+67,Theophylline 300mg,Respiratory,tablet,300,730,5.0
+68,Ipratropium Inhaler,Respiratory,inhaler,30,365,180.0
+69,Fluticasone Nasal Spray,Respiratory,bottle,40,365,150.0
+70,Bromhexine 8mg,Respiratory,tablet,400,730,3.0
+71,Vitamin B Complex,Vitamins,tablet,800,730,1.5
+72,Vitamin C 500mg,Vitamins,tablet,600,730,2.0
+73,Vitamin D3 60000IU,Vitamins,sachet,200,365,30.0
+74,Calcium + D3,Vitamins,tablet,700,730,4.0
+75,Iron + Folic Acid,Vitamins,tablet,900,730,2.0
+76,Folic Acid 5mg,Vitamins,tablet,600,730,1.0
+77,Multivitamin,Vitamins,tablet,500,730,3.0
+78,Vitamin E 400IU,Vitamins,capsule,300,730,5.0
+79,Zinc Sulfate 20mg,Vitamins,tablet,500,730,2.0
+80,B12 Methylcobalamin,Vitamins,tablet,350,730,8.0
+81,Fluconazole 150mg,Dermatology,tablet,200,730,15.0
+82,Clotrimazole Cream,Dermatology,tube,150,365,35.0
+83,Betamethasone Cream,Dermatology,tube,180,365,40.0
+84,Permethrin Lotion,Dermatology,bottle,100,365,60.0
+85,Mupirocin Ointment,Dermatology,tube,120,365,75.0
+86,Calamine Lotion,Dermatology,bottle,150,365,45.0
+87,Silver Sulfadiazine,Dermatology,tube,80,365,55.0
+88,Ketoconazole Shampoo,Dermatology,bottle,60,365,120.0
+89,Ciprofloxacin Eye Drops,Eye & ENT,bottle,100,180,25.0
+90,Tobramycin Eye Drops,Eye & ENT,bottle,80,180,45.0
+91,Artificial Tears,Eye & ENT,bottle,120,180,50.0
+92,Chloramphenicol Ear Drops,Eye & ENT,bottle,80,180,30.0
+93,Ofloxacin Ear Drops,Eye & ENT,bottle,80,180,40.0
+94,Timolol Eye Drops,Eye & ENT,bottle,60,180,55.0
+95,Prednisolone Eye Drops,Eye & ENT,bottle,50,180,65.0
+96,Alprazolam 0.5mg,Mental Health,tablet,200,730,5.0
+97,Escitalopram 10mg,Mental Health,tablet,250,730,8.0
+98,Amitriptyline 25mg,Mental Health,tablet,300,730,3.0
+99,Clonazepam 0.5mg,Mental Health,tablet,180,730,6.0
+100,Sertraline 50mg,Mental Health,tablet,220,730,10.0
