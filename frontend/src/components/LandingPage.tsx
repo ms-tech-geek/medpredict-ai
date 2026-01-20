@@ -467,8 +467,224 @@ export function LandingPage({ onLogin }: LandingPageProps) {
         </div>
       </section>
 
+      {/* USER JOURNEY Section */}
+      <section className="py-20 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+              Your Journey With MedPredict AI
+            </h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              From chaos to control in just 4 steps
+            </p>
+          </div>
+
+          {/* Journey Steps */}
+          <div className="relative">
+            {/* Connection Line */}
+            <div className="hidden lg:block absolute top-24 left-[12.5%] right-[12.5%] h-1 bg-gradient-to-r from-red-500 via-amber-500 via-blue-500 to-emerald-500 rounded-full" />
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Step 1: Current State */}
+              <div className="relative">
+                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-red-500/50 transition-colors h-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-red-500/20 border-2 border-red-500 flex items-center justify-center text-red-400 font-bold text-lg relative z-10">
+                      1
+                    </div>
+                    <div>
+                      <p className="text-xs text-red-400 uppercase tracking-wider">Starting Point</p>
+                      <h3 className="text-lg font-semibold text-white">The Struggle</h3>
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm text-slate-400">
+                    <div className="flex items-center gap-2">
+                      <AlertTriangle className="w-4 h-4 text-red-400" />
+                      <span>Manual paper registers</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-red-400" />
+                      <span>Hours wasted counting stock</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <TrendingDown className="w-4 h-4 text-red-400" />
+                      <span>Medicines expiring unused</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-red-400" />
+                      <span>Patients without medicine</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 p-3 bg-red-500/10 rounded-lg">
+                    <p className="text-xs text-red-300 italic">"We never know what's running out until it's too late"</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 2: Discovery */}
+              <div className="relative">
+                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-amber-500/50 transition-colors h-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center text-amber-400 font-bold text-lg relative z-10">
+                      2
+                    </div>
+                    <div>
+                      <p className="text-xs text-amber-400 uppercase tracking-wider">Day 1</p>
+                      <h3 className="text-lg font-semibold text-white">Quick Setup</h3>
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm text-slate-400">
+                    <div className="flex items-center gap-2">
+                      <FileText className="w-4 h-4 text-amber-400" />
+                      <span>Upload existing data (Excel/CSV)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Zap className="w-4 h-4 text-amber-400" />
+                      <span>AI analyzes patterns instantly</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Target className="w-4 h-4 text-amber-400" />
+                      <span>See your first dashboard</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Lightbulb className="w-4 h-4 text-amber-400" />
+                      <span>Get immediate insights</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 p-3 bg-amber-500/10 rounded-lg">
+                    <p className="text-xs text-amber-300">⏱️ Setup time: <strong>Under 30 minutes</strong></p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 3: Using */}
+              <div className="relative">
+                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-blue-500/50 transition-colors h-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-500/20 border-2 border-blue-500 flex items-center justify-center text-blue-400 font-bold text-lg relative z-10">
+                      3
+                    </div>
+                    <div>
+                      <p className="text-xs text-blue-400 uppercase tracking-wider">Week 1-4</p>
+                      <h3 className="text-lg font-semibold text-white">Daily Use</h3>
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm text-slate-400">
+                    <div className="flex items-center gap-2">
+                      <BarChart3 className="w-4 h-4 text-blue-400" />
+                      <span>Check dashboard each morning</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <AlertTriangle className="w-4 h-4 text-blue-400" />
+                      <span>Act on AI recommendations</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Package className="w-4 h-4 text-blue-400" />
+                      <span>Reorder before stockouts</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-blue-400" />
+                      <span>Transfer expiring items</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 p-3 bg-blue-500/10 rounded-lg">
+                    <p className="text-xs text-blue-300">📊 Daily check: <strong>5 minutes</strong></p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 4: Results */}
+              <div className="relative">
+                <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/50 transition-colors h-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center text-emerald-400 font-bold text-lg relative z-10">
+                      4
+                    </div>
+                    <div>
+                      <p className="text-xs text-emerald-400 uppercase tracking-wider">Month 1+</p>
+                      <h3 className="text-lg font-semibold text-white">The Results</h3>
+                    </div>
+                  </div>
+                  <div className="space-y-3 text-sm text-slate-400">
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-emerald-400" />
+                      <span><strong className="text-emerald-400">2+ hours</strong> saved daily</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <IndianRupee className="w-4 h-4 text-emerald-400" />
+                      <span><strong className="text-emerald-400">80%</strong> less medicine waste</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Shield className="w-4 h-4 text-emerald-400" />
+                      <span><strong className="text-emerald-400">Zero</strong> stockouts</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Heart className="w-4 h-4 text-emerald-400" />
+                      <span><strong className="text-emerald-400">Happy</strong> patients</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 p-3 bg-emerald-500/10 rounded-lg">
+                    <p className="text-xs text-emerald-300 italic">"I finally go home without worrying about tomorrow"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Journey Visual Summary */}
+          <div className="mt-16 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-8">
+            <div className="grid md:grid-cols-3 gap-8 items-center">
+              {/* Before */}
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-500/20 mb-4">
+                  <AlertTriangle className="w-8 h-8 text-red-400" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">Before</h4>
+                <ul className="text-sm text-slate-400 space-y-1">
+                  <li>😰 Stressful mornings</li>
+                  <li>📋 Paper chaos</li>
+                  <li>💸 Wasted medicines</li>
+                  <li>😔 Unhappy patients</li>
+                </ul>
+              </div>
+
+              {/* Arrow */}
+              <div className="hidden md:flex flex-col items-center">
+                <div className="flex items-center gap-4">
+                  <div className="h-px w-12 bg-gradient-to-r from-red-500 to-amber-500" />
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-lg shadow-primary-500/30">
+                    <Brain className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="h-px w-12 bg-gradient-to-r from-amber-500 to-emerald-500" />
+                </div>
+                <p className="text-sm text-slate-400 mt-3">MedPredict AI</p>
+              </div>
+
+              {/* After */}
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/20 mb-4">
+                  <CheckCircle className="w-8 h-8 text-emerald-400" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">After</h4>
+                <ul className="text-sm text-slate-400 space-y-1">
+                  <li>😊 Confident mornings</li>
+                  <li>📱 One dashboard</li>
+                  <li>💰 Money saved</li>
+                  <li>🎉 Treated patients</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* THE PROBLEM Section */}
-      <section id="problem" className="py-20">
+      <section id="problem" className="py-20 bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
