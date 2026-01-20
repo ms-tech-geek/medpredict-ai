@@ -60,99 +60,152 @@ export function LandingPage({ onLogin }: LandingPageProps) {
     return () => clearInterval(interval);
   }, []);
 
-  // User personas - WHO uses this product
-  const personas = [
+  // TARGET CUSTOMERS - WHO BUYS this product (for investors)
+  const customerSegments = [
     {
-      id: 'pharmacist',
-      title: 'PHC Pharmacist',
-      subtitle: 'Day-to-day inventory manager',
-      icon: Pill,
-      color: 'from-blue-500 to-cyan-500',
-      image: '👨‍⚕️',
-      description: 'Manages 100-500 medicines daily at Primary Health Centres',
-      painPoints: [
-        'Spends 2-3 hours daily on manual stock counting',
-        'Medicines expire before being used',
-        'Patients leave without treatment due to stockouts',
-        'No way to predict what will run out'
-      ],
-      howWeHelp: [
-        'Automated inventory tracking saves 2+ hours daily',
-        'Get alerts 45 days before expiry',
-        'AI predicts stockouts 7-30 days in advance',
-        'One dashboard shows everything at a glance'
-      ],
-      quote: '"I used to spend my mornings counting pills. Now I spend it helping patients."',
-      impact: '2+ hours saved daily'
-    },
-    {
-      id: 'medical-officer',
-      title: 'Medical Officer',
-      subtitle: 'PHC/CHC facility head',
-      icon: Stethoscope,
-      color: 'from-emerald-500 to-teal-500',
-      image: '👩‍⚕️',
-      description: 'Oversees healthcare delivery and ensures medicine availability',
-      painPoints: [
-        'Patients complain about medicine unavailability',
-        'No visibility into what\'s expiring or running low',
-        'Reactive instead of proactive management',
-        'Budget wasted on expired medicines'
-      ],
-      howWeHelp: [
-        'Real-time health score for inventory status',
-        'Smart recommendations prioritize urgent actions',
-        'Proactive alerts before problems occur',
-        'Reduce medicine waste by up to 80%'
-      ],
-      quote: '"Now I know exactly what needs attention before patients even arrive."',
-      impact: '80% less medicine waste'
-    },
-    {
-      id: 'district-officer',
-      title: 'District Health Officer',
-      subtitle: 'Manages multiple facilities',
+      id: 'state-health',
+      title: 'State Health Departments',
+      subtitle: 'Government healthcare administration',
       icon: Building2,
       color: 'from-violet-500 to-purple-500',
-      image: '👨‍💼',
-      description: 'Oversees 50-100 PHCs across a district',
-      painPoints: [
-        'No centralized view of all facility inventories',
-        'Problems discovered only during inspections',
-        'Can\'t compare performance across PHCs',
-        'Procurement planning is guesswork'
+      badge: 'LARGEST OPPORTUNITY',
+      badgeColor: 'bg-violet-500',
+      marketSize: '28 States + 8 UTs',
+      avgDealSize: '₹2-5 Crore/year',
+      facilities: '1,000-3,000 PHCs per state',
+      decisionMaker: 'Director of Health Services / Principal Secretary Health',
+      description: 'State governments manage the largest network of PHCs and have dedicated budgets for healthcare digitization under National Health Mission.',
+      whyTheyBuy: [
+        'Mandated to reduce medicine wastage under NHM guidelines',
+        'Need real-time visibility across all district facilities',
+        'Required to submit quarterly reports on medicine utilization',
+        'Budget allocation for healthcare IT modernization'
       ],
-      howWeHelp: [
-        'District-wide dashboard with all PHCs',
-        'Automated alerts for any facility issues',
-        'Performance benchmarking across facilities',
-        'Data-driven procurement planning'
+      valueProposition: [
+        '₹50-100 Crore annual savings from reduced medicine expiry',
+        'Real-time dashboard for 1000s of facilities',
+        'Automated compliance reports for central government',
+        'Data-driven budget planning for next fiscal year'
       ],
-      quote: '"I can now see which PHC needs help before they even call me."',
-      impact: 'Manage 100 PHCs from one screen'
+      roi: '10-20x ROI in first year from waste reduction alone',
+      salesCycle: '6-12 months',
+      pilotPath: 'Start with 1 district (50-100 PHCs) → Scale statewide'
     },
     {
-      id: 'store-manager',
-      title: 'Drug Store Manager',
-      subtitle: 'District/State warehouse',
-      icon: Package,
+      id: 'district-admin',
+      title: 'District Health Administration',
+      subtitle: 'District-level healthcare management',
+      icon: Target,
+      color: 'from-blue-500 to-cyan-500',
+      badge: 'FASTEST SALES CYCLE',
+      badgeColor: 'bg-blue-500',
+      marketSize: '766 Districts in India',
+      avgDealSize: '₹15-30 Lakhs/year',
+      facilities: '50-150 PHCs per district',
+      decisionMaker: 'Chief Medical & Health Officer (CMHO) / District Collector',
+      description: 'District administrations have autonomy to implement health tech solutions and often pilot innovations before state-wide rollout.',
+      whyTheyBuy: [
+        'Accountable for district health outcomes and medicine availability',
+        'Face audit pressure on medicine expiry and wastage',
+        'Need to optimize limited district health budget',
+        'Competitive pressure to show innovation in healthcare'
+      ],
+      valueProposition: [
+        '₹2-5 Crore annual savings across district facilities',
+        'Single dashboard for all PHCs in district',
+        'Automated alerts prevent stockouts before they happen',
+        'Performance benchmarking across facilities'
+      ],
+      roi: '5-10x ROI with payback in 6 months',
+      salesCycle: '3-6 months',
+      pilotPath: 'Start with 10 PHCs → Expand to full district in 3 months'
+    },
+    {
+      id: 'hospital-chains',
+      title: 'Private Hospital Chains',
+      subtitle: 'Multi-location healthcare networks',
+      icon: Stethoscope,
+      color: 'from-emerald-500 to-teal-500',
+      badge: 'HIGH MARGIN',
+      badgeColor: 'bg-emerald-500',
+      marketSize: '100+ hospital chains with 10+ locations',
+      avgDealSize: '₹25-75 Lakhs/year',
+      facilities: '10-500 facilities per chain',
+      decisionMaker: 'COO / Chief Pharmacy Officer / VP Operations',
+      description: 'Private hospital chains prioritize operational efficiency and have faster procurement cycles. They value ROI and are willing to pay premium for proven solutions.',
+      whyTheyBuy: [
+        'Direct impact on bottom line from inventory optimization',
+        'Brand reputation risk from medicine stockouts',
+        'Need for centralized pharmacy management across locations',
+        'Competitive advantage through operational excellence'
+      ],
+      valueProposition: [
+        '15-25% reduction in pharmacy inventory costs',
+        'Near-zero stockouts improve patient satisfaction scores',
+        'Centralized control with location-level insights',
+        'Integration with existing hospital management systems'
+      ],
+      roi: '3-5x ROI with premium pricing justified by quality',
+      salesCycle: '2-4 months',
+      pilotPath: 'Pilot at 2-3 locations → Enterprise rollout in 60 days'
+    },
+    {
+      id: 'pharma-distributors',
+      title: 'Pharmaceutical Distributors',
+      subtitle: 'Medicine supply chain companies',
+      icon: Truck,
       color: 'from-amber-500 to-orange-500',
-      image: '📦',
-      description: 'Manages central drug store supplying multiple facilities',
-      painPoints: [
-        'Difficult to forecast demand from all facilities',
-        'Medicines expire in warehouse before distribution',
-        'Emergency requests disrupt planning',
-        'Supplier delays cause cascading stockouts'
+      badge: 'STRATEGIC PARTNER',
+      badgeColor: 'bg-amber-500',
+      marketSize: '5,000+ distributors serving healthcare',
+      avgDealSize: '₹10-50 Lakhs/year',
+      facilities: 'Serve 100-1000+ retail points',
+      decisionMaker: 'Managing Director / Supply Chain Head',
+      description: 'Distributors can bundle MedPredict AI with their services, creating a channel partnership opportunity while optimizing their own operations.',
+      whyTheyBuy: [
+        'Reduce returns from expired medicines (2-5% of revenue)',
+        'Better demand forecasting reduces dead stock',
+        'Differentiate from competitors with AI-powered insights',
+        'Offer value-added services to retailer network'
       ],
-      howWeHelp: [
-        'Aggregate demand forecasts from all facilities',
-        'Optimize distribution to prevent expiry',
-        'Predict and prevent emergency situations',
-        'Supplier delay predictions for better planning'
+      valueProposition: [
+        'Cut medicine returns by 60-80%',
+        'Accurate demand forecasts improve working capital',
+        'Become preferred supplier with predictive delivery',
+        'New revenue stream: offer as service to retailers'
       ],
-      quote: '"AI tells me exactly what each facility will need next month."',
-      impact: '₹5-10 Lakhs saved annually'
+      roi: '4-8x ROI from reduced returns and better forecasting',
+      salesCycle: '2-3 months',
+      pilotPath: 'Pilot with 50 retail points → Scale to full network'
+    },
+    {
+      id: 'ngo-development',
+      title: 'NGOs & Development Organizations',
+      subtitle: 'Healthcare funding and implementation',
+      icon: Heart,
+      color: 'from-pink-500 to-rose-500',
+      badge: 'GRANT FUNDING',
+      badgeColor: 'bg-pink-500',
+      marketSize: '500+ health-focused NGOs in India',
+      avgDealSize: '₹50 Lakhs - 2 Crore (grant funded)',
+      facilities: 'Fund 50-500 facilities per project',
+      decisionMaker: 'Program Director / Country Head',
+      description: 'NGOs like Gates Foundation, USAID, WHO have dedicated budgets for healthcare technology that improves outcomes. They fund pilot programs and scale successful interventions.',
+      whyTheyBuy: [
+        'Measurable impact on healthcare outcomes (their KPI)',
+        'Technology solutions that can scale across geographies',
+        'Data for research and policy recommendations',
+        'Sustainable solutions that governments can adopt'
+      ],
+      valueProposition: [
+        'Clear metrics: lives saved, waste reduced, access improved',
+        'Ready for scale: proven in government settings',
+        'Research-grade data on medicine consumption patterns',
+        'Pathway to government adoption post-pilot'
+      ],
+      roi: 'Impact metrics matter more than financial ROI',
+      salesCycle: '6-12 months (grant cycles)',
+      pilotPath: 'Grant-funded pilot → Evidence generation → Government handover'
     }
   ];
 
@@ -362,103 +415,177 @@ export function LandingPage({ onLogin }: LandingPageProps) {
         </div>
       </section>
 
-      {/* WHO IS THIS FOR - Primary Section */}
+      {/* TARGET CUSTOMERS - Who Buys This Product */}
       <section id="who-its-for" className="py-20 bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-emerald-400 text-sm mb-4">
+              <Target className="w-4 h-4" />
+              Target Market & Customers
+            </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Who Is MedPredict AI For?
+              Who Buys MedPredict AI?
             </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              We built this for the healthcare workers who keep India healthy
+            <p className="text-lg text-slate-400 max-w-3xl mx-auto">
+              Multiple high-value customer segments with clear buying authority, dedicated budgets, and measurable ROI
             </p>
           </div>
 
-          {/* Persona Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {personas.map((persona, idx) => {
-              const Icon = persona.icon;
+          {/* Market Overview Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {[
+              { label: 'Total Addressable Market', value: '₹6,000 Cr+', sub: 'Annual opportunity' },
+              { label: 'PHCs in India', value: '30,000+', sub: 'Government facilities' },
+              { label: 'Private Hospital Chains', value: '500+', sub: 'With 10+ locations' },
+              { label: 'Pharma Distributors', value: '5,000+', sub: 'Potential partners' },
+            ].map((stat, idx) => (
+              <div key={idx} className="bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-center">
+                <p className="text-2xl font-bold text-white">{stat.value}</p>
+                <p className="text-sm text-slate-300">{stat.label}</p>
+                <p className="text-xs text-slate-500">{stat.sub}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Customer Segment Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {customerSegments.map((segment, idx) => {
+              const Icon = segment.icon;
               return (
                 <button
-                  key={persona.id}
+                  key={segment.id}
                   onClick={() => setActivePersona(idx)}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all ${
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                     activePersona === idx
-                      ? `bg-gradient-to-r ${persona.color} text-white shadow-lg`
+                      ? `bg-gradient-to-r ${segment.color} text-white shadow-lg`
                       : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
-                  {persona.title}
+                  <Icon className="w-4 h-4" />
+                  <span className="hidden sm:inline">{segment.title}</span>
+                  <span className="sm:hidden">{segment.title.split(' ')[0]}</span>
                 </button>
               );
             })}
           </div>
 
-          {/* Active Persona Detail */}
-          {personas.map((persona, idx) => {
+          {/* Active Customer Segment Detail */}
+          {customerSegments.map((segment, idx) => {
             if (idx !== activePersona) return null;
-            const Icon = persona.icon;
+            const Icon = segment.icon;
             return (
-              <div key={persona.id} className="grid lg:grid-cols-2 gap-8 items-center">
-                {/* Left - Persona Info */}
-                <div className={`bg-gradient-to-br ${persona.color} p-1 rounded-2xl`}>
-                  <div className="bg-slate-900 rounded-xl p-8">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="text-5xl">{persona.image}</div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">{persona.title}</h3>
-                        <p className="text-slate-400">{persona.subtitle}</p>
+              <div key={segment.id} className="space-y-6">
+                {/* Header Card */}
+                <div className={`bg-gradient-to-r ${segment.color} p-1 rounded-2xl`}>
+                  <div className="bg-slate-900 rounded-xl p-6">
+                    <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div className="flex items-center gap-4">
+                        <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${segment.color} flex items-center justify-center`}>
+                          <Icon className="w-8 h-8 text-white" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-3 mb-1">
+                            <h3 className="text-2xl font-bold text-white">{segment.title}</h3>
+                            <span className={`px-2 py-1 ${segment.badgeColor} text-white text-xs font-bold rounded-full`}>
+                              {segment.badge}
+                            </span>
+                          </div>
+                          <p className="text-slate-400">{segment.subtitle}</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-6 text-center">
+                        <div>
+                          <p className="text-2xl font-bold text-emerald-400">{segment.avgDealSize}</p>
+                          <p className="text-xs text-slate-400">Avg Deal Size</p>
+                        </div>
+                        <div>
+                          <p className="text-2xl font-bold text-blue-400">{segment.salesCycle}</p>
+                          <p className="text-xs text-slate-400">Sales Cycle</p>
+                        </div>
                       </div>
                     </div>
-                    <p className="text-slate-300 mb-6">{persona.description}</p>
-                    
-                    <blockquote className="border-l-4 border-primary-500 pl-4 py-2 bg-slate-800/50 rounded-r-lg mb-6">
-                      <p className="text-slate-300 italic">{persona.quote}</p>
-                    </blockquote>
-
-                    <div className="flex items-center gap-3 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
-                      <CheckCircle className="w-8 h-8 text-emerald-400" />
-                      <div>
-                        <p className="text-sm text-emerald-400">Key Impact</p>
-                        <p className="text-xl font-bold text-white">{persona.impact}</p>
-                      </div>
-                    </div>
+                    <p className="text-slate-300 mt-4">{segment.description}</p>
                   </div>
                 </div>
 
-                {/* Right - Pain Points vs Solution */}
-                <div className="space-y-6">
-                  {/* Pain Points */}
-                  <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-6">
-                    <h4 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
-                      <AlertTriangle className="w-5 h-5" />
-                      Current Challenges
+                {/* Details Grid */}
+                <div className="grid lg:grid-cols-3 gap-6">
+                  {/* Market Info */}
+                  <div className="card p-5">
+                    <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-4">Market Opportunity</h4>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-xs text-slate-500">Market Size</p>
+                        <p className="text-lg font-semibold text-white">{segment.marketSize}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-500">Facilities per Customer</p>
+                        <p className="text-lg font-semibold text-white">{segment.facilities}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-500">Decision Maker</p>
+                        <p className="text-sm text-slate-300">{segment.decisionMaker}</p>
+                      </div>
+                      <div className="pt-3 border-t border-slate-700">
+                        <p className="text-xs text-slate-500">Pilot → Scale Path</p>
+                        <p className="text-sm text-slate-300">{segment.pilotPath}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Why They Buy */}
+                  <div className="card p-5">
+                    <h4 className="text-sm font-semibold text-amber-400 uppercase tracking-wide mb-4 flex items-center gap-2">
+                      <ShoppingCart className="w-4 h-4" />
+                      Why They Buy
                     </h4>
                     <ul className="space-y-3">
-                      {persona.painPoints.map((point, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-3">
-                          <X className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-300">{point}</span>
+                      {segment.whyTheyBuy.map((reason, rIdx) => (
+                        <li key={rIdx} className="flex items-start gap-3">
+                          <div className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span className="text-xs text-amber-400 font-bold">{rIdx + 1}</span>
+                          </div>
+                          <span className="text-sm text-slate-300">{reason}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* Solution */}
-                  <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-6">
-                    <h4 className="text-lg font-semibold text-emerald-400 mb-4 flex items-center gap-2">
-                      <Sparkles className="w-5 h-5" />
-                      How MedPredict AI Helps
+                  {/* Value Proposition */}
+                  <div className="card p-5">
+                    <h4 className="text-sm font-semibold text-emerald-400 uppercase tracking-wide mb-4 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4" />
+                      Value We Deliver
                     </h4>
                     <ul className="space-y-3">
-                      {persona.howWeHelp.map((point, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-3">
+                      {segment.valueProposition.map((value, vIdx) => (
+                        <li key={vIdx} className="flex items-start gap-3">
                           <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                          <span className="text-slate-300">{point}</span>
+                          <span className="text-sm text-slate-300">{value}</span>
                         </li>
                       ))}
                     </ul>
+                  </div>
+                </div>
+
+                {/* ROI Highlight */}
+                <div className="bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-emerald-500/10 border border-emerald-500/30 rounded-xl p-6">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center">
+                        <TrendingUp className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-emerald-400">Expected Return on Investment</p>
+                        <p className="text-2xl font-bold text-white">{segment.roi}</p>
+                      </div>
+                    </div>
+                    <button 
+                      onClick={onLogin}
+                      className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl transition-colors"
+                    >
+                      See Product Demo
+                    </button>
                   </div>
                 </div>
               </div>
