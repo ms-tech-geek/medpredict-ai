@@ -24,6 +24,7 @@ import { MedicineDetailModal } from './components/MedicineDetailModal';
 import { OnboardingTour, useTour } from './components/OnboardingTour';
 import { SupplierIntelligence } from './components/SupplierIntelligence';
 import { AIFeaturesShowcase } from './components/AIFeaturesShowcase';
+import { LandingPage } from './components/LandingPage';
 
 import { 
   fetchDashboardSummary, 
@@ -45,7 +46,30 @@ const queryClient = new QueryClient({
   },
 });
 
-function Dashboard() {
+// Check if user is "logged in" (demo mode)
+const useAuth = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return localStorage.getItem('medpredict-demo-logged-in') === 'true';
+  });
+
+  const login = () => {
+    localStorage.setItem('medpredict-demo-logged-in', 'true');
+    setIsLoggedIn(true);
+  };
+
+  const logout = () => {
+    localStorage.removeItem('medpredict-demo-logged-in');
+    setIsLoggedIn(false);
+  };
+
+  return { isLoggedIn, login, logout };
+};
+
+interface DashboardProps {
+  onLogout?: () => void;
+}
+
+function Dashboard({ onLogout }: DashboardProps) {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [riskFilter, setRiskFilter] = useState<RiskLevel>('ALL');
   const [alertTab, setAlertTab] = useState<'expiry' | 'stockout'>('expiry');
@@ -361,6 +385,7 @@ function Dashboard() {
         onRefresh={handleRefresh}
         isLoading={summaryLoading}
         onStartTour={startTour}
+        onLogout={onLogout}
         onNavigateToAlerts={(type) => {
           setActiveTab(type);
           setAlertTab(type);
@@ -511,10 +536,16 @@ class ErrorBoundary extends Component<{ children: ReactNode }, ErrorBoundaryStat
 }
 
 function App() {
+  const { isLoggedIn, login, logout } = useAuth();
+
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
-        <Dashboard />
+        {isLoggedIn ? (
+          <Dashboard onLogout={logout} />
+        ) : (
+          <LandingPage onLogin={login} />
+        )}
       </QueryClientProvider>
     </ErrorBoundary>
   );

@@ -1,4 +1,4 @@
-import { Pill, RefreshCw, HelpCircle } from 'lucide-react';
+import { Pill, RefreshCw, HelpCircle, LogOut } from 'lucide-react';
 import { NotificationPanel } from './NotificationPanel';
 
 interface HeaderProps {
@@ -6,10 +6,11 @@ interface HeaderProps {
   onRefresh: () => void;
   isLoading: boolean;
   onStartTour?: () => void;
+  onLogout?: () => void;
   onNavigateToAlerts?: (type: 'expiry' | 'stockout') => void;
 }
 
-export function Header({ onRefresh, isLoading, onStartTour, onNavigateToAlerts }: HeaderProps) {
+export function Header({ onRefresh, isLoading, onStartTour, onLogout, onNavigateToAlerts }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-900/80 border-b border-slate-800/50">
       <div className="max-w-[1600px] mx-auto px-6 py-4">
@@ -69,6 +70,17 @@ export function Header({ onRefresh, isLoading, onStartTour, onNavigateToAlerts }
                 <p className="text-xs text-slate-400">Karnataka, India</p>
               </div>
             </div>
+
+            {/* Logout Button */}
+            {onLogout && (
+              <button
+                onClick={onLogout}
+                className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                title="Logout"
+              >
+                <LogOut className="w-5 h-5" />
+              </button>
+            )}
           </div>
         </div>
       </div>
