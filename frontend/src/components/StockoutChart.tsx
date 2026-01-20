@@ -21,7 +21,7 @@ export function StockoutChart({ risks }: StockoutChartProps) {
   })).reverse();
 
   return (
-    <div className="card animate-fade-in" style={{ animationDelay: '200ms' }}>
+    <div className="card animate-fade-in" style={{ animationDelay: '200ms' }} data-tour="stockout-chart">
       <h3 className="text-sm font-semibold text-slate-400 mb-4">Days Until Stockout</h3>
       
       <div className="h-64">

@@ -19,6 +19,7 @@ import { AlertsTable } from './components/AlertsTable';
 import { RecommendationsPanel } from './components/RecommendationsPanel';
 import { InventoryPage } from './components/InventoryPage';
 import { MedicineDetailModal } from './components/MedicineDetailModal';
+import { OnboardingTour, useTour } from './components/OnboardingTour';
 
 import { 
   fetchDashboardSummary, 
@@ -43,6 +44,9 @@ function Dashboard() {
   const [riskFilter, setRiskFilter] = useState<RiskLevel>('ALL');
   const [alertTab, setAlertTab] = useState<'expiry' | 'stockout'>('expiry');
   const [selectedMedicineId, setSelectedMedicineId] = useState<number | null>(null);
+  
+  // Tour
+  const { showTour, startTour, endTour, completeTour } = useTour();
 
   // Queries
   const { data: summary, isLoading: summaryLoading, error: summaryError, refetch: refetchSummary } = useQuery({
@@ -258,7 +262,7 @@ function Dashboard() {
         return (
           <>
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" data-tour="stats-cards">
               <StatsCard
                 title="Inventory Value"
                 value={formatCurrency(summary?.total_inventory_value || 0)}
@@ -306,17 +310,19 @@ function Dashboard() {
             </div>
 
             {/* Recommendations Panel */}
-            <div className="mb-8">
+            <div className="mb-8" data-tour="recommendations">
               <RecommendationsPanel />
             </div>
 
             {/* Alerts Table */}
-            <AlertsTable
-              expiryRisks={expiryRisks}
-              stockoutRisks={stockoutRisks}
-              activeTab={alertTab}
-              onTabChange={setAlertTab}
-            />
+            <div data-tour="alerts-table">
+              <AlertsTable
+                expiryRisks={expiryRisks}
+                stockoutRisks={stockoutRisks}
+                activeTab={alertTab}
+                onTabChange={setAlertTab}
+              />
+            </div>
           </>
         );
     }
@@ -328,6 +334,7 @@ function Dashboard() {
         alertCount={alertsData?.critical_count || 0} 
         onRefresh={handleRefresh}
         isLoading={summaryLoading}
+        onStartTour={startTour}
       />
       
       <div className="flex">
@@ -368,6 +375,13 @@ function Dashboard() {
           onClose={() => setSelectedMedicineId(null)}
         />
       )}
+
+      {/* Onboarding Tour */}
+      <OnboardingTour 
+        isOpen={showTour} 
+        onClose={endTour} 
+        onComplete={completeTour} 
+      />
     </div>
   );
 }

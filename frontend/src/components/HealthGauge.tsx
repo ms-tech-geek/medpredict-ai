@@ -26,7 +26,7 @@ export function HealthGauge({ score }: HealthGaugeProps) {
   const strokeDashoffset = circumference - (animatedScore / 100) * circumference;
 
   return (
-    <div className={`card bg-gradient-to-br ${status.bgColor} animate-fade-in`}>
+    <div className={`card bg-gradient-to-br ${status.bgColor} animate-fade-in`} data-tour="health-gauge">
       <h3 className="text-sm font-semibold text-slate-400 mb-4">Inventory Health</h3>
       
       <div className="flex items-center justify-center">

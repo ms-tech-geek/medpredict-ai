@@ -23,7 +23,7 @@ export function RiskDistributionChart({ risks }: RiskDistributionChartProps) {
   const total = data.reduce((sum, d) => sum + d.value, 0);
 
   return (
-    <div className="card animate-fade-in" style={{ animationDelay: '100ms' }}>
+    <div className="card animate-fade-in" style={{ animationDelay: '100ms' }} data-tour="expiry-chart">
       <h3 className="text-sm font-semibold text-slate-400 mb-4">Risk Distribution</h3>
       
       <div className="flex items-center gap-6">

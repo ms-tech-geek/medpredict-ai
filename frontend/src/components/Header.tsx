@@ -1,12 +1,13 @@
-import { Pill, Bell, RefreshCw } from 'lucide-react';
+import { Pill, Bell, RefreshCw, HelpCircle } from 'lucide-react';
 
 interface HeaderProps {
   alertCount: number;
   onRefresh: () => void;
   isLoading: boolean;
+  onStartTour?: () => void;
 }
 
-export function Header({ alertCount, onRefresh, isLoading }: HeaderProps) {
+export function Header({ alertCount, onRefresh, isLoading, onStartTour }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-900/80 border-b border-slate-800/50">
       <div className="max-w-[1600px] mx-auto px-6 py-4">
@@ -31,18 +32,33 @@ export function Header({ alertCount, onRefresh, isLoading }: HeaderProps) {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
+            {/* Help/Tour Button */}
+            {onStartTour && (
+              <button
+                onClick={onStartTour}
+                className="p-3 rounded-xl bg-slate-800/50 border border-slate-700 hover:bg-slate-700 hover:border-primary-500/50 transition-colors group"
+                title="Take a tour"
+              >
+                <HelpCircle className="w-5 h-5 text-slate-400 group-hover:text-primary-400 transition-colors" />
+              </button>
+            )}
+
             {/* Refresh Button */}
             <button
               onClick={onRefresh}
               disabled={isLoading}
               className="btn-secondary flex items-center gap-2 !py-2 !px-4"
+              data-tour="refresh-btn"
             >
               <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
               <span className="hidden sm:inline">Refresh</span>
             </button>
 
             {/* Notifications */}
-            <button className="relative p-3 rounded-xl bg-slate-800/50 border border-slate-700 hover:bg-slate-700 transition-colors">
+            <button 
+              className="relative p-3 rounded-xl bg-slate-800/50 border border-slate-700 hover:bg-slate-700 transition-colors"
+              data-tour="notifications"
+            >
               <Bell className="w-5 h-5 text-slate-300" />
               {alertCount > 0 && (
                 <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center animate-pulse-soft">
@@ -67,4 +83,3 @@ export function Header({ alertCount, onRefresh, isLoading }: HeaderProps) {
     </header>
   );
 }
-

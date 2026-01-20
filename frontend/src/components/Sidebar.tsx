@@ -33,7 +33,7 @@ const riskLevels: { value: RiskLevel; label: string; color: string }[] = [
 
 export function Sidebar({ activeTab, onTabChange, riskFilter, onRiskFilterChange }: SidebarProps) {
   return (
-    <aside className="w-72 min-h-[calc(100vh-73px)] bg-slate-900/30 border-r border-slate-800/50 p-6 flex flex-col">
+    <aside className="w-72 min-h-[calc(100vh-73px)] bg-slate-900/30 border-r border-slate-800/50 p-6 flex flex-col" data-tour="sidebar">
       {/* Navigation */}
       <nav className="space-y-2">
         {navItems.map((item) => {
@@ -61,7 +61,7 @@ export function Sidebar({ activeTab, onTabChange, riskFilter, onRiskFilterChange
       </nav>
 
       {/* Risk Filter */}
-      <div className="mt-8">
+      <div className="mt-8" data-tour="risk-filter">
         <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 px-4">
           Risk Filter
         </h3>
