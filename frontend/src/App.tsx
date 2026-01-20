@@ -337,6 +337,10 @@ function Dashboard() {
         onRefresh={handleRefresh}
         isLoading={summaryLoading}
         onStartTour={startTour}
+        onNavigateToAlerts={(type) => {
+          setActiveTab(type);
+          setAlertTab(type);
+        }}
       />
       
       <div className="flex">
