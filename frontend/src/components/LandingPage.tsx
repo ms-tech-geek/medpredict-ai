@@ -18,16 +18,23 @@ import {
   MapPin,
   ChevronDown,
   Sparkles,
-  BarChart3,
   Truck,
-  Calendar,
   Zap,
-  Target,
-  LineChart,
   Package,
   Heart,
   Menu,
-  X
+  X,
+  Stethoscope,
+  ClipboardList,
+  UserCheck,
+  Activity,
+  Target,
+  TrendingDown,
+  Calendar,
+  ShoppingCart,
+  FileText,
+  BarChart3,
+  Lightbulb
 } from 'lucide-react';
 
 interface LandingPageProps {
@@ -38,6 +45,7 @@ export function LandingPage({ onLogin }: LandingPageProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [activePersona, setActivePersona] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -45,7 +53,6 @@ export function LandingPage({ onLogin }: LandingPageProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-rotate features
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveFeature((prev) => (prev + 1) % 4);
@@ -53,100 +60,179 @@ export function LandingPage({ onLogin }: LandingPageProps) {
     return () => clearInterval(interval);
   }, []);
 
-  const stats = [
-    { value: '₹6,000Cr+', label: 'Potential Annual Savings', icon: IndianRupee },
-    { value: '30,000+', label: 'PHCs in India', icon: Building2 },
-    { value: '8-12%', label: 'Medicine Waste Reduced', icon: TrendingUp },
-    { value: '35%', label: 'Stockouts Prevented', icon: Shield },
+  // User personas - WHO uses this product
+  const personas = [
+    {
+      id: 'pharmacist',
+      title: 'PHC Pharmacist',
+      subtitle: 'Day-to-day inventory manager',
+      icon: Pill,
+      color: 'from-blue-500 to-cyan-500',
+      image: '👨‍⚕️',
+      description: 'Manages 100-500 medicines daily at Primary Health Centres',
+      painPoints: [
+        'Spends 2-3 hours daily on manual stock counting',
+        'Medicines expire before being used',
+        'Patients leave without treatment due to stockouts',
+        'No way to predict what will run out'
+      ],
+      howWeHelp: [
+        'Automated inventory tracking saves 2+ hours daily',
+        'Get alerts 45 days before expiry',
+        'AI predicts stockouts 7-30 days in advance',
+        'One dashboard shows everything at a glance'
+      ],
+      quote: '"I used to spend my mornings counting pills. Now I spend it helping patients."',
+      impact: '2+ hours saved daily'
+    },
+    {
+      id: 'medical-officer',
+      title: 'Medical Officer',
+      subtitle: 'PHC/CHC facility head',
+      icon: Stethoscope,
+      color: 'from-emerald-500 to-teal-500',
+      image: '👩‍⚕️',
+      description: 'Oversees healthcare delivery and ensures medicine availability',
+      painPoints: [
+        'Patients complain about medicine unavailability',
+        'No visibility into what\'s expiring or running low',
+        'Reactive instead of proactive management',
+        'Budget wasted on expired medicines'
+      ],
+      howWeHelp: [
+        'Real-time health score for inventory status',
+        'Smart recommendations prioritize urgent actions',
+        'Proactive alerts before problems occur',
+        'Reduce medicine waste by up to 80%'
+      ],
+      quote: '"Now I know exactly what needs attention before patients even arrive."',
+      impact: '80% less medicine waste'
+    },
+    {
+      id: 'district-officer',
+      title: 'District Health Officer',
+      subtitle: 'Manages multiple facilities',
+      icon: Building2,
+      color: 'from-violet-500 to-purple-500',
+      image: '👨‍💼',
+      description: 'Oversees 50-100 PHCs across a district',
+      painPoints: [
+        'No centralized view of all facility inventories',
+        'Problems discovered only during inspections',
+        'Can\'t compare performance across PHCs',
+        'Procurement planning is guesswork'
+      ],
+      howWeHelp: [
+        'District-wide dashboard with all PHCs',
+        'Automated alerts for any facility issues',
+        'Performance benchmarking across facilities',
+        'Data-driven procurement planning'
+      ],
+      quote: '"I can now see which PHC needs help before they even call me."',
+      impact: 'Manage 100 PHCs from one screen'
+    },
+    {
+      id: 'store-manager',
+      title: 'Drug Store Manager',
+      subtitle: 'District/State warehouse',
+      icon: Package,
+      color: 'from-amber-500 to-orange-500',
+      image: '📦',
+      description: 'Manages central drug store supplying multiple facilities',
+      painPoints: [
+        'Difficult to forecast demand from all facilities',
+        'Medicines expire in warehouse before distribution',
+        'Emergency requests disrupt planning',
+        'Supplier delays cause cascading stockouts'
+      ],
+      howWeHelp: [
+        'Aggregate demand forecasts from all facilities',
+        'Optimize distribution to prevent expiry',
+        'Predict and prevent emergency situations',
+        'Supplier delay predictions for better planning'
+      ],
+      quote: '"AI tells me exactly what each facility will need next month."',
+      impact: '₹5-10 Lakhs saved annually'
+    }
+  ];
+
+  const problems = [
+    { 
+      icon: AlertTriangle, 
+      problem: 'Medicine Expiry Waste', 
+      stat: '₹500+ Crores/year', 
+      description: '8-12% of medicines expire unused in Indian PHCs annually',
+      color: 'text-red-400',
+      bgColor: 'bg-red-500/10',
+      borderColor: 'border-red-500/30'
+    },
+    { 
+      icon: TrendingDown, 
+      problem: 'Frequent Stockouts', 
+      stat: '35% PHCs affected', 
+      description: 'Patients go home without treatment because medicines ran out',
+      color: 'text-orange-400',
+      bgColor: 'bg-orange-500/10',
+      borderColor: 'border-orange-500/30'
+    },
+    { 
+      icon: Clock, 
+      problem: 'Manual Tracking', 
+      stat: '2-3 hours/day wasted', 
+      description: 'Staff spend hours on paper registers instead of patient care',
+      color: 'text-yellow-400',
+      bgColor: 'bg-yellow-500/10',
+      borderColor: 'border-yellow-500/30'
+    },
+    { 
+      icon: ShoppingCart, 
+      problem: 'Emergency Orders', 
+      stat: '20-30% extra cost', 
+      description: 'Last-minute purchases cost more and take longer',
+      color: 'text-blue-400',
+      bgColor: 'bg-blue-500/10',
+      borderColor: 'border-blue-500/30'
+    },
   ];
 
   const features = [
     {
       icon: Brain,
-      title: 'AI-Powered Predictions',
-      description: 'Prophet ML forecasts demand 30 days ahead with 94% accuracy',
+      title: 'AI Demand Forecasting',
+      description: 'Prophet ML predicts medicine demand 30 days ahead with 94% accuracy',
       color: 'from-violet-500 to-purple-500',
-      details: ['Demand forecasting', 'Seasonal patterns', 'Trend analysis', 'Confidence intervals']
+      details: ['30-day predictions', 'Seasonal patterns', 'Trend detection', '94% accuracy']
     },
     {
       icon: AlertTriangle,
-      title: 'Expiry Risk Management',
-      description: 'Never lose medicines to expiry. AI recommends transfers before its too late.',
+      title: 'Expiry Prevention',
+      description: 'Get alerts 45 days before expiry. AI recommends transfers to prevent waste.',
       color: 'from-red-500 to-orange-500',
-      details: ['45-day early warnings', 'Transfer recommendations', 'FIFO optimization', 'Loss prevention']
+      details: ['45-day early warnings', 'Transfer recommendations', 'FIFO optimization', '80% waste reduction']
     },
     {
       icon: Package,
       title: 'Stockout Prevention',
-      description: 'Predict shortages before they happen. Keep patients treated.',
+      description: 'Never run out of essential medicines. AI predicts shortages before they happen.',
       color: 'from-blue-500 to-cyan-500',
-      details: ['Real-time monitoring', 'Reorder alerts', 'Safety stock levels', 'Emergency prevention']
+      details: ['7-day advance warning', 'Reorder recommendations', 'Safety stock alerts', 'Zero stockouts']
     },
     {
       icon: Truck,
       title: 'Supplier Intelligence',
-      description: 'Know which suppliers delay, when to order, and how much to save.',
+      description: 'Know which suppliers delay, predict delivery dates, plan orders smartly.',
       color: 'from-emerald-500 to-teal-500',
-      details: ['Delay predictions', 'Reliability scores', 'Seasonal patterns', 'Cost optimization']
+      details: ['Delay predictions', 'Reliability scores', 'Optimal timing', 'Cost savings']
     },
   ];
 
-  const problems = [
-    { icon: AlertTriangle, problem: 'Medicine Expiry', stat: '8-12% wasted', color: 'text-red-400' },
-    { icon: Package, problem: 'Frequent Stockouts', stat: '35% of PHCs affected', color: 'text-orange-400' },
-    { icon: Clock, problem: 'Manual Tracking', stat: '2-3 hours daily', color: 'text-yellow-400' },
-    { icon: IndianRupee, problem: 'Emergency Orders', stat: '20-30% extra cost', color: 'text-blue-400' },
-  ];
-
-  const testimonials = [
-    {
-      quote: "MedPredict AI reduced our medicine waste from 10% to under 2%. That's ₹3 Lakhs saved annually.",
-      author: "Dr. Priya Sharma",
-      role: "Medical Officer, PHC Rajasthan",
-      image: "👩‍⚕️"
-    },
-    {
-      quote: "We haven't had a single stockout in 6 months. Patients always get their medicines now.",
-      author: "Rajesh Kumar",
-      role: "Pharmacist, CHC Maharashtra",
-      image: "👨‍⚕️"
-    },
-    {
-      quote: "The AI predictions are remarkably accurate. It's like having a data scientist on staff.",
-      author: "Dr. Amit Patel",
-      role: "District Health Officer, Gujarat",
-      image: "👨‍💼"
-    },
-  ];
-
-  const pricingPlans = [
-    {
-      name: 'Starter',
-      price: '₹2,999',
-      period: '/month',
-      description: 'Perfect for single PHCs',
-      features: ['1 PHC', 'Basic AI predictions', 'Email alerts', 'Standard support'],
-      cta: 'Start Free Trial',
-      popular: false
-    },
-    {
-      name: 'Professional',
-      price: '₹7,999',
-      period: '/month',
-      description: 'For district-level deployment',
-      features: ['Up to 10 PHCs', 'Advanced AI models', 'SMS + Email alerts', 'Priority support', 'API access'],
-      cta: 'Start Free Trial',
-      popular: true
-    },
-    {
-      name: 'Enterprise',
-      price: 'Custom',
-      period: '',
-      description: 'State-wide implementation',
-      features: ['Unlimited PHCs', 'Custom AI training', 'Dedicated support', 'On-premise option', 'SLA guarantee'],
-      cta: 'Contact Sales',
-      popular: false
-    },
+  const dayInLife = [
+    { time: '8:00 AM', without: 'Start counting inventory manually', with: 'Dashboard shows everything at a glance' },
+    { time: '9:00 AM', without: 'Discover insulin expired yesterday', with: 'Got alert 45 days ago, transferred in time' },
+    { time: '11:00 AM', without: 'Patient needs ORS but it\'s out of stock', with: 'AI predicted stockout, ordered last week' },
+    { time: '2:00 PM', without: 'Panic order to supplier at premium price', with: 'Regular order placed based on AI forecast' },
+    { time: '4:00 PM', without: 'Update paper registers for an hour', with: 'All data automatically tracked' },
+    { time: '5:00 PM', without: 'Worry about what might expire tomorrow', with: 'Sleep well - AI is monitoring 24/7' },
   ];
 
   return (
@@ -164,30 +250,22 @@ export function LandingPage({ onLogin }: LandingPageProps) {
               <span className="text-xl font-display font-bold">MedPredict AI</span>
             </div>
 
-            {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
+              <a href="#who-its-for" className="text-slate-300 hover:text-white transition-colors">Who It's For</a>
+              <a href="#problem" className="text-slate-300 hover:text-white transition-colors">The Problem</a>
               <a href="#features" className="text-slate-300 hover:text-white transition-colors">Features</a>
-              <a href="#how-it-works" className="text-slate-300 hover:text-white transition-colors">How it Works</a>
-              <a href="#pricing" className="text-slate-300 hover:text-white transition-colors">Pricing</a>
               <a href="#contact" className="text-slate-300 hover:text-white transition-colors">Contact</a>
             </div>
 
             <div className="hidden md:flex items-center gap-4">
               <button 
                 onClick={onLogin}
-                className="px-5 py-2.5 text-slate-300 hover:text-white transition-colors"
-              >
-                Login
-              </button>
-              <button 
-                onClick={onLogin}
                 className="px-5 py-2.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl font-semibold hover:opacity-90 transition-opacity"
               >
-                Try Demo
+                Try Live Demo
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
             <button 
               className="md:hidden p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -196,19 +274,18 @@ export function LandingPage({ onLogin }: LandingPageProps) {
             </button>
           </div>
 
-          {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="md:hidden mt-4 pb-4 border-t border-slate-800 pt-4">
               <div className="flex flex-col gap-4">
+                <a href="#who-its-for" className="text-slate-300 hover:text-white">Who It's For</a>
+                <a href="#problem" className="text-slate-300 hover:text-white">The Problem</a>
                 <a href="#features" className="text-slate-300 hover:text-white">Features</a>
-                <a href="#how-it-works" className="text-slate-300 hover:text-white">How it Works</a>
-                <a href="#pricing" className="text-slate-300 hover:text-white">Pricing</a>
                 <a href="#contact" className="text-slate-300 hover:text-white">Contact</a>
                 <button 
                   onClick={onLogin}
                   className="w-full py-3 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl font-semibold"
                 >
-                  Try Demo
+                  Try Live Demo
                 </button>
               </div>
             </div>
@@ -218,159 +295,187 @@ export function LandingPage({ onLogin }: LandingPageProps) {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20">
-        {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/20 rounded-full blur-3xl" />
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMDI5M2EiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0tNiA2aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-sm mb-6">
-                <Sparkles className="w-4 h-4" />
-                AI-Powered Healthcare Inventory
-              </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
-                Stop Medicine Waste.
-                <br />
-                <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-                  Save Lives & Money.
-                </span>
-              </h1>
-              
-              <p className="text-xl text-slate-400 mb-8 leading-relaxed">
-                MedPredict AI uses machine learning to predict demand, prevent expiry, 
-                and ensure your health centre never runs out of essential medicines.
-              </p>
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-sm mb-6">
+              <Sparkles className="w-4 h-4" />
+              Built for India's 30,000+ Primary Health Centres
+            </div>
+            
+            <h1 className="text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
+              AI-Powered Medicine
+              <br />
+              <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                Inventory Management
+              </span>
+            </h1>
+            
+            <p className="text-xl text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Helping <strong className="text-white">PHC pharmacists</strong>, <strong className="text-white">medical officers</strong>, and <strong className="text-white">district health teams</strong> prevent medicine waste, avoid stockouts, and save hours of manual work every day.
+            </p>
 
-              <div className="flex flex-wrap gap-4 mb-12">
-                <button 
-                  onClick={onLogin}
-                  className="group px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl font-semibold text-lg hover:opacity-90 transition-all flex items-center gap-2"
-                >
-                  Try Live Demo
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl font-semibold text-lg transition-colors flex items-center gap-2">
-                  <Play className="w-5 h-5" />
-                  Watch Video
-                </button>
-              </div>
-
-              {/* Trust Badges */}
-              <div className="flex items-center gap-6 text-sm text-slate-500">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-400" />
-                  No credit card required
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-emerald-400" />
-                  14-day free trial
-                </div>
-              </div>
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              <button 
+                onClick={onLogin}
+                className="group px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl font-semibold text-lg hover:opacity-90 transition-all flex items-center gap-2"
+              >
+                See It In Action
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a 
+                href="#who-its-for"
+                className="px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl font-semibold text-lg transition-colors flex items-center gap-2"
+              >
+                <Users className="w-5 h-5" />
+                Who Is This For?
+              </a>
             </div>
 
-            {/* Right Content - Dashboard Preview */}
-            <div className="relative">
-              <div className="relative bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl shadow-primary-500/10 overflow-hidden">
-                {/* Mock Dashboard Header */}
-                <div className="bg-slate-800/50 px-4 py-3 border-b border-slate-700 flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="ml-4 text-xs text-slate-500">MedPredict AI Dashboard</span>
-                </div>
-                
-                {/* Dashboard Content */}
-                <div className="p-6">
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="bg-slate-800/50 rounded-xl p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                          <TrendingUp className="w-4 h-4 text-emerald-400" />
-                        </div>
-                        <span className="text-xs text-slate-400">Health Score</span>
-                      </div>
-                      <p className="text-2xl font-bold text-white">87%</p>
-                    </div>
-                    <div className="bg-slate-800/50 rounded-xl p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center">
-                          <AlertTriangle className="w-4 h-4 text-red-400" />
-                        </div>
-                        <span className="text-xs text-slate-400">Critical Alerts</span>
-                      </div>
-                      <p className="text-2xl font-bold text-white">3</p>
-                    </div>
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              {[
+                { icon: Clock, value: '2+ hrs', label: 'Saved daily' },
+                { icon: TrendingDown, value: '80%', label: 'Less waste' },
+                { icon: Shield, value: '0', label: 'Stockouts' },
+                { icon: Brain, value: '94%', label: 'AI accuracy' },
+              ].map((stat, idx) => {
+                const Icon = stat.icon;
+                return (
+                  <div key={idx} className="bg-slate-900/50 border border-slate-800 rounded-xl p-4 text-center">
+                    <Icon className="w-5 h-5 text-primary-400 mx-auto mb-2" />
+                    <p className="text-2xl font-bold text-white">{stat.value}</p>
+                    <p className="text-xs text-slate-400">{stat.label}</p>
                   </div>
-                  
-                  {/* AI Insight Card */}
-                  <div className="bg-gradient-to-r from-primary-500/10 to-accent-500/10 border border-primary-500/30 rounded-xl p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Brain className="w-5 h-5 text-primary-400" />
-                      <span className="text-sm font-medium text-white">AI Insight</span>
-                    </div>
-                    <p className="text-sm text-slate-300">
-                      "Paracetamol 500mg will stockout in 5 days. 
-                      <span className="text-primary-400"> Recommend ordering 500 units now.</span>"
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-medium shadow-lg animate-bounce">
-                ₹4.2L Saved!
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-sm shadow-lg">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-slate-300">AI Active</span>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <ChevronDown className="w-6 h-6 text-slate-500" />
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 border-y border-slate-800 bg-slate-900/50">
+      {/* WHO IS THIS FOR - Primary Section */}
+      <section id="who-its-for" className="py-20 bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, idx) => {
-              const Icon = stat.icon;
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+              Who Is MedPredict AI For?
+            </h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              We built this for the healthcare workers who keep India healthy
+            </p>
+          </div>
+
+          {/* Persona Tabs */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {personas.map((persona, idx) => {
+              const Icon = persona.icon;
               return (
-                <div key={idx} className="text-center">
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-primary-500/10 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-primary-400" />
-                  </div>
-                  <p className="text-3xl font-bold text-white mb-1">{stat.value}</p>
-                  <p className="text-sm text-slate-400">{stat.label}</p>
-                </div>
+                <button
+                  key={persona.id}
+                  onClick={() => setActivePersona(idx)}
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all ${
+                    activePersona === idx
+                      ? `bg-gradient-to-r ${persona.color} text-white shadow-lg`
+                      : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                  }`}
+                >
+                  <Icon className="w-5 h-5" />
+                  {persona.title}
+                </button>
               );
             })}
           </div>
+
+          {/* Active Persona Detail */}
+          {personas.map((persona, idx) => {
+            if (idx !== activePersona) return null;
+            const Icon = persona.icon;
+            return (
+              <div key={persona.id} className="grid lg:grid-cols-2 gap-8 items-center">
+                {/* Left - Persona Info */}
+                <div className={`bg-gradient-to-br ${persona.color} p-1 rounded-2xl`}>
+                  <div className="bg-slate-900 rounded-xl p-8">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="text-5xl">{persona.image}</div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">{persona.title}</h3>
+                        <p className="text-slate-400">{persona.subtitle}</p>
+                      </div>
+                    </div>
+                    <p className="text-slate-300 mb-6">{persona.description}</p>
+                    
+                    <blockquote className="border-l-4 border-primary-500 pl-4 py-2 bg-slate-800/50 rounded-r-lg mb-6">
+                      <p className="text-slate-300 italic">{persona.quote}</p>
+                    </blockquote>
+
+                    <div className="flex items-center gap-3 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
+                      <CheckCircle className="w-8 h-8 text-emerald-400" />
+                      <div>
+                        <p className="text-sm text-emerald-400">Key Impact</p>
+                        <p className="text-xl font-bold text-white">{persona.impact}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right - Pain Points vs Solution */}
+                <div className="space-y-6">
+                  {/* Pain Points */}
+                  <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
+                      <AlertTriangle className="w-5 h-5" />
+                      Current Challenges
+                    </h4>
+                    <ul className="space-y-3">
+                      {persona.painPoints.map((point, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-3">
+                          <X className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-300">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Solution */}
+                  <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold text-emerald-400 mb-4 flex items-center gap-2">
+                      <Sparkles className="w-5 h-5" />
+                      How MedPredict AI Helps
+                    </h4>
+                    <ul className="space-y-3">
+                      {persona.howWeHelp.map((point, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-300">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="py-20">
+      {/* THE PROBLEM Section */}
+      <section id="problem" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               The Healthcare Inventory Crisis
             </h2>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              India's Primary Health Centres lose crores every year to preventable problems
+              India's PHCs face preventable problems that hurt patients and waste resources
             </p>
           </div>
 
@@ -378,10 +483,11 @@ export function LandingPage({ onLogin }: LandingPageProps) {
             {problems.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
+                <div key={idx} className={`${item.bgColor} border ${item.borderColor} rounded-2xl p-6 hover:scale-105 transition-transform`}>
                   <Icon className={`w-10 h-10 ${item.color} mb-4`} />
                   <h3 className="text-lg font-semibold text-white mb-2">{item.problem}</h3>
-                  <p className="text-2xl font-bold text-slate-300">{item.stat}</p>
+                  <p className="text-2xl font-bold text-white mb-2">{item.stat}</p>
+                  <p className="text-sm text-slate-400">{item.description}</p>
                 </div>
               );
             })}
@@ -389,20 +495,71 @@ export function LandingPage({ onLogin }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-slate-900/50">
+      {/* A Day In The Life Comparison */}
+      <section className="py-20 bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              AI-Powered Features
+              A Day in the Life of a PHC Pharmacist
             </h2>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Four powerful AI modules working together to optimize your inventory
+              See the difference MedPredict AI makes
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Without AI */}
+            <div className="bg-red-500/5 border border-red-500/20 rounded-2xl overflow-hidden">
+              <div className="bg-red-500/10 px-6 py-4 border-b border-red-500/20">
+                <h3 className="text-lg font-semibold text-red-400 flex items-center gap-2">
+                  <X className="w-5 h-5" />
+                  Without MedPredict AI
+                </h3>
+              </div>
+              <div className="p-6 space-y-4">
+                {dayInLife.map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="text-sm font-mono text-slate-500 w-20 flex-shrink-0">{item.time}</div>
+                    <div className="flex-1 text-slate-300">{item.without}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* With AI */}
+            <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl overflow-hidden">
+              <div className="bg-emerald-500/10 px-6 py-4 border-b border-emerald-500/20">
+                <h3 className="text-lg font-semibold text-emerald-400 flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5" />
+                  With MedPredict AI
+                </h3>
+              </div>
+              <div className="p-6 space-y-4">
+                {dayInLife.map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="text-sm font-mono text-slate-500 w-20 flex-shrink-0">{item.time}</div>
+                    <div className="flex-1 text-emerald-300">{item.with}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+              How Our AI Helps You
+            </h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              Four powerful AI modules working together
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 items-center">
-            {/* Feature Cards */}
             <div className="space-y-4">
               {features.map((feature, idx) => {
                 const Icon = feature.icon;
@@ -442,93 +599,102 @@ export function LandingPage({ onLogin }: LandingPageProps) {
               })}
             </div>
 
-            {/* Feature Visual */}
             <div className="relative">
               <div className={`bg-gradient-to-br ${features[activeFeature].color} p-1 rounded-2xl`}>
-                <div className="bg-slate-900 rounded-xl p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    {(() => {
-                      const Icon = features[activeFeature].icon;
-                      return <Icon className="w-8 h-8 text-white" />;
-                    })()}
-                    <h3 className="text-xl font-bold text-white">{features[activeFeature].title}</h3>
-                  </div>
-                  
-                  {/* Feature-specific visuals */}
+                <div className="bg-slate-900 rounded-xl p-8 min-h-[400px] flex flex-col justify-center">
                   {activeFeature === 0 && (
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between p-3 bg-slate-800 rounded-lg">
-                        <span className="text-slate-300">Paracetamol 500mg</span>
-                        <span className="text-emerald-400 font-semibold">+15% demand</span>
-                      </div>
-                      <div className="flex items-center justify-between p-3 bg-slate-800 rounded-lg">
-                        <span className="text-slate-300">Amoxicillin 250mg</span>
-                        <span className="text-amber-400 font-semibold">Stable</span>
-                      </div>
-                      <div className="flex items-center justify-between p-3 bg-slate-800 rounded-lg">
-                        <span className="text-slate-300">ORS Packets</span>
-                        <span className="text-red-400 font-semibold">-8% demand</span>
-                      </div>
+                      <h4 className="text-lg font-semibold text-white mb-4">Demand Forecast Example</h4>
+                      {['Paracetamol 500mg', 'Amoxicillin 250mg', 'ORS Packets'].map((med, i) => (
+                        <div key={i} className="p-4 bg-slate-800/50 rounded-lg">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-white">{med}</span>
+                            <span className={i === 0 ? 'text-emerald-400' : i === 1 ? 'text-slate-400' : 'text-red-400'}>
+                              {i === 0 ? '+15% demand ↑' : i === 1 ? 'Stable →' : '-8% demand ↓'}
+                            </span>
+                          </div>
+                          <p className="text-xs text-slate-500">
+                            Predicted need: {i === 0 ? '450' : i === 1 ? '200' : '120'} units next 30 days
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   )}
-                  
                   {activeFeature === 1 && (
                     <div className="space-y-4">
+                      <h4 className="text-lg font-semibold text-white mb-4">Expiry Alerts</h4>
                       <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
-                        <p className="text-red-400 font-semibold mb-1">Critical: 5 days to expiry</p>
-                        <p className="text-slate-300 text-sm">Insulin 40IU - 200 units at risk</p>
-                        <p className="text-xs text-slate-500 mt-2">Recommendation: Transfer to PHC Jaipur</p>
+                        <div className="flex items-center gap-2 text-red-400 font-semibold mb-2">
+                          <AlertTriangle className="w-4 h-4" />
+                          CRITICAL - 5 days to expiry
+                        </div>
+                        <p className="text-white">Insulin 40IU - 200 units</p>
+                        <p className="text-sm text-slate-400 mt-2">
+                          💡 Recommendation: Transfer to PHC Jaipur (higher consumption)
+                        </p>
                       </div>
                       <div className="p-4 bg-amber-500/10 border border-amber-500/30 rounded-lg">
-                        <p className="text-amber-400 font-semibold mb-1">Warning: 30 days to expiry</p>
-                        <p className="text-slate-300 text-sm">Vitamin B Complex - 150 units</p>
+                        <div className="flex items-center gap-2 text-amber-400 font-semibold mb-2">
+                          <Clock className="w-4 h-4" />
+                          WARNING - 30 days to expiry
+                        </div>
+                        <p className="text-white">Vitamin B Complex - 150 units</p>
+                        <p className="text-sm text-slate-400 mt-2">
+                          💡 Recommendation: Prioritize dispensing (FIFO)
+                        </p>
                       </div>
                     </div>
                   )}
-                  
                   {activeFeature === 2 && (
                     <div className="space-y-4">
-                      <div className="p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-slate-300">Metformin 500mg</span>
-                          <span className="text-blue-400 font-bold">7 days left</span>
+                      <h4 className="text-lg font-semibold text-white mb-4">Stockout Prevention</h4>
+                      {['Metformin 500mg', 'Cough Syrup', 'Bandages'].map((med, i) => (
+                        <div key={i} className={`p-4 rounded-lg ${
+                          i === 0 ? 'bg-amber-500/10 border border-amber-500/30' :
+                          i === 1 ? 'bg-red-500/10 border border-red-500/30' :
+                          'bg-emerald-500/10 border border-emerald-500/30'
+                        }`}>
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-white">{med}</span>
+                            <span className={
+                              i === 0 ? 'text-amber-400' : i === 1 ? 'text-red-400' : 'text-emerald-400'
+                            }>
+                              {i === 0 ? '7 days left' : i === 1 ? '2 days left!' : '30+ days'}
+                            </span>
+                          </div>
+                          <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                            <div className={`h-full rounded-full ${
+                              i === 0 ? 'bg-amber-500 w-1/4' : i === 1 ? 'bg-red-500 w-[10%]' : 'bg-emerald-500 w-3/4'
+                            }`} />
+                          </div>
                         </div>
-                        <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                          <div className="h-full w-1/4 bg-blue-500 rounded-full" />
-                        </div>
-                      </div>
-                      <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-slate-300">Cough Syrup</span>
-                          <span className="text-red-400 font-bold">2 days left</span>
-                        </div>
-                        <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                          <div className="h-full w-[10%] bg-red-500 rounded-full" />
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   )}
-                  
                   {activeFeature === 3 && (
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between p-3 bg-slate-800 rounded-lg">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                            <span className="text-emerald-400 font-bold text-sm">A</span>
+                      <h4 className="text-lg font-semibold text-white mb-4">Supplier Intelligence</h4>
+                      {[
+                        { name: 'Apollo Pharmacy', score: 96, status: 'Excellent' },
+                        { name: 'MedLife Distributors', score: 85, status: 'Good' },
+                        { name: 'Govt. Medical Store', score: 58, status: 'Risky' },
+                      ].map((supplier, i) => (
+                        <div key={i} className="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg">
+                          <div>
+                            <p className="text-white font-medium">{supplier.name}</p>
+                            <p className="text-xs text-slate-400">
+                              {i === 2 ? 'Avg delay: 4 days' : 'Usually on time'}
+                            </p>
                           </div>
-                          <span className="text-slate-300">Apollo Pharmacy</span>
-                        </div>
-                        <span className="text-emerald-400">96% reliable</span>
-                      </div>
-                      <div className="flex items-center justify-between p-3 bg-slate-800 rounded-lg">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center">
-                            <span className="text-amber-400 font-bold text-sm">G</span>
+                          <div className={`px-3 py-1 rounded-full text-sm font-medium ${
+                            i === 0 ? 'bg-emerald-500/20 text-emerald-400' :
+                            i === 1 ? 'bg-amber-500/20 text-amber-400' :
+                            'bg-red-500/20 text-red-400'
+                          }`}>
+                            {supplier.score}% reliable
                           </div>
-                          <span className="text-slate-300">Govt. Medical Store</span>
                         </div>
-                        <span className="text-amber-400">58% reliable</span>
-                      </div>
+                      ))}
                     </div>
                   )}
                 </div>
@@ -538,138 +704,38 @@ export function LandingPage({ onLogin }: LandingPageProps) {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section id="how-it-works" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              How It Works
-            </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Get started in minutes, see results in days
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { step: '01', title: 'Connect Your Data', desc: 'Upload your inventory data or connect to existing systems. We support Excel, CSV, and API integrations.', icon: Package },
-              { step: '02', title: 'AI Analyzes Patterns', desc: 'Our ML models analyze consumption patterns, seasonal trends, and supplier performance to build predictions.', icon: Brain },
-              { step: '03', title: 'Get Smart Alerts', desc: 'Receive proactive recommendations via dashboard, email, or SMS. Take action before problems occur.', icon: Zap },
-            ].map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div key={idx} className="relative">
-                  <div className="text-6xl font-bold text-slate-800 mb-4">{item.step}</div>
-                  <div className="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-primary-400" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-slate-400">{item.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
+      {/* CTA Section */}
       <section className="py-20 bg-slate-900/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-gradient-to-r from-primary-500/10 via-accent-500/10 to-primary-500/10 border border-primary-500/30 rounded-3xl p-12">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Trusted by Healthcare Professionals
+              Ready to See It In Action?
             </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((item, idx) => (
-              <div key={idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-slate-300 mb-6 italic">"{item.quote}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="text-3xl">{item.image}</div>
-                  <div>
-                    <p className="font-semibold text-white">{item.author}</p>
-                    <p className="text-sm text-slate-400">{item.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section id="pricing" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Simple, Transparent Pricing
-            </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Choose the plan that fits your needs. All plans include a 14-day free trial.
+            <p className="text-lg text-slate-400 mb-8">
+              Explore our live demo with real data and AI predictions
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {pricingPlans.map((plan, idx) => (
-              <div 
-                key={idx} 
-                className={`relative bg-slate-900 border rounded-2xl p-6 ${
-                  plan.popular 
-                    ? 'border-primary-500 ring-2 ring-primary-500/20' 
-                    : 'border-slate-800'
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary-500 text-white text-xs font-semibold rounded-full">
-                    Most Popular
-                  </div>
-                )}
-                <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
-                <p className="text-slate-400 text-sm mb-4">{plan.description}</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">{plan.price}</span>
-                  <span className="text-slate-400">{plan.period}</span>
-                </div>
-                <ul className="space-y-3 mb-6">
-                  {plan.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-center gap-2 text-slate-300">
-                      <CheckCircle className="w-4 h-4 text-emerald-400" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <button 
-                  onClick={onLogin}
-                  className={`w-full py-3 rounded-xl font-semibold transition-colors ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white hover:opacity-90'
-                      : 'bg-slate-800 text-white hover:bg-slate-700'
-                  }`}
-                >
-                  {plan.cta}
-                </button>
-              </div>
-            ))}
+            <button 
+              onClick={onLogin}
+              className="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl font-semibold text-lg hover:opacity-90 transition-opacity flex items-center gap-2 mx-auto"
+            >
+              Try Live Demo
+              <ArrowRight className="w-5 h-5" />
+            </button>
+            <p className="text-sm text-slate-500 mt-4">No login required • Interactive dashboard</p>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-slate-900/50">
+      <section id="contact" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                Get in Touch
+                Interested in MedPredict AI?
               </h2>
               <p className="text-lg text-slate-400 mb-8">
-                Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                Whether you're a PHC pharmacist, district health officer, or healthcare administrator, we'd love to show you how MedPredict AI can help.
               </p>
               
               <div className="space-y-6">
@@ -696,7 +762,7 @@ export function LandingPage({ onLogin }: LandingPageProps) {
                     <MapPin className="w-5 h-5 text-primary-400" />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-400">Office</p>
+                    <p className="text-sm text-slate-400">Location</p>
                     <p className="text-white">Bangalore, India</p>
                   </div>
                 </div>
@@ -704,6 +770,7 @@ export function LandingPage({ onLogin }: LandingPageProps) {
             </div>
 
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+              <h3 className="text-lg font-semibold text-white mb-4">Send us a message</h3>
               <form className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -715,27 +782,29 @@ export function LandingPage({ onLogin }: LandingPageProps) {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-slate-400 mb-2">Email</label>
-                    <input 
-                      type="email" 
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-primary-500"
-                      placeholder="you@example.com"
-                    />
+                    <label className="block text-sm text-slate-400 mb-2">Role</label>
+                    <select className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-primary-500">
+                      <option>PHC Pharmacist</option>
+                      <option>Medical Officer</option>
+                      <option>District Health Officer</option>
+                      <option>Drug Store Manager</option>
+                      <option>Other</option>
+                    </select>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm text-slate-400 mb-2">Organization</label>
+                  <label className="block text-sm text-slate-400 mb-2">Email</label>
                   <input 
-                    type="text" 
+                    type="email" 
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-primary-500"
-                    placeholder="PHC / Hospital name"
+                    placeholder="you@example.com"
                   />
                 </div>
                 <div>
                   <label className="block text-sm text-slate-400 mb-2">Message</label>
                   <textarea 
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-primary-500 h-32 resize-none"
-                    placeholder="Tell us about your requirements..."
+                    placeholder="Tell us about your facility and challenges..."
                   />
                 </div>
                 <button 
@@ -750,86 +819,22 @@ export function LandingPage({ onLogin }: LandingPageProps) {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="bg-gradient-to-r from-primary-500/10 via-accent-500/10 to-primary-500/10 border border-primary-500/30 rounded-3xl p-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Ready to Transform Your Inventory Management?
-            </h2>
-            <p className="text-lg text-slate-400 mb-8">
-              Join hundreds of healthcare facilities already saving lakhs with MedPredict AI.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button 
-                onClick={onLogin}
-                className="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl font-semibold text-lg hover:opacity-90 transition-opacity flex items-center gap-2"
-              >
-                Start Free Trial
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <button className="px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl font-semibold text-lg transition-colors">
-                Schedule Demo
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="py-12 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-                  <Pill className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-display font-bold">MedPredict AI</span>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+                <Pill className="w-5 h-5 text-white" />
               </div>
-              <p className="text-slate-400 text-sm">
-                AI-powered inventory management for healthcare facilities.
-              </p>
+              <span className="text-xl font-display font-bold">MedPredict AI</span>
             </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Product</h4>
-              <ul className="space-y-2 text-slate-400 text-sm">
-                <li><a href="#features" className="hover:text-white">Features</a></li>
-                <li><a href="#pricing" className="hover:text-white">Pricing</a></li>
-                <li><a href="#" className="hover:text-white">API Docs</a></li>
-                <li><a href="#" className="hover:text-white">Integrations</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Company</h4>
-              <ul className="space-y-2 text-slate-400 text-sm">
-                <li><a href="#" className="hover:text-white">About</a></li>
-                <li><a href="#" className="hover:text-white">Blog</a></li>
-                <li><a href="#" className="hover:text-white">Careers</a></li>
-                <li><a href="#contact" className="hover:text-white">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Legal</h4>
-              <ul className="space-y-2 text-slate-400 text-sm">
-                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white">Security</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 text-sm">
-              © 2026 MedPredict AI. All rights reserved.
+              © 2026 MedPredict AI. Built with <Heart className="w-4 h-4 text-red-400 inline" /> for India's healthcare workers.
             </p>
-            <div className="flex items-center gap-2 text-slate-500 text-sm">
-              Made with <Heart className="w-4 h-4 text-red-400" /> in India
-            </div>
           </div>
         </div>
       </footer>
     </div>
   );
 }
-
