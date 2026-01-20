@@ -227,6 +227,16 @@ curl http://localhost:3001/api/dashboard/summary
 
 ---
 
+## 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| [docs/prd.md](docs/prd.md) | Product Requirements Document (BMAD framework) |
+| [docs/architecture.md](docs/architecture.md) | Technical Architecture |
+| [docs/pitch.md](docs/pitch.md) | Business Pitch & Go-to-Market |
+
+---
+
 ## 🔮 Roadmap
 
 - [x] Consumption prediction model

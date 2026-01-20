@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { 
   IndianRupee, 
   AlertTriangle, 
-  Package, 
   TrendingDown,
-  Activity
+  Activity,
+  AlertCircle
 } from 'lucide-react';
 
 import { Header } from './components/Header';
@@ -40,7 +40,7 @@ function Dashboard() {
   const [alertTab, setAlertTab] = useState<'expiry' | 'stockout'>('expiry');
 
   // Queries
-  const { data: summary, isLoading: summaryLoading, refetch: refetchSummary } = useQuery({
+  const { data: summary, isLoading: summaryLoading, error: summaryError, refetch: refetchSummary } = useQuery({
     queryKey: ['dashboard-summary'],
     queryFn: fetchDashboardSummary,
   });
@@ -80,6 +80,31 @@ function Dashboard() {
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-slate-400">Loading dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (summaryError) {
+    return (
+      <div className="min-h-screen mesh-bg flex items-center justify-center">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mx-auto mb-4">
+            <AlertCircle className="w-8 h-8 text-red-400" />
+          </div>
+          <h2 className="text-xl font-bold text-white mb-2">Connection Error</h2>
+          <p className="text-slate-400 mb-4">
+            Unable to connect to the API. Please ensure all services are running.
+          </p>
+          <p className="text-xs text-slate-500 mb-4 font-mono bg-slate-800 p-2 rounded">
+            {summaryError instanceof Error ? summaryError.message : 'Unknown error'}
+          </p>
+          <button 
+            onClick={() => refetchSummary()}
+            className="btn-primary"
+          >
+            Retry Connection
+          </button>
         </div>
       </div>
     );
