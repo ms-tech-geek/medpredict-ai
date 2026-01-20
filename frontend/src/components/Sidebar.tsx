@@ -4,7 +4,6 @@ import {
   TrendingDown,
   Calendar,
   Truck,
-  Brain,
   AlertTriangle,
   Settings,
   HelpCircle
@@ -20,7 +19,6 @@ interface SidebarProps {
 
 const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'ai-engine', label: 'AI Engine', icon: Brain },
   { id: 'expiry', label: 'Expiry Alerts', icon: Calendar },
   { id: 'stockout', label: 'Stockout Alerts', icon: TrendingDown },
   { id: 'inventory', label: 'Inventory', icon: Package },
