@@ -4,7 +4,12 @@ import type {
   ExpiryRisk, 
   StockoutRisk, 
   AlertsResponse, 
-  Medicine 
+  Medicine,
+  MedicineDetail,
+  InventoryResponse,
+  ConsumptionTrends,
+  Category,
+  RecommendationsResponse
 } from '../types';
 
 // API Gateway URL (Node.js)
@@ -59,9 +64,74 @@ export const fetchAlerts = async (): Promise<AlertsResponse> => {
   return response.data;
 };
 
-// Medicines
-export const fetchMedicines = async (): Promise<Medicine[]> => {
-  const response = await apiClient.get('/medicines');
+// Medicines - List with search & filter
+export interface MedicineSearchParams {
+  search?: string;
+  category?: string;
+  sortBy?: 'name' | 'stock' | 'consumption' | 'risk';
+  limit?: number;
+}
+
+export const fetchMedicines = async (params?: MedicineSearchParams): Promise<Medicine[]> => {
+  const searchParams = new URLSearchParams();
+  if (params?.search) searchParams.append('search', params.search);
+  if (params?.category) searchParams.append('category', params.category);
+  if (params?.sortBy) searchParams.append('sort_by', params.sortBy);
+  if (params?.limit) searchParams.append('limit', params.limit.toString());
+  
+  const response = await apiClient.get(`/medicines?${searchParams}`);
+  return response.data;
+};
+
+// Medicine Detail
+export const fetchMedicineDetail = async (medicineId: number): Promise<MedicineDetail> => {
+  const response = await apiClient.get(`/medicines/${medicineId}`);
+  return response.data;
+};
+
+// Inventory
+export interface InventoryParams {
+  category?: string;
+  riskLevel?: string;
+  expiringWithinDays?: number;
+}
+
+export const fetchInventory = async (params?: InventoryParams): Promise<InventoryResponse> => {
+  const searchParams = new URLSearchParams();
+  if (params?.category) searchParams.append('category', params.category);
+  if (params?.riskLevel) searchParams.append('risk_level', params.riskLevel);
+  if (params?.expiringWithinDays) searchParams.append('expiring_within_days', params.expiringWithinDays.toString());
+  
+  const response = await apiClient.get(`/inventory?${searchParams}`);
+  return response.data;
+};
+
+// Consumption Trends
+export interface TrendsParams {
+  medicineId?: number;
+  category?: string;
+  days?: number;
+}
+
+export const fetchConsumptionTrends = async (params?: TrendsParams): Promise<ConsumptionTrends> => {
+  const searchParams = new URLSearchParams();
+  if (params?.medicineId) searchParams.append('medicine_id', params.medicineId.toString());
+  if (params?.category) searchParams.append('category', params.category);
+  if (params?.days) searchParams.append('days', params.days.toString());
+  
+  const response = await apiClient.get(`/consumption/trends?${searchParams}`);
+  return response.data;
+};
+
+// Categories
+export const fetchCategories = async (): Promise<Category[]> => {
+  const response = await apiClient.get('/categories');
+  return response.data;
+};
+
+// Recommendations
+export const fetchRecommendations = async (): Promise<RecommendationsResponse> => {
+  const response = await apiClient.get('/recommendations');
   return response.data;
 };
 
