@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { 
   IndianRupee, 
@@ -53,11 +53,12 @@ function Dashboard() {
   const { showTour, startTour, endTour, completeTour, hasSeenTour } = useTour();
   
   // Show welcome banner for first-time users (after data loads)
-  useState(() => {
+  useEffect(() => {
     if (!hasSeenTour) {
-      setTimeout(() => setShowWelcome(true), 2000);
+      const timer = setTimeout(() => setShowWelcome(true), 2000);
+      return () => clearTimeout(timer);
     }
-  });
+  }, [hasSeenTour]);
 
   // Queries
   const { data: summary, isLoading: summaryLoading, error: summaryError, refetch: refetchSummary } = useQuery({
