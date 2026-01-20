@@ -4,8 +4,9 @@
 
 Reduce medicine waste by 75% and prevent stockouts with intelligent forecasting.
 
+![React](https://img.shields.io/badge/React-18+-61DAFB.svg)
+![Node.js](https://img.shields.io/badge/Node.js-20+-339933.svg)
 ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.29+-red.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)
 
 ---
@@ -26,44 +27,87 @@ MedPredict AI uses machine learning to:
 
 ---
 
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        MedPredict AI - Hybrid Architecture              │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐  │
+│  │   FRONTEND       │    │   API GATEWAY    │    │   ML SERVICE     │  │
+│  │   (React)        │    │   (Node.js)      │    │   (Python)       │  │
+│  ├──────────────────┤    ├──────────────────┤    ├──────────────────┤  │
+│  │                  │    │                  │    │                  │  │
+│  │ • TypeScript     │───▶│ • Express        │───▶│ • FastAPI        │  │
+│  │ • Tailwind CSS   │    │ • CORS handling  │    │ • pandas/numpy   │  │
+│  │ • Recharts       │    │ • Request proxy  │    │ • ML predictions │  │
+│  │ • React Query    │    │ • Rate limiting  │    │ • Risk scoring   │  │
+│  │                  │    │                  │    │                  │  │
+│  │ Port: 5173       │    │ Port: 3001       │    │ Port: 8000       │  │
+│  └──────────────────┘    └──────────────────┘    └──────────────────┘  │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## 🚀 Quick Start
 
-### 1. Setup Environment
+### Prerequisites
+
+- **Node.js** 18+ 
+- **Python** 3.9+
+- **npm** or **yarn**
+
+### 1. Setup Python Environment
 
 ```bash
 # Create virtual environment
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
+# Install Python dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Generate Sample Data (if needed)
+### 2. Setup Node.js Services
+
+```bash
+# Install frontend dependencies
+cd frontend
+npm install
+
+# Install gateway dependencies
+cd ../gateway
+npm install
+```
+
+### 3. Generate Sample Data (if needed)
 
 ```bash
 python data_generator.py
 ```
 
-### 3. Run the Dashboard
+### 4. Run All Services
 
 ```bash
+# Run all services concurrently
 python run.py
-# Or directly:
-streamlit run dashboard/app.py
+
+# Or run individually:
+python run.py ml        # ML Service only (port 8000)
+python run.py gateway   # API Gateway only (port 3001)
+python run.py frontend  # React Frontend only (port 5173)
+python run.py dashboard # Legacy Streamlit dashboard (port 8501)
 ```
 
-Dashboard opens at: **http://localhost:8501**
+### 5. Access the Application
 
-### 4. Run the API (optional)
-
-```bash
-python run.py api
-# Or directly:
-uvicorn src.api.main:app --reload --port 8000
-```
-
-API docs at: **http://localhost:8000/docs**
+- **Frontend**: http://localhost:5173
+- **API Gateway**: http://localhost:3001
+- **ML Service**: http://localhost:8000/docs
+- **Legacy Dashboard**: http://localhost:8501 (if running)
 
 ---
 
@@ -71,48 +115,79 @@ API docs at: **http://localhost:8000/docs**
 
 ```
 medpredict-ai/
-├── data/                      # Synthetic healthcare data
-│   ├── medicines_master.csv   # 50 medicines
-│   ├── consumption_log.csv    # 18 months consumption
-│   ├── current_inventory.csv  # Current stock levels
-│   ├── purchase_history.csv   # Purchase orders
-│   ├── patient_footfall.csv   # Daily patient visits
-│   └── disease_surveillance.csv
-├── src/
-│   ├── ml/
-│   │   └── predictor.py       # ML prediction engine
-│   └── api/
-│       └── main.py            # FastAPI backend
-├── dashboard/
-│   └── app.py                 # Streamlit dashboard
+├── frontend/                  # React Frontend
+│   ├── src/
+│   │   ├── components/        # UI Components
+│   │   │   ├── Header.tsx
+│   │   │   ├── Sidebar.tsx
+│   │   │   ├── StatsCard.tsx
+│   │   │   ├── HealthGauge.tsx
+│   │   │   ├── RiskDistributionChart.tsx
+│   │   │   ├── StockoutChart.tsx
+│   │   │   └── AlertsTable.tsx
+│   │   ├── services/          # API services
+│   │   ├── types/             # TypeScript types
+│   │   ├── App.tsx
+│   │   └── index.css          # Tailwind styles
+│   ├── package.json
+│   └── tailwind.config.js
+│
+├── gateway/                   # Node.js API Gateway
+│   ├── src/
+│   │   └── index.ts           # Express server
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── src/                       # Python ML Service
+│   ├── api/
+│   │   └── main.py            # FastAPI endpoints
+│   └── ml/
+│       └── predictor.py       # ML prediction engine
+│
+├── dashboard/                 # Legacy Streamlit Dashboard
+│   └── app.py
+│
+├── data/                      # Data files
+│   ├── medicines_master.csv
+│   ├── consumption_log.csv
+│   ├── current_inventory.csv
+│   └── ...
+│
 ├── data_generator.py          # Synthetic data generator
-├── run.py                     # Application runner
+├── run.py                     # Multi-service runner
 ├── requirements.txt           # Python dependencies
-└── FINAL_PITCH_DOCUMENT.md    # Complete pitch deck
+└── README.md
 ```
 
 ---
 
-## 🔧 Technical Architecture
+## 🔧 API Endpoints
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        MedPredict AI                                │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│  ┌──────────────┐    ┌──────────────┐    ┌──────────────────────┐  │
-│  │ DATA LAYER   │    │  ML ENGINE   │    │    PRESENTATION      │  │
-│  ├──────────────┤    ├──────────────┤    ├──────────────────────┤  │
-│  │              │    │              │    │                      │  │
-│  │ • CSV Data   │───▶│ • Consumption│───▶│ • Streamlit Dashboard│  │
-│  │ • Inventory  │    │   Prediction │    │ • Interactive Charts │  │
-│  │ • History    │    │ • Expiry Risk│    │ • Alert Tables       │  │
-│  │              │    │   Scoring    │    │                      │  │
-│  │              │    │ • Stockout   │    │ • FastAPI REST API   │  │
-│  │              │    │   Detection  │    │ • JSON Endpoints     │  │
-│  └──────────────┘    └──────────────┘    └──────────────────────┘  │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
+### Gateway (Port 3001)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/health` | Health check |
+| GET | `/api/dashboard/summary` | Dashboard statistics |
+| GET | `/api/expiry-risks` | Expiry risk predictions |
+| GET | `/api/stockout-risks` | Stockout predictions |
+| GET | `/api/alerts` | Active alerts |
+| GET | `/api/medicines` | Medicine list |
+| POST | `/api/reload-data` | Reload data |
+
+### Query Parameters
+
+- `risk_level`: Filter by CRITICAL, HIGH, MEDIUM, LOW
+- `limit`: Maximum results (default: 50)
+
+### Example
+
+```bash
+# Get critical expiry risks
+curl http://localhost:3001/api/expiry-risks?risk_level=CRITICAL
+
+# Get dashboard summary
+curl http://localhost:3001/api/dashboard/summary
 ```
 
 ---
@@ -129,17 +204,16 @@ medpredict-ai/
 - Recommended order quantities
 - 4-week demand forecasting
 
-### 3. Interactive Dashboard
+### 3. Modern React Dashboard
 - Real-time health score (0-100)
-- Visual risk distribution
+- Interactive charts with Recharts
+- Responsive dark theme UI
 - Filterable alert tables
-- Export-ready reports
 
-### 4. REST API
-- GET /api/expiry-risks
-- GET /api/stockout-risks
-- GET /api/alerts
-- GET /api/dashboard/summary
+### 4. Hybrid Architecture
+- React + Tailwind for beautiful UI
+- Node.js gateway for flexibility
+- Python ML for accurate predictions
 
 ---
 
@@ -153,41 +227,18 @@ medpredict-ai/
 
 ---
 
-## 🛠️ API Endpoints
-
-### Get All Alerts
-```bash
-curl http://localhost:8000/api/alerts
-```
-
-### Get Expiry Risks
-```bash
-curl http://localhost:8000/api/expiry-risks?risk_level=CRITICAL
-```
-
-### Get Stockout Risks
-```bash
-curl http://localhost:8000/api/stockout-risks?limit=10
-```
-
-### Dashboard Summary
-```bash
-curl http://localhost:8000/api/dashboard/summary
-```
-
----
-
 ## 🔮 Roadmap
 
 - [x] Consumption prediction model
 - [x] Expiry risk scoring
 - [x] Stockout alerts
-- [x] Interactive dashboard
+- [x] React frontend with modern UI
+- [x] Node.js API gateway
 - [x] REST API
 - [ ] WhatsApp integration
 - [ ] Multi-facility support
 - [ ] Supplier integration
-- [ ] Mobile app
+- [ ] Mobile app (React Native)
 
 ---
 
@@ -200,12 +251,3 @@ Built for AI Hackathon 2026
 ## 📄 License
 
 MIT License - See LICENSE file for details
-
----
-
-## 🙏 Acknowledgments
-
-- Synthetic data based on published PHC consumption patterns
-- Disease patterns from IDSP (Integrated Disease Surveillance Programme)
-- Built with Streamlit, FastAPI, and scikit-learn
-
