@@ -802,15 +802,15 @@ export function OnboardingTour({ isOpen, onClose, onComplete }: OnboardingTourPr
 export function useTour() {
   const [showTour, setShowTour] = useState(false);
   const [hasSeenTour, setHasSeenTour] = useState(() => {
-    return localStorage.getItem('medpredict-tour-completed') === 'true';
+    try {
+      return localStorage.getItem('medpredict-tour-completed') === 'true';
+    } catch {
+      return true; // If localStorage fails, assume seen
+    }
   });
 
-  useEffect(() => {
-    if (!hasSeenTour) {
-      const timer = setTimeout(() => setShowTour(true), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [hasSeenTour]);
+  // Don't auto-show tour - let user click Help button instead
+  // This prevents the dark screen issue on first load
 
   const startTour = () => setShowTour(true);
   
@@ -821,13 +821,21 @@ export function useTour() {
   const completeTour = () => {
     setShowTour(false);
     setHasSeenTour(true);
-    localStorage.setItem('medpredict-tour-completed', 'true');
+    try {
+      localStorage.setItem('medpredict-tour-completed', 'true');
+    } catch {
+      // Ignore localStorage errors
+    }
   };
 
   const resetTour = () => {
-    localStorage.removeItem('medpredict-tour-completed');
+    try {
+      localStorage.removeItem('medpredict-tour-completed');
+    } catch {
+      // Ignore localStorage errors
+    }
     setHasSeenTour(false);
   };
 
-  return { showTour, startTour, endTour, completeTour, resetTour };
+  return { showTour, startTour, endTour, completeTour, resetTour, hasSeenTour };
 }

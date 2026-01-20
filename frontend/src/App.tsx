@@ -47,9 +47,17 @@ function Dashboard() {
   const [riskFilter, setRiskFilter] = useState<RiskLevel>('ALL');
   const [alertTab, setAlertTab] = useState<'expiry' | 'stockout'>('expiry');
   const [selectedMedicineId, setSelectedMedicineId] = useState<number | null>(null);
+  const [showWelcome, setShowWelcome] = useState(false);
   
   // Tour
-  const { showTour, startTour, endTour, completeTour } = useTour();
+  const { showTour, startTour, endTour, completeTour, hasSeenTour } = useTour();
+  
+  // Show welcome banner for first-time users (after data loads)
+  useState(() => {
+    if (!hasSeenTour) {
+      setTimeout(() => setShowWelcome(true), 2000);
+    }
+  });
 
   // Queries
   const { data: summary, isLoading: summaryLoading, error: summaryError, refetch: refetchSummary } = useQuery({
@@ -386,6 +394,45 @@ function Dashboard() {
           medicineId={selectedMedicineId}
           onClose={() => setSelectedMedicineId(null)}
         />
+      )}
+
+      {/* Welcome Banner for First-time Users */}
+      {showWelcome && !hasSeenTour && !showTour && (
+        <div className="fixed bottom-6 right-6 z-50 animate-fade-in">
+          <div className="bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-5 max-w-sm">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center flex-shrink-0">
+                <span className="text-2xl">👋</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-white mb-1">Welcome to MedPredict AI!</h3>
+                <p className="text-sm text-slate-400 mb-3">
+                  New here? Take a quick tour to learn how to prevent medicine wastage.
+                </p>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => {
+                      setShowWelcome(false);
+                      startTour();
+                    }}
+                    className="px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    Start Tour
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowWelcome(false);
+                      completeTour();
+                    }}
+                    className="px-4 py-2 text-slate-400 text-sm hover:text-white transition-colors"
+                  >
+                    Skip
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Onboarding Tour */}
