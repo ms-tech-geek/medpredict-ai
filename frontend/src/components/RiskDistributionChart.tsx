@@ -22,13 +22,25 @@ export function RiskDistributionChart({ risks }: RiskDistributionChartProps) {
 
   const total = data.reduce((sum, d) => sum + d.value, 0);
 
+  // Don't render chart if no data
+  if (total === 0) {
+    return (
+      <div className="card animate-fade-in" style={{ animationDelay: '100ms' }} data-tour="expiry-chart">
+        <h3 className="text-sm font-semibold text-slate-400 mb-4">Risk Distribution</h3>
+        <div className="flex items-center justify-center h-40 text-slate-500 text-sm">
+          No risk data available
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="card animate-fade-in" style={{ animationDelay: '100ms' }} data-tour="expiry-chart">
       <h3 className="text-sm font-semibold text-slate-400 mb-4">Risk Distribution</h3>
       
       <div className="flex items-center gap-6">
-        <div className="w-40 h-40">
-          <ResponsiveContainer width="100%" height="100%">
+        <div className="w-40 h-40" style={{ minWidth: '160px', minHeight: '160px' }}>
+          <ResponsiveContainer width="100%" height="100%" minWidth={160} minHeight={160}>
             <PieChart>
               <Pie
                 data={data}

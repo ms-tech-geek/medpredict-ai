@@ -54,16 +54,20 @@ export function AIInsightsPanel() {
 
   const isLoading = forecastLoading || anomaliesLoading;
 
+  // Ensure anomalies is always an array
+  const anomalyList = Array.isArray(anomalies) ? anomalies : [];
+  const forecastList = Array.isArray(forecastData?.forecasts) ? forecastData.forecasts : [];
+
   // Calculate AI-derived metrics
-  const increasingTrends = forecastData?.forecasts.filter((f: ForecastResult) => f.trend === 'increasing').length || 0;
-  const decreasingTrends = forecastData?.forecasts.filter((f: ForecastResult) => f.trend === 'decreasing').length || 0;
-  const stableTrends = forecastData?.forecasts.filter((f: ForecastResult) => f.trend === 'stable').length || 0;
-  const criticalAnomalies = anomalies.filter((a: AnomalyResult) => a.severity === 'HIGH').length;
+  const increasingTrends = forecastList.filter((f: ForecastResult) => f.trend === 'increasing').length;
+  const decreasingTrends = forecastList.filter((f: ForecastResult) => f.trend === 'decreasing').length;
+  const stableTrends = forecastList.filter((f: ForecastResult) => f.trend === 'stable').length;
+  const criticalAnomalies = anomalyList.filter((a: AnomalyResult) => a.severity === 'HIGH').length;
 
   // Calculate potential savings from AI insights
   const expiryLossPrevented = expiryRisks
     .filter(r => r.risk_level === 'CRITICAL' || r.risk_level === 'HIGH')
-    .reduce((sum, r) => sum + r.potential_loss, 0);
+    .reduce((sum, r) => sum + (r.potential_loss || 0), 0);
   
   const stockoutsPrevented = stockoutRisks
     .filter(r => r.risk_level === 'CRITICAL' || r.risk_level === 'HIGH')
@@ -112,7 +116,7 @@ export function AIInsightsPanel() {
         <div className="text-center p-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
           <div className="flex items-center justify-center gap-1 text-amber-400 mb-1">
             <AlertCircle className="w-4 h-4" />
-            <span className="text-xl font-bold">{anomalies.length}</span>
+            <span className="text-xl font-bold">{anomalyList.length}</span>
           </div>
           <p className="text-xs text-slate-400">Anomalies Found</p>
         </div>
@@ -256,7 +260,7 @@ export function AIInsightsPanel() {
                   </div>
                 </div>
 
-                {anomalies.length === 0 ? (
+                {anomalyList.length === 0 ? (
                   <div className="text-center py-8">
                     <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-3">
                       <CheckCircle className="w-8 h-8 text-emerald-400" />
@@ -273,20 +277,20 @@ export function AIInsightsPanel() {
                       </div>
                       <div className="p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/30 text-center">
                         <p className="text-2xl font-bold text-yellow-400">
-                          {anomalies.filter((a: AnomalyResult) => a.severity === 'MEDIUM').length}
+                          {anomalyList.filter((a: AnomalyResult) => a.severity === 'MEDIUM').length}
                         </p>
                         <p className="text-xs text-slate-400">Medium Severity</p>
                       </div>
                       <div className="p-3 rounded-lg bg-slate-500/10 border border-slate-500/30 text-center">
                         <p className="text-2xl font-bold text-slate-400">
-                          {anomalies.filter((a: AnomalyResult) => a.severity === 'LOW').length}
+                          {anomalyList.filter((a: AnomalyResult) => a.severity === 'LOW').length}
                         </p>
                         <p className="text-xs text-slate-400">Low Severity</p>
                       </div>
                     </div>
 
                     <div className="space-y-2 max-h-48 overflow-y-auto">
-                      {anomalies.slice(0, 6).map((anomaly: AnomalyResult, idx: number) => (
+                      {anomalyList.slice(0, 6).map((anomaly: AnomalyResult, idx: number) => (
                         <div 
                           key={idx}
                           className={`p-3 rounded-lg border ${

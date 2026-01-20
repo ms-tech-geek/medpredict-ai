@@ -415,6 +415,7 @@ class AdvancedPredictor:
                 'stable': len(forecasts) - increasing_count - decreasing_count,
                 'decreasing': decreasing_count
             },
+            'forecasts': forecasts,  # Include full forecast objects
             'top_by_consumption': [
                 {
                     'medicine_id': f.medicine_id,

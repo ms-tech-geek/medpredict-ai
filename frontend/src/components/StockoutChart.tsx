@@ -20,12 +20,24 @@ export function StockoutChart({ risks }: StockoutChartProps) {
     risk_level: r.risk_level,
   })).reverse();
 
+  // Don't render chart if no data
+  if (data.length === 0) {
+    return (
+      <div className="card animate-fade-in" style={{ animationDelay: '200ms' }} data-tour="stockout-chart">
+        <h3 className="text-sm font-semibold text-slate-400 mb-4">Days Until Stockout</h3>
+        <div className="flex items-center justify-center h-64 text-slate-500 text-sm">
+          No stockout risk data available
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="card animate-fade-in" style={{ animationDelay: '200ms' }} data-tour="stockout-chart">
       <h3 className="text-sm font-semibold text-slate-400 mb-4">Days Until Stockout</h3>
       
-      <div className="h-64">
-        <ResponsiveContainer width="100%" height="100%">
+      <div className="h-64" style={{ minHeight: '256px' }}>
+        <ResponsiveContainer width="100%" height="100%" minHeight={256}>
           <BarChart 
             data={data} 
             layout="vertical"

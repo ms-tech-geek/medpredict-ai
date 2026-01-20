@@ -723,6 +723,48 @@ async def reload_data():
 # ADVANCED ML ENDPOINTS
 # ============================================================================
 
+# NOTE: /api/forecast/summary MUST be defined BEFORE /api/forecast/{medicine_id}
+# Otherwise FastAPI will match "summary" as a medicine_id
+
+@app.get("/api/forecast/summary")
+async def get_forecast_summary(days: int = 30, confidence_level: float = 0.9):
+    """Get forecast summary for all medicines
+    
+    Args:
+        days: Days to forecast (default: 30)
+        confidence_level: Confidence level for intervals (default: 0.9)
+    """
+    if advanced_engine is None:
+        raise HTTPException(status_code=500, detail="Advanced engine not loaded")
+    
+    summary = advanced_engine.get_forecast_summary(days)
+    
+    # Convert to JSON-serializable format
+    forecasts = []
+    for f in summary.get('forecasts', []):
+        forecasts.append({
+            "medicine_id": int(f.medicine_id),
+            "medicine_name": str(f.medicine_name),
+            "forecast_days": int(f.forecast_days),
+            "predicted_quantity": int(f.predicted_quantity),
+            "lower_bound": int(f.lower_bound),
+            "upper_bound": int(f.upper_bound),
+            "confidence": float(f.confidence),
+            "trend": str(f.trend),
+            "growth_rate": float(f.growth_rate),
+            "seasonality_factor": float(f.seasonality_factor),
+            "anomalies_detected": int(f.anomalies_detected)
+        })
+    
+    return {
+        "total_medicines_forecasted": int(summary.get('total_medicines_analyzed', 0)),
+        "total_predicted_quantity": int(summary.get('total_predicted_consumption', 0)),
+        "avg_confidence": round(sum(f['confidence'] for f in forecasts) / len(forecasts), 2) if forecasts else 0,
+        "trend_summary": summary.get('trend_summary', {}),
+        "forecasts": forecasts
+    }
+
+
 @app.get("/api/forecast/{medicine_id}")
 async def get_forecast(medicine_id: int, days: int = 30):
     """
@@ -753,15 +795,6 @@ async def get_forecast(medicine_id: int, days: int = 30):
         "seasonality_factor": forecast.seasonality_factor,
         "anomalies_detected": forecast.anomalies_detected
     }
-
-
-@app.get("/api/forecast/summary")
-async def get_forecast_summary(days: int = 30):
-    """Get forecast summary for all medicines"""
-    if advanced_engine is None:
-        raise HTTPException(status_code=500, detail="Advanced engine not loaded")
-    
-    return advanced_engine.get_forecast_summary(days)
 
 
 @app.get("/api/anomalies")
