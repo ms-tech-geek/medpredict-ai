@@ -13,8 +13,6 @@ import {
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { StatsCard } from './components/StatsCard';
-import { HealthGauge } from './components/HealthGauge';
-import { RiskDistributionChart } from './components/RiskDistributionChart';
 import { StockoutChart } from './components/StockoutChart';
 import { AlertsTable } from './components/AlertsTable';
 import { RecommendationsPanel } from './components/RecommendationsPanel';
@@ -345,13 +343,6 @@ function Dashboard({ onLogout }: DashboardProps) {
                 variant="warning"
                 delay={300}
               />
-            </div>
-
-            {/* Charts Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-              <HealthGauge score={summary?.health_score || 0} />
-              <RiskDistributionChart risks={expiryRisks} />
-              <StockoutChart risks={stockoutRisks} />
             </div>
 
             {/* AI Intelligence Center */}
